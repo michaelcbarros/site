@@ -1,12 +1,80 @@
-/* add to style.css or your <style> block */
-.status { 
-  font-family: ui-monospace, Menlo, monospace; 
-  font-size:.75rem; padding:.125rem .5rem; border-radius:.375rem; 
-  border:1px solid rgba(160,125,59,.30); 
+/* Base */
+:root{
+  --bg:#F7F4EE;
+  --ink:#151515;
+  --muted:#6E6E6E;
+  --gold:#A07D3B;
+  --navy:#243A7E;
 }
-.status.active { background: rgba(178,30,43,.10); color:#B21E2B; border-color: rgba(178,30,43,.30); }
-.status.proposed { background: rgba(160,125,59,.10); color:#A07D3B; }
-.empty{ text-align:center; padding:2rem; border:1px dashed rgba(160,125,59,.25); border-radius:.5rem }
-.empty .emoji{ font-size:2rem; opacity:.6; margin-bottom:.5rem }
-.small{ font-size:.9rem }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;
+}
 
+/* Layout */
+.wrap{max-width:1100px;margin:0 auto;padding:24px 24px 56px}
+.page .wrap{padding-top:8px}
+
+.site-header{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1100px;margin:0 auto;padding:14px 24px 8px;
+}
+.logo{font-family:"EB Garamond",serif;font-size:20px;text-decoration:none;color:var(--ink)}
+.nav a{margin-left:14px;text-decoration:none;color:var(--muted)}
+.nav a.active,.nav a:hover{color:var(--ink)}
+
+.hero{
+  text-align:center;margin:36px 0 24px;
+}
+.hero--compact{margin:16px 0 8px}
+.hero h1{font-family:"EB Garamond",serif;font-size:40px;margin:0}
+.muted{color:var(--muted)}
+.mono{font-family:ui-monospace, Menlo, monospace}
+.upper{text-transform:uppercase;letter-spacing:.08em}
+
+.buttons{display:flex;gap:12px;justify-content:center;margin:20px 0}
+.btn{padding:.75rem 1.25rem;border-radius:.6rem;text-decoration:none;display:inline-block}
+.btn.primary{background:var(--navy);color:#F7F4EE}
+.btn.outline{border:1px solid var(--gold);color:var(--gold)}
+.btn:hover{filter:brightness(.95)}
+
+/* Sections */
+.section{margin:28px 0}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:0 0 12px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(160,125,59,.5),transparent);margin:24px 0}
+.pill{border:1px solid rgba(160,125,59,.35);color:var(--gold);padding:.15rem .5rem;border-radius:999px;font-size:.75rem}
+.pill.active{background:rgba(178,30,43,.1);color:#B21E2B;border-color:rgba(178,30,43,.3)}
+.pill.forthcoming{background:rgba(160,125,59,.1)}
+.pill.complete{background:rgba(110,110,110,.1);color:#444;border-color:#bbb}
+
+/* Grids & cards */
+.grid{display:grid;gap:16px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(360px,1fr))}
+.card{
+  background:#fff;border:1px solid rgba(160,125,59,.2);border-radius:12px;padding:16px;
+  text-decoration:none;color:inherit;transition:.2s border-color,.2s box-shadow,.2s transform
+}
+.card:hover{border-color:rgba(160,125,59,.45);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
+.card h3{font-family:"EB Garamond",serif;margin:.35rem 0 .25rem}
+.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem}
+.badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--gold);
+  font-family:ui-monospace, Menlo, monospace;font-size:.75rem;padding:.15rem .45rem;border-radius:.4rem}
+
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.2rem}
+.chip{border:1px solid rgba(160,125,59,.3);padding:.35rem .65rem;border-radius:.5rem;background:#fff;cursor:pointer}
+.chip.active{background:var(--navy);color:#F7F4EE;border-color:var(--navy)}
+
+.empty{color:var(--muted);text-align:center;border:1px dashed rgba(160,125,59,.25);padding:2rem;border-radius:.5rem}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:var(--bg);overflow:auto;z-index:50;display:none}
+.modal.open{display:block}
+.modal .inner{max-width:900px;margin:0 auto;padding:24px}
+.meta{color:var(--muted);font-size:.9rem;margin:.25rem 0 1rem;display:flex;gap:12px;align-items:center}
+blockquote{border-left:4px solid var(--gold);background:rgba(160,125,59,.06);padding:12px 16px;font-style:italic}
+h1,h2,h3,h4{font-family:"EB Garamond",serif}
