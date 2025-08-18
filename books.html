@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Books — Michael C. Barros</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="logo" href="index.html">Michael C. Barros</a>
+    <nav class="nav">
+      <a href="essays.html">Essays</a>
+      <a href="books.html" class="active">Books</a>
+      <a href="media.html">Media</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero hero--compact">
+      <h1>Books</h1>
+      <p class="muted">Published and forthcoming work on religion and popular culture.</p>
+    </section>
+
+    <section class="section" id="books-section">
+      <!-- JS will render groups by status -->
+    </section>
+  </main>
+
+  <script src="data/data.js"></script>
+  <script>
+    // Minimal renderer that reads BOOKS from data.js
+    const mount = document.getElementById('books-section');
+    const order = ['Active', 'Forthcoming', 'Complete'];
+
+    const groups = {};
+    (window.BOOKS || []).forEach(b => {
+      (groups[b.status] ||= []).push(b);
+    });
+
+    order.forEach(status => {
+      const list = groups[status] || [];
+      if (!list.length) return;
+      const section = document.createElement('div');
+      section.className = 'stack';
+      section.innerHTML = `
+        <div class="section-head">
+          <h2>${status === 'Complete' ? 'Published' : status}</h2>
+          <span class="pill">${list.length}</span>
+        </div>
+        <div class="grid grid-2">
+          ${list.map(b => `
+            <article class="card">
+              <div class="card-head">
+                <span class="mono muted upper">Book</span>
+                <span class="pill ${status.toLowerCase()}">${b.status}</span>
+              </div>
+              <h3>${b.title}</h3>
+              <p class="muted">${b.description || ''}</p>
+              <div class="meta">
+                ${b.publisher ? `<span>🏛️ ${b.publisher}</span>` : ''}
+                ${b.expected_date ? `<span>🗓️ ${new Date(b.expected_date).toLocaleString('en-US',{month:'long', year:'numeric'})}</span>` : ''}
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      `;
+      mount.appendChild(section);
+    });
+
+    if (!mount.children.length) {
+      mount.innerHTML = `<div class="empty">No books yet. Add entries in <code>data/data.js</code>.</div>`;
+    }
+  </script>
+</body>
+</html>
