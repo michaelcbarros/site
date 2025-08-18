@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Michael C. Barros</title>
+  <style>
+    :root{
+      --paper:#F7F4EE; --ink:#151515; --graphite:#6E6E6E;
+      --indigo:#243A7E; --brass:#A07D3B;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "EB Garamond", serif; background:var(--paper); color:var(--ink);}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+    nav a{margin-left:16px;text-decoration:none;color:var(--ink)}
+    nav a:hover{color:var(--indigo)}
+    .hero{padding:64px 0;border-top:1px solid rgba(160,125,59,.25);border-bottom:1px solid rgba(160,125,59,.25)}
+    .kicker{color:var(--graphite);letter-spacing:.06em;font-size:.9rem;text-transform:uppercase}
+    h1{font-family:"EB Garamond", serif;font-weight:500;font-size:2.25rem;margin:.25rem 0 8px}
+    .rotator{display:block;height:1.6em;position:relative;overflow:hidden}
+    .rotator span{position:absolute;left:0;top:0;opacity:0;animation:cycle 12s infinite}
+    .rotator span:nth-child(1){animation-delay:0s}
+    .rotator span:nth-child(2){animation-delay:4s}
+    .rotator span:nth-child(3){animation-delay:8s}
+    @keyframes cycle{0%{opacity:0;transform:translateY(100%)}10%,30%{opacity:1;transform:translateY(0)}40%{opacity:0;transform:translateY(-100%)}100%{opacity:0}}
+    .grid{display:grid;gap:16px;margin:32px 0}
+    @media(min-width:800px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#fff;border:1px solid rgba(160,125,59,.2);border-radius:10px;padding:16px;text-decoration:none;color:inherit;transition:.2s border-color,.2s box-shadow,.2s transform}
+    .card:hover{border-color:rgba(160,125,59,.45);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--brass);font-family:ui-monospace, SFMono-Regular, Menlo, monospace;font-size:.75rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
+    h3{font-family:"EB Garamond",serif;font-weight:500;margin:.2rem 0 .35rem}
+    .muted{color:var(--graphite)}
+    footer{padding:40px 0;color:var(--graphite);font-size:.9rem}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(160,125,59,.5),transparent);margin:32px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div><strong>Michael C. Barros</strong></div>
+      <nav>
+        <a href="#essays">Essays</a>
+        <a href="#books">Books</a>
+        <a href="#projects">Projects</a>
+        <a href="#media">Media</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Scholarship & Culture</div>
+      <h1>Exploring how culture becomes a site of religious experience</h1>
+      <div class="rotator">
+        <span>religion, imagination, and popular culture</span>
+        <span>games, film, and fiction</span>
+        <span>ritual, simulation, and meaning</span>
+      </div>
+    </section>
+
+    <section id="essays">
+      <h2>From Substack</h2>
+      <div class="grid">
+        <!-- Replace these links with your real Substack posts -->
+        <a class="card" href="https://your-substack-post-1" target="_blank" rel="noopener">
+          <div class="badge">Substack</div>
+          <h3>Sample Substack Post</h3>
+          <div class="muted">A short description of the post goes here.</div>
+        </a>
+        <a class="card" href="https://your-substack-post-2" target="_blank" rel="noopener">
+          <div class="badge">Substack</div>
+          <h3>Another Post</h3>
+          <div class="muted">Brief teaser copy.</div>
+        </a>
+        <a class="card" href="https://your-substack-post-3" target="_blank" rel="noopener">
+          <div class="badge">Substack</div>
+          <h3>Third Post</h3>
+          <div class="muted">Short blurb.</div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>Essays (site originals)</h2>
+      <div class="grid">
+        <!-- These would link to internal HTML pages you’ll add later -->
+        <a class="card" href="essays/zelda-myth.html">
+          <div class="badge">Games</div>
+          <h3>Zelda as Mythopoesis</h3>
+          <div class="muted">On narrative, symbol, and play as meaning-making.</div>
+        </a>
+        <a class="card" href="essays/pkd-theology.html">
+          <div class="badge">Sci-Fi</div>
+          <h3>Philip K. Dick’s Theological Imagination</h3>
+          <div class="muted">Time, agency, and reality in speculative fiction.</div>
+        </a>
+        <a class="card" href="essays/simulation-sacrament.html">
+          <div class="badge">Theory</div>
+          <h3>Simulation vs. Sacrament</h3>
+          <div class="muted">Authenticity and presence in digital culture.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="books">
+      <h2>Books</h2>
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="badge">Forthcoming</div>
+          <h3>Zelda & Religion</h3>
+          <div class="muted">Ritual, time, and meaning in interactive worlds.</div>
+        </a>
+        <a class="card" href="#">
+          <div class="badge">In Progress</div>
+          <h3>The Theology of Philip K. Dick</h3>
+          <div class="muted">Metaphysics, agency, and revelation.</div>
+        </a>
+        <a class="card" href="#">
+          <div class="badge">Proposed</div>
+          <h3>Chardin / Dick</h3>
+          <div class="muted">Eschatology reimagined through speculative fiction.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="badge">Research</div>
+          <h3>Religious Cognition & Culture</h3>
+          <div class="muted">How symbolic media shape receptivity to the sacred.</div>
+        </a>
+        <a class="card" href="#">
+          <div class="badge">Collaboration</div>
+          <h3>PKD Studies Archive</h3>
+          <div class="muted">Curating and annotating key materials.</div>
+        </a>
+        <a class="card" href="#">
+          <div class="badge">Resources</div>
+          <h3>Downloadable PDFs</h3>
+          <div class="muted">Guides and handouts for courses and talks.</div>
+        </a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="media">
+      <h2>Media & Speaking</h2>
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="badge">Lecture</div>
+          <h3>Sacred Time in Digital Culture</h3>
+          <div class="muted">Embed or link to video when available.</div>
+        </a>
+        <a class="card" href="#">
+          <div class="badge">Interview</div>
+          <h3>Religion, Tech, and Meaning</h3>
+          <div class="muted">External link to podcast or article.</div>
+        </a>
+        <a class="card" href="mailto:you@example.com">
+          <div class="badge">Speaking</div>
+          <h3>Invite Michael</h3>
+          <div class="muted">Topics: games, film, theology of culture.</div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Michael C. Barros
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
