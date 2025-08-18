@@ -95,4 +95,7 @@
 
   renderFilters();
   renderGrid();
+<script src="../data/data.js"></script>
+<script src="../js/essays.js"></script>
+
 })();
