@@ -1,69 +1,53 @@
+// /js/books.js
 (function(){
-  const D = window.SITE_DATA || {};
-  const books = Array.isArray(D.books) ? D.books.slice() : [];
+  const container = document.getElementById('books-container');
 
-  const order = ["Active", "Forthcoming", "Complete"];
-  // group by status with desired order
-  const groups = order.map(status => ({
-    status,
-    items: books.filter(b => (b.status||"").toLowerCase() === status.toLowerCase())
-  })).filter(g => g.items.length);
+  const statusOrder = ['Active','Forthcoming','Complete'];
 
-  const root = document.getElementById('books-root');
-  if (!root){
-    console.warn("books-root not found");
-    return;
-  }
-  if (!groups.length){
-    root.innerHTML = `<div class="empty">No books yet. Add entries to <code>SITE_DATA.books</code> in <code>data/data.js</code>.</div>`;
-    return;
-  }
-
-  const fmtMonth = iso => {
-    try {
-      const d = new Date(iso);
-      if (isNaN(d)) return "";
-      return d.toLocaleDateString('en-US', {year:'numeric', month:'long'});
-    } catch { return ""; }
-  };
-
-  const statusClass = s => {
-    const k = (s||"").toLowerCase();
-    return k === 'active' ? 'status active' :
-           k === 'forthcoming' ? 'status forthcoming' :
-           'status complete';
-  };
-
-  const groupHtml = g => `
-    <section class="mb-20">
+  function section(title, items){
+    const sec = document.createElement('section');
+    sec.innerHTML = `
       <div class="section-head">
-        <h2 style="font-family:'EB Garamond',serif;font-weight:500;font-size:1.5rem;margin:0">
-          ${g.status === 'Complete' ? 'Published' : g.status}
-        </h2>
-        <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(160,125,59,.3),transparent)"></div>
-        <span class="count">${g.items.length}</span>
+        <h2>${title}</h2>
+        <span class="count">${items.length}</span>
       </div>
-      <div class="grid">
-        ${g.items.map(book => `
-          <article class="book">
-            <div class="top">
-              <div class="mark">
-                <span class="badge">Book</span>
-              </div>
-              <span class="${statusClass(book.status)}">${book.status || ''}</span>
-            </div>
-            <h3>${book.title || ''}</h3>
-            ${book.description ? `<p class="desc">${book.description}</p>` : ``}
-            <div class="meta">
-              ${book.publisher ? `<div class="meta-row">🏛️ <span><strong>${book.publisher}</strong></span></div>` : ``}
-              ${book.expected_date ? `<div class="meta-row">📅 <span>${(book.status||'')==='Complete'?'Published: ':'Expected: '}${fmtMonth(book.expected_date)}</span></div>` : ``}
-              ${book.url ? `<div class="meta-row">🔗 <a href="${book.url}" target="_blank" rel="noopener">More details</a></div>` : ``}
-            </div>
-          </article>
-        `).join('')}
-      </div>
-    </section>
-  `;
+      <div class="grid cols-2" id="grid"></div>
+    `;
+    const grid = sec.querySelector('#grid');
 
-  root.innerHTML = groups.map(groupHtml).join('');
+    items.forEach(b=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      const statusClass = (
+        b.status==='Active' ? 'style="background:rgba(178,30,43,.08);border-color:rgba(178,30,43,.25);color:#B21E2B"' :
+        b.status==='Forthcoming' ? 'style="background:rgba(160,125,59,.08);border-color:rgba(160,125,59,.25);color:#A07D3B"' :
+        'style="background:rgba(110,110,110,.08);border-color:rgba(110,110,110,.25);color:#6E6E6E"'
+      );
+      card.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <div class="muted" style="font-family:'IBM Plex Mono',monospace;text-transform:uppercase">Book</div>
+          <span class="badge" ${statusClass}>${b.status||''}</span>
+        </div>
+        <h3 style="font-size:1.5rem;margin:.2rem 0 .6rem">${b.title}</h3>
+        <p class="muted" style="margin-bottom:1rem">${b.description||''}</p>
+        <div class="divider"></div>
+        <div class="muted">${b.publisher?`<strong>Publisher:</strong> ${b.publisher}`:''}</div>
+        <div class="muted">${b.expected_date?`${b.status==='Complete'?'Published:':'Expected:'} ${new Date(b.expected_date).toLocaleDateString('en-US',{year:'numeric',month:'long'})}`:''}</div>
+      `;
+      grid.appendChild(card);
+    });
+
+    return sec;
+  }
+
+  const groups = statusOrder
+    .map(s => ({status:s, items:(BOOKS||[]).filter(b=>b.status===s)}))
+    .filter(g => g.items.length);
+
+  if (!groups.length){
+    container.innerHTML = `<div class="card muted" style="text-align:center">No books yet. Add entries in <code>data/data.js</code>.</div>`;
+    return;
+  }
+
+  groups.forEach(g => container.appendChild(section(g.status==='Complete'?'Published':g.status, g.items)));
 })();
