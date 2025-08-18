@@ -1,20 +1,31 @@
-// Append to window.SITE_DATA in data/data.js
-
-window.SITE_DATA.substackPosts = [
+// data/data.js  (append below your existing SITE_DATA)
+window.SITE_DATA.books = [
   {
-    title: "Why Games Feel Like Ritual",
-    url: "https://YOUR-SUBSTACK.com/p/post-1",
-    source: "Texts & Tradition",
-    minutes: 8
+    id: "book-zelda",
+    title: "Zelda & Religion",
+    description: "Ritual, time, and meaning in interactive worlds.",
+    status: "Active",                 // Active | Forthcoming | Complete
+    publisher: "",                    // optional
+    expected_date: "2026-03-01",      // ISO date; month shown
+    url: ""                           // optional detail page or retailer link
   },
   {
-    title: "PKD, Time, and Agency",
-    url: "https://YOUR-SUBSTACK.com/p/post-2",
-    source: "Texts & Tradition",
-    minutes: 11
+    id: "book-pkd",
+    title: "The Theology of Philip K. Dick",
+    description: "Metaphysics, agency, and revelation.",
+    status: "Active",
+    publisher: "",
+    expected_date: "2026-11-01",
+    url: ""
+  },
+  {
+    id: "book-chardin",
+    title: "Chardin / Dick (Proposed)",
+    description: "Eschatology reimagined through speculative fiction.",
+    status: "Forthcoming",
+    publisher: "",
+    expected_date: "2027-06-01",
+    url: ""
   }
+  // add past books with status: "Complete", set publisher + expected_date = actual pub date
 ];
-
-// (Optional) Make sure every essay in SITE_DATA.essays has a unique `id`
-// and either a standalone page URL (e.url) OR a snippet path for modal:
-// e.snippet = "essays/content/zelda-myth.html"
