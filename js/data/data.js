@@ -3,15 +3,15 @@
 window.SUBSTACK_HOME = "https://YOUR-SUBSTACK-URL"; // e.g., https://textsandtradition.substack.com
 window.SUBSTACK_POSTS = [
   {
-    title: "Example: Sacred Play in Zelda",
-    url: "https://YOUR-SUBSTACK-URL/p/example-post-1",
-    summary: "How game worlds stage mythic encounters.",
-    date: "2025-06-01"
+    title: "Tolkien, Freud, and the Source of Story",
+    url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
+    summary: "A long discussion on a short exchange in the 1962 BBC interview.",
+    date: "2025-05-13"
   },
   {
-    title: "Example: Simulation vs. Sacrament",
-    url: "https://YOUR-SUBSTACK-URL/p/example-post-2",
-    summary: "Virtual experience and religious presence.",
+    title: "Disney Adults Want God, but May Settle for Simulation",
+    url: "https://open.substack.com/pub/mythonoesis/p/disney-adults-want-god-but-may-settle?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
+    summary: "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'",
     date: "2025-05-20"
   },
   {
