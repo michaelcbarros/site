@@ -1,6 +1,6 @@
 // ===== Substack (manual) =====
 // Add your links here. The "Open Substack" button will use SUBSTACK_HOME.
-window.SUBSTACK_HOME = "https://YOUR-SUBSTACK-URL"; // e.g., https://textsandtradition.substack.com
+window.SUBSTACK_HOME = "https://mythonoesis.substack.com/"; // e.g., https://textsandtradition.substack.com
 window.SUBSTACK_POSTS = [
   {
     title: "Tolkien, Freud, and the Source of Story",
