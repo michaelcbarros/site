@@ -1,1 +1,12 @@
+/* add to style.css or your <style> block */
+.status { 
+  font-family: ui-monospace, Menlo, monospace; 
+  font-size:.75rem; padding:.125rem .5rem; border-radius:.375rem; 
+  border:1px solid rgba(160,125,59,.30); 
+}
+.status.active { background: rgba(178,30,43,.10); color:#B21E2B; border-color: rgba(178,30,43,.30); }
+.status.proposed { background: rgba(160,125,59,.10); color:#A07D3B; }
+.empty{ text-align:center; padding:2rem; border:1px dashed rgba(160,125,59,.25); border-radius:.5rem }
+.empty .emoji{ font-size:2rem; opacity:.6; margin-bottom:.5rem }
+.small{ font-size:.9rem }
 
