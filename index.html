@@ -1,49 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Michael C. Barros</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { font-family: serif; margin:0; padding:2rem; background:#F7F4EE; color:#151515; }
-    header, section { max-width:900px; margin:0 auto; }
-    h1,h2,h3 { font-family:"EB Garamond",serif; }
-    .tagline { font-size:2rem; margin-bottom:1.5rem; text-align:center; }
-    .bio { font-size:1.1rem; max-width:600px; margin:1rem auto; text-align:center; }
-    .buttons { display:flex; gap:1rem; justify-content:center; margin:2rem 0; }
-    .btn { padding:.75rem 1.5rem; border-radius:.5rem; text-decoration:none; }
-    .btn.primary { background:#243A7E; color:#F7F4EE; }
-    .btn.outline { border:1px solid #A07D3B; color:#A07D3B; }
-    footer { margin-top:4rem; text-align:center; font-size:.9rem; color:#6E6E6E; }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header>
-    <div class="tagline" id="tagline">Exploring how culture becomes a site of religious experience.</div>
-    <div class="bio">
-      <strong>Michael C. Barros</strong> is a scholar of religion and popular culture. 
-      His work explores how games, films, and speculative fiction become settings for 
-      religious experience, symbolic imagination, and encounters with the sacred.
-    </div>
-    <div class="buttons">
-      <a href="essays.html" class="btn primary">Read Essays →</a>
-      <a href="books.html" class="btn outline">Current Work →</a>
-    </div>
-  </header>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Where myth and meaning surface in games, film, and fiction.</h1>
+      <p><strong>Michael C. Barros</strong> is a scholar of religion and popular culture. His work explores how games, films, and speculative fiction become settings for religious experience, symbolic imagination, and encounters with the sacred.</p>
+      <div class="cta-row">
+        <a class="btn" href="./essays/index.html">Read Essays →</a>
+        <a class="btn ghost" href="./books.html">Current Work →</a>
+      </div>
+    </section>
 
-  <section>
-    <h2>Quick Links</h2>
-    <ul>
-      <li><a href="media.html">Recent Media</a></li>
-      <li><a href="archive.html">Archive & Fragments</a></li>
-      <li><a href="contact.html">Speaking Inquiries</a></li>
-    </ul>
-  </section>
+    <div class="divider"></div>
 
-  <footer>
-    © 2025 Michael C. Barros
-  </footer>
+    <section>
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="#">Recent Media</a></li>
+        <li><a href="#">Archive & Fragments</a></li>
+        <li><a href="#">Speaking Inquiries</a></li>
+      </ul>
+    </section>
+
+    <div class="footer">© 2025 Michael C. Barros</div>
+  </div>
+</body>
+</html>
 
   <script>
     const taglines = [
