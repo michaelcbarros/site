@@ -1,1 +1,67 @@
+// js/home.js
+(function(){
+  const D = window.SITE_DATA || { taglines: [], essays: [], projects: [] };
+
+  // Rotating tagline
+  const taglineNode = document.querySelector('#rotating-tagline');
+  if (taglineNode && D.taglines.length) {
+    let i = 0;
+    taglineNode.textContent = D.taglines[0];
+    setInterval(() => {
+      i = (i + 1) % D.taglines.length;
+      taglineNode.style.opacity = 0;
+      setTimeout(() => {
+        taglineNode.textContent = D.taglines[i];
+        taglineNode.style.opacity = 1;
+      }, 200);
+    }, 4000);
+  }
+
+  // Helpers
+  const iconFor = (cat) => ({
+    "Games":"🎮","Film":"🎬","Sci-Fi":"🚀","Ritual":"✨","Simulation":"💫","Theory":"📚"
+  }[cat] || "📖");
+
+  // Featured Essays
+  const essaysWrap = document.querySelector('#featured-essays');
+  if (essaysWrap) {
+    const featured = D.essays.filter(e => e.featured).slice(0, 3);
+    if (featured.length === 0) {
+      essaysWrap.innerHTML = `
+        <div class="empty">
+          <div class="emoji">✍️</div>
+          <p>Featured essays will appear here.</p>
+          <p class="muted small">Add items to SITE_DATA.essays with featured: true.</p>
+        </div>`;
+    } else {
+      essaysWrap.innerHTML = featured.map(e => `
+        <a class="card" href="${e.url}">
+          <div class="mcb-card-top">
+            <span class="text-lg">${iconFor(e.category)}</span>
+            <span class="mcb-badge">${e.category}</span>
+          </div>
+          <h4 class="mcb-card-title">${e.title}</h4>
+          <p class="mcb-card-desc">${e.thesis}</p>
+          ${e.reading_time ? `<div class="mcb-meta">${e.reading_time} min read</div>` : ``}
+        </a>
+      `).join('');
+    }
+  }
+
+  // Featured Projects (right column)
+  const projectsWrap = document.querySelector('#featured-projects');
+  if (projectsWrap) {
+    const featured = D.projects.filter(p => p.featured).slice(0, 2);
+    projectsWrap.innerHTML = featured.map(p => `
+      <a class="card" href="${p.url}">
+        <div class="mcb-card-top">
+          <span class="status ${p.status.toLowerCase()}">${p.status}</span>
+          <span class="mcb-meta">${p.type}</span>
+        </div>
+        <h4 class="mcb-card-title">${p.title}</h4>
+        <p class="mcb-card-desc">${p.description}</p>
+      </a>
+    `).join('');
+  }
+})();
 
