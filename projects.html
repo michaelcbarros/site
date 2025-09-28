@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Michael C. Barros</title>
+  <meta name="description" content="Current work, collaborations, and research initiatives.">
+  <link rel="stylesheet" href="./style.css" />
+
+  <style>
+    /* Scoped, cooperative with style.css */
+    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25); }
+    .shell{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
+    .nav{display:flex;gap:18px;flex-wrap:wrap}
+    .nav a{color:var(--ink);text-decoration:none}
+    .nav a[aria-current="page"]{text-decoration:underline}
+    .nav a:hover{text-decoration:underline}
+
+    .hero--compact{padding:18px 0 6px}
+    .muted{color:var(--muted)}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 .6rem}
+    .section-head h2{margin:0;font-size:1.25rem}
+
+    .toolbar{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin:.5rem 0 1rem}
+    .filters{display:flex;gap:.4rem;flex-wrap:wrap}
+    .filter-btn{padding:.35rem .6rem;border-radius:.6rem;border:1px solid #e5e7eb;background:#fff;cursor:pointer;font-size:.85rem}
+    .filter-btn.active{border-color:#0f766e;box-shadow:0 0 0 3px var(--ring)}
+    input[type="search"]{flex:1 1 280px;padding:.55rem .7rem;border:1px solid #e5e7eb;border-radius:.6rem}
+
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s;color:inherit;text-decoration:none;display:block}
+    .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
+
+    /* Flip cards */
+    .flip{perspective:1000px}
+    .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .5s}
+    .flip:hover .flip-inner{transform:rotateY(180deg)}
+    .flip-face,.flip-back{backface-visibility:hidden;border-radius:12px;border:1px solid rgba(160,125,59,.25);padding:16px;background:#fff;height:100%}
+    .flip-back{position:absolute;inset:0;transform:rotateY(180deg)}
+    .meta-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin:.25rem 0 .5rem}
+
+    .empty{padding:1rem;border:1px dashed #e5e7eb;border-radius:.75rem;background:#fafafa}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none}
+    .modal[aria-hidden="false"]{display:block}
+    .modal .inner{position:relative;max-width:900px;margin:4vh auto;background:#fff;border-radius:1rem;box-shadow:0 15px 35px rgba(0,0,0,.25);padding:1.25rem}
+    .modal .inner h1{margin:.4rem 0 0.35rem}
+    .modal .meta{color:var(--muted);font-size:.9rem}
+    .modal .divider{height:1px;background:#e5e7eb;margin:1rem 0}
+    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .btn:hover{filter:brightness(1.08)}
+    .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="site-header">
+      <a class="brand" href="./index.html">Michael C. Barros</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./about.html">About</a>
+        <a href="./books.html">Books</a>
+        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a href="./projects.html" aria-current="page">Projects</a>
+        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Title -->
+    <section class="hero--compact">
+      <h1>Projects</h1>
+      <p class="muted">Active work, collaborations, and works-in-progress.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Filters + search -->
+    <section aria-labelledby="proj-heading">
+      <div class="section-head">
+        <h2 id="proj-heading">Browse</h2>
+        <span class="muted" style="font-size:.95rem">Filter by status or type; hover cards flip for details</span>
+      </div>
+
+      <div class="toolbar">
+        <div id="filters" class="filters" role="group" aria-label="Filters"></div>
+        <input id="search" type="search" placeholder="Search title, tags, summary…" aria-label="Search projects">
+      </div>
+
+      <div id="projects-grid" class="grid cols-3"></div>
+      <div id="empty" class="empty" style="display:none">No projects match your filters.</div>
+    </section>
+
+    <footer class="footer" style="text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem">
+      © <span id="year"></span> Michael C. Barros
+    </footer>
+  </div>
+
+  <!-- Data (enhances sections if present) -->
+  <script defer src="./js/data/data.js"></script>
+
+  <script>
+    // ----- Links from data.js -----
+    const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {
+      blog: "https://mythonoesis.substack.com/",
+      research: "https://www.researchgate.net/"
+    };
+    document.getElementById('nav-blog').href = LINKS.blog;
+    document.getElementById('nav-research').href = LINKS.research;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ----- Utilities -----
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+    const slugify = s => (s||'').toLowerCase().trim()
+      .replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-');
+    const fmt = iso => { try { return new Date(iso).toISOString().slice(0,10); } catch { return ""; } };
+
+    // ----- Data normalization -----
+    function getProjects(){
+      const D = window.SITE_DATA || {};
+      let list = Array.isArray(D.projects) ? D.projects.slice() : (window.PROJECTS || []);
+      return list.map(p=>({
+        id: p.id || slugify(p.title||""),
+        title: p.title || "Untitled project",
+        status: p.status || p.type || "Project", // status or type becomes badge
+        type: p.type || "",
+        tags: Array.isArray(p.tags) ? p.tags : (p.tags ? String(p.tags).split(',').map(t=>t.trim()) : []),
+        date: p.date || p.started || "",
+        short: p.short || p.summary || "",
+        description: p.description || "",
+        url: p.url || null,
+        external: !!p.external
+      }));
+    }
+
+    // ----- Filters + Search -----
+    function buildFilters(items){
+      const filters = $("#filters");
+      if (!filters) return;
+      const kinds = new Set(["All"]);
+      items.forEach(p=>{
+        if (p.status) kinds.add(p.status);
+        if (p.type) kinds.add(p.type);
+      });
+      filters.innerHTML = "";
+      [...kinds].forEach((k,i)=>{
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "filter-btn" + (i===0 ? " active" : "");
+        b.dataset.k = k;
+        b.textContent = k;
+        filters.appendChild(b);
+      });
+    }
+
+    function renderGrid(items, {k="All", q=""} = {}){
+      const grid = $("#projects-grid");
+      const empty = $("#empty");
+      if (!grid) return;
+
+      const ql = q.trim().toLowerCase();
+      const filtered = items.filter(p=>{
+        const inKind = k==="All" || p.status===k || p.type===k;
+        const inSearch = !ql || [p.title,p.short,p.description,p.tags.join(" ")].join(" ").toLowerCase().includes(ql);
+        return inKind && inSearch;
+      });
+
+      if (!filtered.length){
+        grid.innerHTML = "";
+        if (empty) empty.style.display = "block";
+        return;
+      } else if (empty){ empty.style.display = "none"; }
+
+      grid.innerHTML = "";
+      filtered.forEach(p=>{
+        // Use flip card when we have a longer description; otherwise use a standard card
+        if (p.description) {
+          const c = document.createElement("div");
+          c.className = "flip";
+          c.innerHTML = `
+            <a class="flip-inner" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
+              <div class="flip-face">
+                <span class="badge">${p.status}</span>
+                <h3>${p.title}</h3>
+                <div class="meta-row">
+                  ${p.date ? `<time datetime="${p.date}">${fmt(p.date)}</time>` : ""}
+                  ${p.tags.length ? `· ${p.tags.join(", ")}` : ""}
+                </div>
+                <p class="muted">${p.short}</p>
+              </div>
+              <div class="flip-back">
+                <h3>${p.title}</h3>
+                <p class="muted">${p.description}</p>
+                ${p.url ? `<div style="margin-top:.5rem"><span class="badge">${p.external?'External':'More'}</span></div>` : ""}
+              </div>
+            </a>
+          `;
+          grid.appendChild(c);
+        } else {
+          const a = document.createElement("a");
+          a.className = "card";
+          a.href = p.url || "#";
+          if (p.external){ a.target = "_blank"; a.rel = "noopener"; }
+          a.innerHTML = `
+            <span class="badge">${p.status}</span>
+            <h3>${p.title}</h3>
+            <div class="meta-row">
+              ${p.date ? `<time datetime="${p.date}">${fmt(p.date)}</time>` : ""}
+              ${p.tags.length ? `· ${p.tags.join(", ")}` : ""}
+            </div>
+            <p class="muted">${p.short}</p>
+          `;
+          grid.appendChild(a);
+        }
+      });
+    }
+
+    // ----- Boot -----
+    function boot(){
+      const items = getProjects();
+
+      // If you haven't created SITE_DATA.projects yet, seed with sensible defaults
+      if (!items.length){
+        const seed = [
+          { title:"Waypoint Institute", status:"Lab", tags:["Collaboration"], short:"Research & publishing initiative.", description:"A space for myth, meaning, and media praxis.", url:"#", external:false },
+          { title:"Theology of Philip K. Dick", status:"Forthcoming", tags:["Book"], short:"Edited volume of essays.", url:"./books.html#pkd-theology", external:false },
+          { title:"Zelda & Religion", status:"Active", tags:["Book"], short:"Time, sacrifice, and mythopoesis in Zelda.", url:"./books.html#zelda-religion", external:false }
+        ];
+        (window.SITE_DATA ||= {}).projects = seed;
+      }
+
+      const projects = getProjects();
+      buildFilters(projects);
+      renderGrid(projects,{k:"All", q:""});
+
+      // filter buttons
+      $("#filters")?.addEventListener("click",(ev)=>{
+        const b = ev.target.closest(".filter-btn");
+        if (!b) return;
+        $$(".filter-btn").forEach(x=>x.classList.remove("active"));
+        b.classList.add("active");
+        const k = b.dataset.k || "All";
+        renderGrid(projects,{k, q: $("#search")?.value || ""});
+      });
+
+      // search (debounced)
+      let t=null;
+      $("#search")?.addEventListener("input",(e)=>{
+        clearTimeout(t);
+        const q = e.target.value || "";
+        const active = $(".filter-btn.active");
+        const k = active ? active.dataset.k : "All";
+        t = setTimeout(()=> renderGrid(projects,{k,q}), 120);
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", ()=> setTimeout(boot, 30));
+  </script>
+</body>
+</html>
