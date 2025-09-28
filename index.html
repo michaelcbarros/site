@@ -2,48 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Michael C. Barros</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Michael C. Barros — Scholar of Religion & Popular Culture</title>
+
+  <!-- Basic meta -->
+  <meta name="description" content="Where myth and meaning surface in games, film, and fiction. Essays, books, media, and speaking.">
+  <meta name="theme-color" content="#1f2937">
+
   <link rel="stylesheet" href="./style.css">
+
+  <style>
+    /* Minimal upgrades that won't fight your existing style.css */
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --accent: #0f766e;
+      --bg: #f6f3ee;
+      --card: #ffffff;
+      --ring: rgba(15,118,110,.25);
+    }
+    body { background: var(--bg); color: var(--ink); }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .hero { text-align: center; padding: 3rem 1rem 2rem; }
+    .hero h1 { font-size: clamp(1.9rem, 2.6vw, 3rem); line-height: 1.15; margin: 0 0 1rem; }
+    .tagline { color: var(--muted); font-size: 1.05rem; min-height: 1.5em; transition: opacity .35s ease; }
+    .cta-row { display: inline-flex; gap: .75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: .7rem 1.1rem; border-radius: .7rem; background: var(--ink); color: #fff; text-decoration: none; font-weight: 600; }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+    .divider { height: 1px; background: #e5e7eb; margin: 2rem 0; }
+
+    .section-head { display:flex; align-items:baseline; gap:.75rem; justify-content:space-between; margin: 0 0 .75rem; }
+    .section-head h2 { margin: 0; font-size: 1.25rem; }
+    .section-head a.more { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem; }
+    .card {
+      background: var(--card); border-radius: .9rem; padding: 1rem;
+      box-shadow: 0 1px 0 rgba(0,0,0,.04), 0 1px 12px rgba(0,0,0,.03);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 3px 18px rgba(0,0,0,.06); }
+    .card h3 { margin:.1rem 0 .35rem; font-size: 1.05rem; line-height:1.2; }
+    .card p { margin:0; color: var(--muted); font-size:.95rem; }
+    .badge { display:inline-block; font-size:.72rem; background:#eef2ff; color:#3730a3; padding:.22rem .5rem; border-radius:.5rem; margin-bottom:.5rem; }
+
+    .quick ul { list-style: none; padding: 0; margin: .5rem 0 0; display:grid; gap:.4rem; }
+    .quick a { text-decoration:none; color: var(--ink); }
+    .quick a:hover { text-decoration: underline; }
+
+    .footer { text-align:center; color: var(--muted); margin-top: 2.5rem; font-size:.95rem; }
+    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0; }
+  </style>
 </head>
+
 <body>
   <div class="wrap">
-    <section class="hero">
-      <h1>Where myth and meaning surface in games, film, and fiction.</h1>
-      <p><strong>Michael C. Barros</strong> is a scholar of religion and popular culture. His work explores how games, films, and speculative fiction become settings for religious experience, symbolic imagination, and encounters with the sacred.</p>
-      <div class="cta-row">
-        <a class="btn" href="./essays/index.html">Read Essays →</a>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="site-title">
+      <h1 id="site-title">Where myth and meaning surface in games, film, and fiction.</h1>
+      <p class="tagline" id="tagline">
+        Michael C. Barros is a scholar of religion and popular culture. His work explores how games, films, and speculative fiction become settings for religious experience, symbolic imagination, and encounters with the sacred.
+      </p>
+      <div class="cta-row" role="group" aria-label="Primary actions">
+        <!-- Use relative links so project pages work under /michaelcbarros/ -->
+        <a class="btn" href="./essays.html">Read Essays →</a>
         <a class="btn ghost" href="./books.html">Current Work →</a>
       </div>
     </section>
 
-    <div class="divider"></div>
+    <div class="divider" role="presentation"></div>
 
-    <section>
-      <h2>Quick Links</h2>
+    <!-- FEATURED (auto-populates from js/data/data.js if available) -->
+    <section aria-labelledby="featured-heading">
+      <div class="section-head">
+        <h2 id="featured-heading">Featured</h2>
+        <a class="more" href="./essays.html">View all essays →</a>
+      </div>
+      <div class="cards" id="featured-cards">
+        <!-- Fallback cards render immediately; JS will enhance/replace if data.js is present -->
+        <article class="card">
+          <span class="badge">Essay</span>
+          <h3><a href="./essays.html">Sacred Time in Hyrule</a></h3>
+          <p>Divine causality and temporal logic across Ocarina & Majora.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Book</span>
+          <h3><a href="./books.html">Courage: The Ethos of Link</a></h3>
+          <p>A focused reading of Link’s moral imagination and vocation.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Media</span>
+          <h3><a href="./media.html">Interview: Game & Myth Podcast</a></h3>
+          <p>On religion in video games and the return of the sacred.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider" role="presentation"></div>
+
+    <!-- QUICK LINKS -->
+    <section class="quick" aria-labelledby="quick-links">
+      <h2 id="quick-links">Quick Links</h2>
       <ul>
-        <li><a href="#">Recent Media</a></li>
-        <li><a href="#">Archive & Fragments</a></li>
-        <li><a href="#">Speaking Inquiries</a></li>
+        <li><a href="./media.html">Recent Media</a></li>
+        <li><a href="./essays.html">Archive &amp; Fragments</a></li>
+        <li><a href="./contact.html">Speaking Inquiries</a></li>
       </ul>
     </section>
 
-    <div class="footer">© 2025 Michael C. Barros</div>
+    <div class="footer">© <span id="year"></span> Michael C. Barros</div>
   </div>
-</body>
-</html>
+
+  <!-- Optional: your structured data file (will be used if it exists) -->
+  <script defer src="./js/data/data.js"></script>
 
   <script>
+    // --- Rotating tagline ---
     const taglines = [
       "Exploring how culture becomes a site of religious experience.",
       "Religion, imagination, and popular culture.",
       "Where myth and meaning surface in games, film, and fiction."
     ];
-    let i=0;
-    setInterval(()=>{
-      i=(i+1)%taglines.length;
-      document.getElementById("tagline").textContent = taglines[i];
-    },4000);
+    const taglineEl = document.getElementById("tagline");
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % taglines.length;
+      taglineEl.style.opacity = 0;
+      setTimeout(() => {
+        taglineEl.textContent = taglines[i];
+        taglineEl.style.opacity = 1;
+      }, 200);
+    }, 4200);
+
+    // --- Footer year ---
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // --- Featured: enhance from js/data/data.js if window.SITE_DATA exists ---
+    // Expected (flexible) shape:
+    // window.SITE_DATA = { essays: [{title, url, summary, featured}], books: [...], media: [...] }
+    (function enhanceFeatured() {
+      const cards = document.getElementById("featured-cards");
+      if (!cards) return;
+
+      const data = window.SITE_DATA || window.SITE || {};
+      const pick = (arr = []) => arr.filter(x => x && (x.featured || x.pin)).slice(0, 6);
+
+      const items = [
+        ...pick(data.essays),
+        ...pick(data.books),
+        ...pick(data.media)
+      ];
+
+      if (!items.length) return; // keep the fallback
+
+      const badgeFor = (item) => {
+        if (item.type) return item.type;
+        if (item.collection) return item.collection;
+        return item.url && item.url.includes('book') ? 'Book'
+             : item.url && item.url.includes('media') ? 'Media'
+             : 'Essay';
+      };
+
+      const toCard = (item) => {
+        const title = item.title || "Untitled";
+        const url   = item.url   || "./";
+        const summary = item.summary || item.description || "";
+        const badge = badgeFor(item);
+
+        const el = document.createElement("article");
+        el.className = "card";
+        el.innerHTML = `
+          <span class="badge">${badge}</span>
+          <h3><a href="${url}">${title}</a></h3>
+          <p>${summary}</p>
+        `;
+        return el;
+      };
+
+      // Replace fallback with dynamic cards
+      cards.innerHTML = "";
+      items.slice(0, 6).forEach(item => cards.appendChild(toCard(item)));
+    })();
   </script>
 </body>
 </html>
