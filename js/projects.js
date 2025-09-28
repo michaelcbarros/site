@@ -105,9 +105,45 @@
 
     grid.innerHTML = "";
     filtered.forEach((p) => {
-      // Flip card if we have a back description; otherwise standard card
-      if (p.description) {
-        const c = document.createElement("div");
-        c.className = "flip";
-        c.innerHTML = `
-          <a class="flip-inner" href="${p.url || "#"}" ${p.external ? 'target
+     // Use flip card only when we have a cover image for a true "front"
+const hasCover = !!p.cover; // string URL expected
+if (hasCover) {
+  const c = document.createElement("div");
+  c.className = "flip";
+  c.innerHTML = `
+    <div class="flip-inner">
+      <a class="flip-face" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
+        <img src="${p.cover}" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:.6rem">
+        <span class="badge">${p.status}</span>
+        <h3>${p.title}</h3>
+        <div class="meta-row">
+          ${p.date ? `<time datetime="${p.date}">${fmt(p.date)}</time>` : ""}
+          ${p.tags.length ? `· ${p.tags.join(", ")}` : ""}
+        </div>
+        <p class="muted">${p.short}</p>
+      </a>
+      <a class="flip-back" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
+        <h3>${p.title}</h3>
+        <p class="muted">${p.description || p.short || ""}</p>
+        ${p.url ? `<div style="margin-top:.5rem"><span class="badge">${p.external?'External':'More'}</span></div>` : ""}
+      </a>
+    </div>
+  `;
+  grid.appendChild(c);
+} else {
+  // standard card (no flip)
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = p.url || "#";
+  if (p.external){ a.target = "_blank"; a.rel = "noopener"; }
+  a.innerHTML = `
+    <span class="badge">${p.status}</span>
+    <h3>${p.title}</h3>
+    <div class="meta-row">
+      ${p.date ? `<time datetime="${p.date}">${fmt(p.date)}</time>` : ""}
+      ${p.tags.length ? `· ${p.tags.join(", ")}` : ""}
+    </div>
+    <p class="muted">${p.short}</p>
+  `;
+  grid.appendChild(a);
+}
