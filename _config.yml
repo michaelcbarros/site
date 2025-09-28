@@ -1,0 +1,31 @@
+# _config.yml at the published root
+title: "Michael C. Barros"
+description: "Where myth and meaning surface in games, film, and fiction."
+url: "https://michaelcbarros.github.io"
+baseurl: "/michaelcbarros"   # for a project site; if you switch to user site, set "".
+
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "default"
+
+markdown: kramdown
+permalink: /:categories/:title/
+timezone: America/Chicago
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-include-cache
+  - jekyll-redirect-from
+
+# optional, but handy
+collections:
+  essays:
+    output: true
+    permalink: /essays/:title/
+  books:
+    output: true
+    permalink: /books/:title/
+  media:
+    output: true
+    permalink: /media/:title/
