@@ -1,186 +1,158 @@
-// js/data/data.js
-// One file to feed the whole site. Backward compatible with old globals.
+/* js/data/data.js
+   Central, declarative data model for the site.
+   - Primary:    window.SITE_DATA (preferred)
+   - Legacy:     window.BOOKS, window.PROJECTS, window.SUBSTACK_POSTS (for older scripts)
+   Keep URLs relative so the site works under a project baseurl.
+*/
 
-// ---------- Helpers ----------
-(function () {
-  const esc = (s) =>
-    String(s ?? "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
-  const slugify = (s) =>
-    String(s || "")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-");
+(function(){
+  // ---------- Links / globals ----------
+  const LINKS = {
+    blog: "https://mythonoesis.substack.com/",
+    research: "https://www.researchgate.net/profile/Michael-Barros-2",   // TODO: replace with your profile URL
+    contact: "barrostheology@gmail.com"            // TODO: replace
+  };
 
-  // ---------- Legacy globals (preserve your current shape) ----------
-  // Substack
-  window.SUBSTACK_HOME = window.SUBSTACK_HOME || "https://mythonoesis.substack.com/";
-  window.SUBSTACK_POSTS = window.SUBSTACK_POSTS || [
+  // ---------- Taglines (homepage rotator) ----------
+  const TAGLINES = [
+    "Where myth and meaning surface in games, film, and fiction.",
+    "Exploring how culture becomes a site of religious experience.",
+    "Religion, imagination, and popular culture."
+  ];
+
+  // ---------- Books ----------
+  const BOOKS = [
     {
-      title: "Tolkien, Freud, and the Source of Story",
-      url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary: "A long discussion on a short exchange in the 1962 BBC interview.",
-      date: "2025-05-13",
+      id: "pkd-theology",
+      title: "The Esoteric Theology of Philip K. Dick",
+      featured: true,                 // homepage & books hero will pick this one
+      status: "Forthcoming",
+      cover: "/assets/images/books/pkd.jpg",     // TODO: add this asset
+      summary:
+        "New essays marking 50 years since PKD’s 1974 mystical experiences—examining his Christian, gnostic, and mystical theology across novels and adaptations.",
+      description:
+        "This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.",
+      url: "./books.html#pkd-theology",
+      expected_date: "2026-01-01",    // optional; shows as Month Year if present
+      buy_links: [
+        { label: "Amazon", url: "https://amzn.to/46Fn12N" }
+      ],
+      reviews: [
+        {
+          quote:
+            "Philip K. Dick has had a fantastic impact on American science fiction, film, and television... Here is a 'gospel' about our doubled identity coming from the future.",
+          source: "Jeffrey J. Kripal, author of *How to Think Impossibly*"
+        }
+      ]
+    }
+  ];
+
+  // ---------- Projects (Waypoint, works-in-progress, collaborations) ----------
+  const PROJECTS = [
+    {
+      id: "waypoint",
+      title: "Waypoint Institute",
+      status: "Lab",
+      type: "Collaboration",
+      tags: ["Collaboration","Institute"],
+      short: "Research & publishing initiative.",
+      description: "A space for myth, meaning, and media praxis.",
+      url: "./projects.html#waypoint",
+      external: false
     },
+    {
+      id: "pkd-theology",
+      title: "Theology of Philip K. Dick",
+      status: "Forthcoming",
+      type: "Book",
+      tags: ["PKD","Editing"],
+      short: "Edited volume of essays.",
+      description: "Commemorating 50 years since PKD’s 1974 experiences; theological and cultural analysis.",
+      url: "./books.html#pkd-theology",
+      external: false
+    },
+    {
+      id: "zelda-religion",
+      title: "Zelda & Religion",
+      status: "Active",
+      type: "Book",
+      tags: ["Games","Myth"],
+      short: "Time, sacrifice, and mythopoesis in Zelda.",
+      url: "./books.html#zelda-religion",
+      external: false
+    }
+  ];
+
+  // ---------- Substack (homepage & projects feed) ----------
+  const SUBSTACK_HOME = "https://mythonoesis.substack.com/";
+  const SUBSTACK_POSTS = [
     {
       title: "Disney Adults Want God, but May Settle for Simulation",
       url: "https://open.substack.com/pub/mythonoesis/p/disney-adults-want-god-but-may-settle?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
       summary: "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'",
-      date: "2025-05-20",
+      date: "2025-05-20"
+    },
+    {
+      title: "Tolkien, Freud, and the Source of Story",
+      url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
+      summary: "A long discussion on a short exchange in the 1962 BBC interview.",
+      date: "2025-05-13"
     },
     {
       title: "Example: Film, Ritual, Memory",
       url: "https://YOUR-SUBSTACK-URL/p/example-post-3",
       summary: "Cinema as a vessel of communal meaning.",
-      date: "2025-05-10",
-    },
+      date: "2025-05-10"
+    }
   ];
 
-  // Essays
-  window.ESSAYS = (window.ESSAYS || [
-    {
-      id: "zelda-paradigm",
-      title: "The Zelda Paradigm",
-      thesis: "Video games as contemporary myth-making.",
-      category: "Games",
-      reading_time: 12,
-      published_date: "2025-04-18",
-      content: "<p>Full HTML content goes here. You can paste formatted HTML.</p>",
-    },
-    {
-      id: "simulation-sacrament",
-      title: "Simulation vs. Sacrament",
-      thesis: "Virtual experience vs. authentic encounter.",
-      category: "Theory",
-      reading_time: 15,
-      published_date: "2025-03-02",
-      content: "<p>Another essay’s content…</p>",
-    },
-  ]).map((e) => ({
-    // normalize & keep legacy fields
-    id: e.id || slugify(e.title),
-    slug: e.slug || e.id || slugify(e.title),
-    title: e.title || "Untitled",
-    thesis: e.thesis || e.summary || "",
-    category: e.category || "Essay",
-    tags: Array.isArray(e.tags) ? e.tags : [e.category || "Essay"],
-    reading_time: e.reading_time || null,
-    published_date: e.published_date || e.date || "",
-    url: e.url || null, // if set (external), readers will link out
-    content: e.content || "",
-    featured: !!e.featured, // opt-in; set true on a few to pin on home/essays
-  }));
+  // ---------- Optional: Featured writing (if you ever want to surface it) ----------
+  // Keep this empty if you prefer ResearchGate/Academia links instead of a curated writing grid.
+  const ESSAYS = [
+    // {
+    //   id: "sacred-time-hyrule",
+    //   title: "Sacred Time in Hyrule",
+    //   date: "2025-09-01",
+    //   thesis: "Divine causality and temporal logic across Ocarina & Majora.",
+    //   summary: "Divine causality and temporal logic across Ocarina & Majora.",
+    //   tags: ["Games","Theology"],
+    //   url: null,              // null => opens modal reader if you provide `content`
+    //   content: "<p>Full HTML content here…</p>",
+    //   featured: true
+    // }
+  ];
 
-  // Books
-  window.BOOKS = (window.BOOKS || [
-    {
-      id: "zelda-religion",
-      title: "Zelda & Religion",
-      status: "Active",
-      description: "A monograph on time, sacrifice, and mythopoesis in The Legend of Zelda.",
-      publisher: "",
-      expected_date: "2026-05-01",
-    },
-    {
-      id: "pkd-theology",
-      title: "The Theology of Philip K. Dick",
-      status: "Forthcoming",
-      description: "Dick’s metaphysics, eschatology, and religious imagination.",
-      publisher: "",
-      expected_date: "2027-01-01",
-    },
-    {
-      id: "chardin-dick",
-      title: "Teilhard & Dick: Omega and Time",
-      status: "Complete",
-      description: "Dialogue between Teilhard’s eschatology and PKD’s metaphysics of time.",
-      publisher: "",
-      expected_date: "2024-10-01",
-    },
-  ]).map((b) => ({
-    id: b.id || slugify(b.title),
-    slug: b.slug || b.id || slugify(b.title),
-    title: b.title || "Untitled",
-    status: b.status || "In Progress",
-    publisher: b.publisher || "",
-    description: b.description || "",
-    summary: b.summary || b.description || "",
-    expected_date: b.expected_date || "",
-    url: b.url || null, // set to external project page if you have one
-    featured: !!b.featured, // set true to pin on home
-  }));
+  // ---------- Optional: Reading list (Books page) ----------
+  const READING = [
+    // Example entries; swap in your selections & affiliate links
+    // { title: "Misquoting Jesus", author: "Bart D. Ehrman", cover: "/assets/images/reading/misquoting.jpg", link: "https://amzn.to/..." },
+    // { title: "How to Think Impossibly", author: "Jeffrey J. Kripal", cover: "/assets/images/reading/kripal.jpg", link: "https://amzn.to/..." }
+  ];
 
-  // ---------- Unified shape consumed by new scripts ----------
+  // ---------- Assemble primary model ----------
   window.SITE_DATA = {
-    // Hero rotating taglines (optional)
-    taglines: window.SITE_DATA?.taglines || [
-      "Exploring how culture becomes a site of religious experience.",
-      "Religion, imagination, and popular culture.",
-      "Where myth and meaning surface in games, film, and fiction.",
-    ],
+    taglines: TAGLINES,
+    links: LINKS,
 
-    // Substack block
+    // primary collections
+    books: BOOKS,
+    projects: PROJECTS,
+
+    // optional feeds/sections
     substack: {
-      url: window.SUBSTACK_HOME,
-      posts: window.SUBSTACK_POSTS.map((p) => ({
-        title: p.title || "Untitled",
-        url: p.url,
-        date: p.date || "",
-        summary: p.summary || "",
-      })),
+      url: SUBSTACK_HOME,
+      posts: SUBSTACK_POSTS
     },
-
-    // Essays (normalized)
-    essays: window.ESSAYS.map((e) => ({
-      id: e.id,
-      slug: e.slug,
-      title: e.title,
-      date: e.published_date || "",
-      summary: e.thesis || "",
-      thesis: e.thesis || "",
-      content: e.content || "",
-      url: e.url || null,
-      category: e.category || "Essay",
-      tags: Array.isArray(e.tags) ? e.tags : [e.category || "Essay"],
-      reading_time: e.reading_time || null,
-      featured: !!e.featured,
-      type: "Essay",
-    })),
-
-    // Books / Projects
-    books: window.BOOKS.map((b) => ({
-      id: b.id,
-      slug: b.slug,
-      title: b.title,
-      status: b.status,
-      publisher: b.publisher,
-      summary: b.summary || b.description || "",
-      description: b.description || "",
-      expected_date: b.expected_date || "",
-      url: b.url || null,
-      featured: !!b.featured,
-      type: "Book",
-    })),
-
-    // (Optional) Media collection — add items here when you have them
-    media: window.SITE_DATA?.media || [
-      // Example:
-      // {
-      //   title: "Interview on Game & Myth Podcast",
-      //   date: "2025-09-10",
-      //   summary: "On religion in video games and sacred time.",
-      //   external_url: "https://podcast.example/episode",
-      //   featured: true,
-      //   type: "Media"
-      // }
-    ],
+    essays: ESSAYS,
+    reading: READING
   };
 
-  // You can add `featured: true` to any essay/book/media item to pin it
-  // to the “Featured” grids on the homepage and essays page.
-
-  // Optional: sort normalized lists newest-first where helpful
-  window.SITE_DATA.essays.sort((a, b) => String(b.date).localeCompare(String(a.date)));
-  window.SITE_DATA.media.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  // ---------- Legacy globals for older scripts (safe to keep) ----------
+  window.LINKS = LINKS;
+  window.SUBSTACK_HOME = SUBSTACK_HOME;
+  window.SUBSTACK_POSTS = SUBSTACK_POSTS;
+  window.BOOKS = BOOKS;
+  window.PROJECTS = PROJECTS;
+  window.ESSAYS = ESSAYS;
+  window.READING = READING;
 })();
