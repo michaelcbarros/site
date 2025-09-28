@@ -4,87 +4,218 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Books — Michael C. Barros</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="./style.css">
-<script src="./data/data.js"></script>
-<script src="./js/books.js"></script>
-<!-- inside /books.html body -->
-<div class="wrap">
-  <header><a href="./index.html">← Home</a></header>
-  <h1>Books</h1>
-  <p class="muted">Published and forthcoming work on religion and popular culture.</p>
-  <div class="divider"></div>
-  <div id="books-container"></div>
-</div>
+  <meta name="description" content="Books by Michael C. Barros — featured, forthcoming, and published.">
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* Small additions that respect your existing style.css */
+    .shell{max-width:1060px;margin:0 auto;padding:20px 20px 48px}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
+    .nav{display:flex;gap:18px;flex-wrap:wrap}
+    .nav a{color:var(--ink);text-decoration:none}
+    .nav a:hover{text-decoration:underline}
 
+    .hero--compact{padding:18px 0 6px}
+    .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 .6rem}
+    .section-head h2{margin:0;font-size:1.25rem}
+
+    .book-hero{display:grid;gap:18px;align-items:center}
+    @media(min-width:900px){.book-hero{grid-template-columns:200px 1fr}}
+    .book-cover{width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .btn:hover{filter:brightness(1.08)}
+    .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .card{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s;color:inherit;text-decoration:none;display:block}
+    .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
+    .reviews{display:grid;gap:12px;margin-top:14px}
+    @media(min-width:900px){.reviews{grid-template-columns:repeat(3,1fr)}}
+    .review{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:10px;padding:12px}
+    .review small{color:var(--muted)}
+    .footer{text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem}
+  </style>
 </head>
-<body class="page">
-  <header class="site-header">
-    <a class="logo" href="index.html">Michael C. Barros</a>
-    <nav class="nav">
-      <a href="essays.html">Essays</a>
-      <a href="books.html" class="active">Books</a>
-      <a href="media.html">Media</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="site-header">
+      <a class="brand" href="./index.html">Michael C. Barros</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./about.html">About</a>
+        <a href="./books.html" aria-current="page">Books</a>
+        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a href="./projects.html">Projects</a>
+        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
 
-  <main class="wrap">
-    <section class="hero hero--compact">
+    <!-- Page title -->
+    <section class="hero--compact">
       <h1>Books</h1>
       <p class="muted">Published and forthcoming work on religion and popular culture.</p>
     </section>
 
-    <section class="section" id="books-section">
-      <!-- JS will render groups by status -->
-    </section>
-  </main>
+    <div class="divider"></div>
 
-  <script src="data/data.js"></script>
-  <script>
-    // Minimal renderer that reads BOOKS from data.js
-    const mount = document.getElementById('books-section');
-    const order = ['Active', 'Forthcoming', 'Complete'];
-
-    const groups = {};
-    (window.BOOKS || []).forEach(b => {
-      (groups[b.status] ||= []).push(b);
-    });
-
-    order.forEach(status => {
-      const list = groups[status] || [];
-      if (!list.length) return;
-      const section = document.createElement('div');
-      section.className = 'stack';
-      section.innerHTML = `
-        <div class="section-head">
-          <h2>${status === 'Complete' ? 'Published' : status}</h2>
-          <span class="pill">${list.length}</span>
+    <!-- Featured book -->
+    <section aria-labelledby="featured-heading">
+      <div class="section-head">
+        <h2 id="featured-heading">Featured</h2>
+        <!-- optional -->
+      </div>
+      <div id="book-hero" class="book-hero">
+        <!-- JS fills with featured book -->
+        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
+        <div>
+          <h3 style="margin:.2rem 0">Current Book</h3>
+          <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
+          <div class="cta-row" style="display:flex;gap:.75rem;margin-top:.5rem">
+            <a class="btn" href="#all-books">All books</a>
+            <a class="btn ghost" href="#" onclick="return false;">Buy on Amazon</a>
+          </div>
         </div>
-        <div class="grid grid-2">
-          ${list.map(b => `
-            <article class="card">
-              <div class="card-head">
-                <span class="mono muted upper">Book</span>
-                <span class="pill ${status.toLowerCase()}">${b.status}</span>
-              </div>
-              <h3>${b.title}</h3>
-              <p class="muted">${b.description || ''}</p>
-              <div class="meta">
-                ${b.publisher ? `<span>🏛️ ${b.publisher}</span>` : ''}
-                ${b.expected_date ? `<span>🗓️ ${new Date(b.expected_date).toLocaleString('en-US',{month:'long', year:'numeric'})}</span>` : ''}
-              </div>
-            </article>
-          `).join('')}
+      </div>
+      <div id="reviews-wrap" class="reviews"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Other books -->
+    <section id="all-books" aria-labelledby="all-books-heading">
+      <div class="section-head"><h2 id="all-books-heading">More Books</h2></div>
+      <div id="books-grid" class="grid cols-3"></div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Reading list (optional) -->
+    <section aria-labelledby="reading-heading" id="reading-section" style="display:none">
+      <div class="section-head">
+        <h2 id="reading-heading">Recommended Reading</h2>
+        <span class="muted" style="font-size:.95rem">Selections with outbound links</span>
+      </div>
+      <div id="reading-grid" class="grid cols-3"></div>
+    </section>
+
+    <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
+  </div>
+
+  <!-- Data (enhances sections if present) -->
+  <script defer src="./js/data/data.js"></script>
+  <script>
+    // Global links (override via SITE_DATA.links or window.LINKS)
+    const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {
+      blog: "https://mythonoesis.substack.com/",
+      research: "https://www.researchgate.net/"
+    };
+    document.getElementById('nav-blog').href = LINKS.blog;
+    document.getElementById('nav-research').href = LINKS.research;
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Featured book
+    (function renderFeatured(){
+      const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
+      if (!books.length) return;
+      const featured = books.find(b=>b.featured) || books[0];
+      const hero = document.getElementById('book-hero');
+
+      const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
+      const learnUrl = featured.url || '#all-books';
+      const buy = (featured.buy_links && featured.buy_links[0]) || null;
+
+      hero.innerHTML = `
+        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
+        <div>
+          <h3 style="margin:.2rem 0">${featured.title}</h3>
+          <p class="muted">${featured.summary || featured.description || ''}</p>
+          <div class="cta-row" style="display:flex;gap:.75rem;margin-top:.5rem">
+            <a class="btn" href="${learnUrl}">Learn more</a>
+            ${buy ? `<a class="btn ghost" href="${buy.url}" target="_blank" rel="noopener">Buy on ${buy.label || 'Amazon'}</a>` : ``}
+          </div>
+          ${featured.publisher || featured.expected_date ? `
+            <div class="meta" style="margin-top:.5rem;color:var(--muted)">
+              ${featured.publisher ? `🏛️ ${featured.publisher}` : ''} 
+              ${featured.expected_date ? ` &nbsp;•&nbsp; 🗓️ ${new Date(featured.expected_date).toLocaleString('en-US',{month:'long',year:'numeric'})}` : ''}
+            </div>` : ``}
         </div>
       `;
-      mount.appendChild(section);
-    });
 
-    if (!mount.children.length) {
-      mount.innerHTML = `<div class="empty">No books yet. Add entries in <code>data/data.js</code>.</div>`;
-    }
+      // Reviews
+      const reviews = featured.reviews || [];
+      const wrap = document.getElementById('reviews-wrap');
+      wrap.innerHTML = '';
+      reviews.slice(0,3).forEach(r=>{
+        const div = document.createElement('div');
+        div.className = 'review';
+        div.innerHTML = `<p>“${(r.quote||'').replace(/(^"|"$)/g,'')}”</p><small>— ${r.source||'Reviewer'}</small>`;
+        wrap.appendChild(div);
+      });
+    })();
+
+    // Other books (non-featured)
+    (function renderOthers(){
+      const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
+      const others = books.filter(b=>!b.featured);
+      const grid = document.getElementById('books-grid');
+      if (!others.length){ grid.innerHTML = `<div class="card muted" style="grid-column:1/-1">No additional books yet.</div>`; return; }
+
+      // Group by status to echo your earlier structure
+      const order = ['Active','Forthcoming','Complete'];
+      const groups = {};
+      others.forEach(b => (groups[b.status || 'Other'] ||= []).push(b));
+
+      order.concat(Object.keys(groups).filter(s=>!order.includes(s))).forEach(status=>{
+        if (!groups[status]) return;
+        // Section header for each status
+        const head = document.createElement('div');
+        head.style.gridColumn = '1/-1';
+        head.innerHTML = `<div class="section-head"><h3>${status==='Complete'?'Published':status}</h3><span class="badge">${groups[status].length}</span></div>`;
+        grid.appendChild(head);
+
+        groups[status].forEach(b=>{
+          const a = document.createElement('a');
+          a.className = 'card';
+          a.href = b.url || '#';
+          a.innerHTML = `
+            <span class="badge">${b.status || 'Book'}</span>
+            <h3>${b.title}</h3>
+            <p class="muted">${b.summary || b.description || ''}</p>
+          `;
+          grid.appendChild(a);
+        });
+      });
+    })();
+
+    // Reading list (optional)
+    (function renderReading(){
+      const list = (window.SITE_DATA && window.SITE_DATA.reading) || window.READING || [];
+      if (!list.length) return;
+      const section = document.getElementById('reading-section');
+      const grid = document.getElementById('reading-grid');
+      section.style.display = '';
+
+      list.slice(0,24).forEach(r=>{
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = r.link || '#';
+        if (r.link) { a.target = "_blank"; a.rel = "noopener"; }
+        a.innerHTML = `
+          <div style="display:flex;gap:12px;align-items:center">
+            ${r.cover ? `<img src="${r.cover}" alt="${r.title} cover" width="56" height="84" style="border-radius:.35rem">` : ``}
+            <div>
+              <h3 style="margin:.2rem 0">${r.title}</h3>
+              <p class="muted">${r.author || ''}</p>
+            </div>
+          </div>
+        `;
+        grid.appendChild(a);
+      });
+    })();
   </script>
 </body>
 </html>
