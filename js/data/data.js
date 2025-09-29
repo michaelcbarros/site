@@ -26,7 +26,7 @@
       title: "The Theology of Philip K. Dick",
       featured: true,                       // homepage & books hero will pick this one
       status: "Published",
-      cover: "./assets/images/books/pkd.jpg", // <-- path is project-relative (no leading slash)
+      cover: "./assets/images/books/pkd.jpg", // project-relative (no leading slash)
       url: "./books.html#pkd-theology",
       summary:
         "A scholarly collection on Philip K. Dick’s mystical experiences and esoteric Christian gnosis.",
@@ -88,18 +88,15 @@
   const SUBSTACK_HOME = "https://mythonoesis.substack.com/";
   const SUBSTACK_POSTS = [
     {
-      title:
-        "Disney Adults Want God, but May Settle for Simulation",
+      title: "Disney Adults Want God, but May Settle for Simulation",
       url: "https://open.substack.com/pub/mythonoesis/p/disney-adults-want-god-but-may-settle?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary:
-        "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'.",
+      summary: "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'.",
       date: "2025-05-20"
     },
     {
       title: "Tolkien, Freud, and the Source of Story",
       url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary:
-        "A long discussion on a short exchange in the 1962 BBC interview.",
+      summary: "A long discussion on a short exchange in the 1962 BBC interview.",
       date: "2025-05-13"
     },
     {
@@ -112,18 +109,7 @@
 
   // ---------- Optional: Featured writing (leave empty if using ResearchGate) ----------
   const ESSAYS = [
-    // example shape shown for future use
-    // {
-    //   id: "sacred-time-hyrule",
-    //   title: "Sacred Time in Hyrule",
-    //   date: "2025-09-01",
-    //   thesis: "Divine causality and temporal logic across Ocarina & Majora.",
-    //   summary: "Divine causality and temporal logic across Ocarina & Majora.",
-    //   tags: ["Games","Theology"],
-    //   url: null,                // null => opens modal reader if content present
-    //   content: "<p>Full HTML content here…</p>",
-    //   featured: true
-    // }
+    // See example shape in earlier messages if you decide to surface curated writing later.
   ];
 
   // ---------- Optional: Reading list (Books page) ----------
@@ -158,5 +144,3 @@
   window.ESSAYS = ESSAYS;
   window.READING = READING;
 })();
-
-<script src="./js/nav.js"></script>
