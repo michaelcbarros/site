@@ -65,31 +65,52 @@
     }
     @media (min-width:900px){ .section-card{ padding:22px 22px; } }
 
-    /* --- Featured Book layout --- */
-    .book-hero{
-      display:grid;
-      gap:20px;
-      align-items:start;
-    }
-    @media (min-width:900px){
-      .book-hero{ grid-template-columns: 360px 1fr; }
-    }
-    @media (min-width:1280px){
-      .book-hero{ grid-template-columns: 400px 1fr; }
-    }
+/* --- Featured Book layout --- */
+.section-card{
+  background:#fff;
+  border:1px solid rgba(160,125,59,.25);
+  border-radius:16px;
+  box-shadow:0 8px 26px rgba(0,0,0,.06);
+  padding:18px;
+}
+@media (min-width:900px){ .section-card{ padding:22px 22px; } }
 
-    .book-cover{
-      width:100%;
-      height:auto;
-      border-radius:12px;
-      box-shadow:0 12px 30px rgba(0,0,0,.12);
-      background:#fff;
-      object-fit:contain;
-    }
-    .book-copy h3{ margin:.2rem 0; font-size:1.55rem; }
-    .book-copy .muted{ margin-bottom:.35rem; }
-    .book-copy .book-desc{ margin-top:.6rem; max-width:72ch; }
-    .book-desc p{margin:.65rem 0;line-height:1.7}
+.book-hero{
+  display:grid;
+  gap:24px;                 /* a touch more breathing room */
+  align-items:start;        /* grid items start at the top */
+}
+@media (min-width:900px){
+  .book-hero{ grid-template-columns: 380px 1fr; }  /* was 360 */
+}
+@media (min-width:1280px){
+  .book-hero{ grid-template-columns: 420px 1fr; }  /* was 400 */
+}
+
+.book-cover{
+  display:block;            /* prevents inline-img baseline jiggle */
+  width:100%;
+  height:auto;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  background:#fff;
+  object-fit:contain;
+  align-self:start;         /* top-align the image within the grid cell */
+  margin:0;                 /* guard against UA margins */
+}
+
+.book-copy{
+  align-self:start;         /* top-align the text column too */
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+}
+
+.book-copy h3{ margin:.2rem 0 0; font-size:1.55rem; } /* no top bump */
+.book-copy .muted{ margin-bottom:.35rem; }
+.book-copy .book-desc{ margin-top:.4rem; max-width:72ch; }
+.book-desc p{ margin:.65rem 0; line-height:1.7; }
+
 
     .footer{text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem}
   </style>
