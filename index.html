@@ -145,28 +145,30 @@
 
     <div class="divider" role="presentation"></div>
 
-    <!-- FEATURED BOOK -->
-    <section aria-labelledby="book-heading">
-      <div class="section-head">
-        <h2 id="book-heading">Featured Book</h2>
-        <a href="./books.html">All books →</a>
-      </div>
+<!-- FEATURED BOOK -->
+<section aria-labelledby="book-heading">
+  <div class="section-head">
+    <h2 id="book-heading">Featured Book</h2>
+    <a href="./books.html" style="color:var(--brand);text-decoration:none;font-weight:600">All books →</a>
+  </div>
 
-      <!-- Wrap hero in the card -->
-      <div class="section-card book-hero" id="book-hero">
-        <!-- JS fills this with the featured/current book -->
-        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
-        <div class="book-copy">
-          <h3>Your Current Book</h3>
-          <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
-          <div class="cta-row" style="justify-content:flex-start">
-            <a class="btn" href="./books.html">Learn more</a>
-            <a class="btn ghost" href="./books.html">Buy</a>
-          </div>
-          <div class="book-desc"></div>
+  <div class="feature-box">
+    <div class="feature-grid" id="book-hero">
+      <!-- JS will inject cover + copy + full description -->
+      <div class="feature-media"><img src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy"></div>
+      <div class="feature-body">
+        <h3>Your Current Book</h3>
+        <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
+        <div class="cta-row">
+          <a class="btn" href="./books.html">Learn more</a>
+          <a class="btn ghost" href="./books.html">Buy</a>
         </div>
+        <div class="desc"></div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <div class="divider" role="presentation"></div>
 
