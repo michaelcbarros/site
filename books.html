@@ -61,7 +61,7 @@
 
       <div class="book-hero" id="book-hero">
         <!-- JS fills this. Fallback shows if no data. -->
-        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
+        <img class="book-cover" src="./assets/images/books/pkd.jpg" alt="Book cover" loading="lazy">
         <div>
           <h3 style="margin:.2rem 0">Current Book</h3>
           <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
@@ -112,7 +112,7 @@
       const featured = books.find(b=>b.featured) || books[0];
       const hero = document.getElementById('book-hero');
 
-      const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
+      const cover = featured.cover || featured.image || './assets/images/books/pkd.jpg';
       const learn = featured.url || './books.html';
       const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
       const summary = featured.summary || featured.description || '';
