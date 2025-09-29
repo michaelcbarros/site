@@ -319,3 +319,145 @@
   </script>
 </body>
 </html>
+  <!-- Data (optional, enhances sections if present) -->
+  <script defer src="./js/data/data.js"></script>
+
+  <script>
+    // --- config fallbacks from data.js ---
+    const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {
+      blog: "https://mythonoesis.substack.com/",
+      research: "https://www.researchgate.net/",
+    };
+
+    // --- nav external links ---
+    document.getElementById('nav-blog').href = LINKS.blog;
+    document.getElementById('cta-blog').href = LINKS.blog;
+    document.getElementById('open-substack').href = LINKS.blog;
+    document.getElementById('nav-research').href = LINKS.research;
+
+    // --- rotating tagline ---
+    (function(){
+      const el = document.getElementById('rotating');
+      const lines = (window.SITE_DATA && window.SITE_DATA.taglines) || [
+        "Where myth and meaning surface in games, film, and fiction.",
+        "Exploring how culture becomes a site of religious experience.",
+        "Religion, imagination, and popular culture."
+      ];
+      let i = 0;
+      setInterval(()=>{
+        i = (i + 1) % lines.length;
+        el.style.opacity = 0;
+        setTimeout(()=>{ el.textContent = lines[i]; el.style.opacity = 1; }, 180);
+      }, 4200);
+    })();
+
+    // --- footer year ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- featured book from data.js ---
+    (function(){
+      const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
+      if (!books.length) return;
+      const featured = books.find(b=>b.featured) || books[0];
+      const hero = document.getElementById('book-hero');
+
+      const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
+      const url   = featured.url || './books.html';
+      const summary = featured.summary || featured.description || '';
+
+      hero.innerHTML = `
+        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
+        <div>
+          <h3 style="margin:.2rem 0">${featured.title}</h3>
+          <p class="muted">${summary}</p>
+          <div class="cta-row" style="justify-content:flex-start">
+            <a class="btn" href="${url}">Learn more</a>
+            ${
+              (featured.buy_links && featured.buy_links.length)
+                ? `<a class="btn ghost" href="${featured.buy_links[0].url}" target="_blank" rel="noopener">${featured.buy_links[0].label || 'Buy'}</a>`
+                : ``
+            }
+          </div>
+        </div>
+      `;
+
+      // Reviews (optional)
+      const reviews = featured.reviews || [];
+      const wrap = document.getElementById('reviews-wrap');
+      wrap.innerHTML = '';
+      reviews.slice(0,3).forEach(r=>{
+        const div = document.createElement('div');
+        div.className = 'review';
+        div.innerHTML = `<p>“${(r.quote||'').replace(/(^"|"$)/g,'')}”</p><small>— ${r.source||'Reviewer'}</small>`;
+        wrap.appendChild(div);
+      });
+    })();
+
+    // --- projects (flip cards) ---
+    (function(){
+      const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
+      if (!projects.length) return; // keep static fallback
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+      projects.slice(0,6).forEach(p=>{
+        if (p.description) {
+          const c = document.createElement('div');
+          c.className = 'flip';
+          c.innerHTML = `
+            <a class="flip-inner" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
+              <div class="flip-face">
+                <span class="badge">${p.status || p.type || 'Project'}</span>
+                <h3>${p.title}</h3>
+                <p class="muted">${p.short || p.summary || ''}</p>
+              </div>
+              <div class="flip-back">
+                <h3>${p.title}</h3>
+                <p class="muted">${p.description}</p>
+              </div>
+            </a>`;
+          grid.appendChild(c);
+        } else {
+          const a = document.createElement('a');
+          a.className = 'card';
+          a.href = p.url || '#';
+          if (p.external) { a.target = "_blank"; a.rel = "noopener"; }
+          a.innerHTML = `
+            <span class="badge">${p.status || p.type || 'Project'}</span>
+            <h3>${p.title}</h3>
+            <p class="muted">${p.short || p.summary || ''}</p>`;
+          grid.appendChild(a);
+        }
+      });
+    })();
+
+    // --- Substack (latest 3) from data.js SUBSTACK_POSTS ---
+    (function(){
+      const feed = document.getElementById('substack-cards');
+      const posts = (window.SUBSTACK_POSTS || [])
+        .slice()
+        .sort((a,b)=> new Date(b.date)-new Date(a.date))
+        .slice(0,3);
+
+      if (!feed) return;
+      if (!posts.length) {
+        feed.innerHTML = `<div class="card muted" style="grid-column:1/-1">Add posts in <code>js/data/data.js</code> (SUBSTACK_POSTS).</div>`;
+        return;
+      }
+
+      posts.forEach(p=>{
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = p.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.innerHTML = `
+          <span class="badge">Substack</span>
+          <h3>${p.title}</h3>
+          <p class="muted">${p.summary || ''}</p>
+        `;
+        feed.appendChild(a);
+      });
+    })();
+  </script>
+</body>
+</html>
