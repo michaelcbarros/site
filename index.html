@@ -96,32 +96,52 @@
 
     <div class="divider" role="presentation"></div>
 
-    <!-- FEATURED BOOK -->
-    <section aria-labelledby="book-heading">
-      <div class="section-head">
-        <h2 id="book-heading">Featured Book</h2>
-        <a href="./books.html">All books →</a>
-      </div>
+<script>
+  // --- featured book from data.js ---
+  (function(){
+    const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
+    if (!books.length) return;
 
-      <div class="book-hero" id="book-hero">
-        <!-- JS fills this with the featured/current book -->
-        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
-        <div>
-          <h3 style="margin:.2rem 0">Your Current Book</h3>
-          <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
-          <div class="cta-row" style="justify-content:flex-start">
-            <a class="btn" href="./books.html">Learn more</a>
-            <a class="btn ghost" href="./books.html">Table of contents</a>
-          </div>
+    const featured = books.find(b => b.featured || b.pin) || books[0];
+    const hero = document.getElementById('book-hero');
+
+    const cover   = featured.cover || featured.image || '/assets/images/books/pkd.jpg';
+    const moreUrl = featured.url || './books.html';
+    const summary = featured.summary || featured.description || '';
+
+    // Buy link preference: amazon -> first buy_links -> none
+    const buyUrl   = featured.amazon || (featured.buy_links && featured.buy_links[0] && featured.buy_links[0].url) || null;
+    const buyLabel = featured.amazon ? 'Buy on Amazon →'
+                    : (featured.buy_links && featured.buy_links[0] && featured.buy_links[0].label) || 'Buy →';
+
+    hero.innerHTML = `
+      <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
+      <div>
+        <h3 style="margin:.2rem 0">${featured.title}</h3>
+        <p class="muted">${summary}</p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn" href="${moreUrl}">Learn more</a>
+          ${buyUrl ? `<a class="btn ghost" href="${buyUrl}" target="_blank" rel="noopener">${buyLabel}</a>` : ''}
         </div>
       </div>
+    `;
 
-      <div id="reviews-wrap" class="reviews" style="margin-top:14px">
-        <!-- optional blurb cards inserted here -->
-      </div>
-    </section>
+    // Reviews (endorsements) — supports {quote, source, role}
+    const reviews = Array.isArray(featured.reviews) ? featured.reviews : [];
+    const wrap = document.getElementById('reviews-wrap');
+    wrap.innerHTML = '';
+    reviews.slice(0,3).forEach(r=>{
+      const quote = String(r.quote || '').replace(/(^"|"$)/g,'');
+      const role  = r.role ? `<br><span class="role">${r.role}</span>` : '';
+      const card  = document.createElement('div');
+      card.className = 'review';
+      card.innerHTML = `<p>“${quote}”</p><small>— ${r.source || 'Reviewer'}${role}</small>`;
+      wrap.appendChild(card);
+    });
+    if (!wrap.children.length) wrap.remove(); // hide empty reviews area
+  })();
+</script>
 
-    <div class="divider" role="presentation"></div>
 
     <!-- PROJECTS -->
     <section aria-labelledby="projects-heading">
