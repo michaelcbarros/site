@@ -260,40 +260,43 @@
       });
     })();
 
-    // --- projects (flip cards) ---
-    (function(){
-      const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
-      if (!projects.length) return; // keep the static 3
-      const grid = document.getElementById('projects-grid');
-      grid.innerHTML = '';
-      projects.slice(0,6).forEach(p=>{
-        // flip card if description exists, else a standard card
-        if (p.description) {
-          const c = document.createElement('div');
-          c.className = 'flip';
-          c.innerHTML = `
-            <a class="flip-inner" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
-              <div class="flip-face">
-                <span class="badge">${p.status || p.type || 'Project'}</span>
-                <h3>${p.title}</h3>
-                <p class="muted">${p.short || p.summary || ''}</p>
-              </div>
-              <div class="flip-back">
-                <h3>${p.title}</h3>
-                <p class="muted">${p.description}</p>
-              </div>
-            </a>`;
-          grid.appendChild(c);
-        } else {
-          const a = document.createElement('a');
-          a.className = 'card';
-          a.href = p.url || '#';
-          if (p.external) { a.target = "_blank"; a.rel = "noopener"; }
-          a.innerHTML = `<span class="badge">${p.status || p.type || 'Project'}</span><h3>${p.title}</h3><p class="muted">${p.short || p.summary || ''}</p>`;
-          grid.appendChild(a);
-        }
-      });
-    })();
+    <script>
+  // --- projects (flip cards) ---
+  (function(){
+    const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
+    if (!projects.length) return; // keep the static 3
+    const grid = document.getElementById('projects-grid');
+    grid.innerHTML = '';
+    projects.slice(0,6).forEach(p=>{
+      const hasCover = !!p.cover; // image presence controls flipping
+      if (p.description) {
+        const c = document.createElement('div');
+        c.className = 'flip' + (hasCover ? ' has-cover' : '');
+        c.innerHTML = `
+          <a class="flip-inner" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
+            <div class="flip-face">
+              <span class="badge">${p.status || p.type || 'Project'}</span>
+              <h3>${p.title}</h3>
+              <p class="muted">${p.short || p.summary || ''}</p>
+            </div>
+            <div class="flip-back">
+              <h3>${p.title}</h3>
+              <p class="muted">${p.description}</p>
+            </div>
+          </a>`;
+        grid.appendChild(c);
+      } else {
+        const a = document.createElement('a');
+        a.className = 'card';
+        a.href = p.url || '#';
+        if (p.external) { a.target = "_blank"; a.rel = "noopener"; }
+        a.innerHTML = `<span class="badge">${p.status || p.type || 'Project'}</span><h3>${p.title}</h3><p class="muted">${p.short || p.summary || ''}</p>`;
+        grid.appendChild(a);
+      }
+    });
+  })();
+</script>
+
 
     // --- Substack (latest 3) from data.js SUBSTACK_POSTS ---
     (function(){
