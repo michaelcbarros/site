@@ -29,6 +29,10 @@
     .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
     .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
     .empty{padding:1rem;border:1px dashed #e5e7eb;border-radius:.75rem;background:#fafafa}
+ .book-hero { align-items: start }
+.book-hero h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); letter-spacing:-.01em }
+.review { background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:10px;padding:12px }
+
   </style>
 </head>
 <body class="page">
@@ -97,64 +101,73 @@
     document.getElementById('nav-research').href = LINKS.research;
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function renderBooks(){
-      const books = (window.SITE_DATA && Array.isArray(window.SITE_DATA.books) && window.SITE_DATA.books.length
-                    ? window.SITE_DATA.books
-                    : (Array.isArray(window.BOOKS) ? window.BOOKS : []));
-
-      // If nothing loaded, show a helpful hint
-      if (!books.length){
-        console.warn("No books found. Check that ./js/data/data.js is loading and defines SITE_DATA.books or BOOKS.");
-        document.getElementById('empty-msg').style.display = 'block';
-        return;
-      }
-
-      const featured = books.find(b=>b.featured) || books[0];
-      const hero = document.getElementById('book-hero');
-
-      const cover = featured.cover || featured.image || './assets/images/books/pkd.jpg';
-      const learn = featured.url || './books.html';
-      const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
-      const summary = featured.summary || featured.description || '';
-
-      hero.innerHTML = `
-        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
-        <div>
-          <h3 style="margin:.2rem 0">${featured.title}</h3>
-          ${summary ? `<p class="muted">${summary}</p>` : ``}
-          <div class="cta-row">
-            <a class="btn" href="${learn}">All books</a>
-            ${buy ? `<a class="btn ghost" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ``}
-          </div>
-        </div>
-      `;
-
-      // Render the rest
-      const rest = books.filter(b => b !== featured);
-      const wrap = document.getElementById('more-books');
-      wrap.innerHTML = '';
-      if (!rest.length){
-        document.getElementById('empty-msg').style.display = 'block';
-        return;
-      }
-      document.getElementById('empty-msg').style.display = 'none';
-
-      rest.forEach(b=>{
-        const a = document.createElement('a');
-        a.className = 'card';
-        a.href = b.url || '#';
-        if (b.external) { a.target = "_blank"; a.rel = "noopener"; }
-        a.innerHTML = `
-          <span class="badge">${b.status || 'Book'}</span>
-          <h3>${b.title}</h3>
-          <p class="muted">${b.description || b.summary || ''}</p>
-        `;
-        wrap.appendChild(a);
-      });
+    <script>
+  function renderBooks(){
+    const books = (window.SITE_DATA && Array.isArray(window.SITE_DATA.books) ? window.SITE_DATA.books : (window.BOOKS || []));
+    const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (!books.length){
+      console.warn("No books found. Check js/data/data.js and SITE_DATA.books.");
+      document.getElementById('empty-msg')?.style.setProperty('display','block');
+      return;
     }
 
-    // Run after data.js has had a chance to load
-    window.addEventListener('DOMContentLoaded', ()=> setTimeout(renderBooks, 30));
-  </script>
-</body>
-</html>
+    const featured = books.find(b=>b.featured) || books[0];
+    const hero = document.getElementById('book-hero');
+
+    // Build text column first
+    const text = document.createElement('div');
+    text.innerHTML = `
+      <h2 style="margin:.2rem 0 0.4rem;font-size:1.9rem">${featured.title}</h2>
+      ${featured.description ? `<p class="muted" style="margin:0.4rem 0 0.6rem">${featured.description}</p>` : (featured.summary ? `<p class="muted">${featured.summary}</p>` : ``)}
+      <div class="cta-row" style="justify-content:flex-start">
+        <a class="btn" href="${featured.url || './books.html'}">All books</a>
+        ${featured.buy_links?.length ? `<a class="btn ghost" href="${featured.buy_links[0].url}" target="_blank" rel="noopener">${featured.buy_links[0].label || 'Buy'}</a>` : ``}
+      </div>
+      ${featured.reviews?.length ? `
+        <div class="review" style="margin-top:14px">
+          <p style="margin:0 0 .4rem">“${featured.reviews[0].quote.replace(/(^"|"$)/g,'')}”</p>
+          <small>— ${featured.reviews[0].source}</small>
+        </div>` : ``}
+    `;
+
+    // Build image (with onload/onerror to avoid alt flash)
+    const imgWrap = document.createElement('div');
+    const img = new Image();
+    img.className = 'book-cover';
+    img.alt = `${featured.title} cover`;
+    img.loading = 'lazy';
+    img.src = featured.cover || './assets/images/books/placeholder.jpg';
+    img.onerror = () => { img.src = './assets/images/books/placeholder.jpg'; };
+    imgWrap.appendChild(img);
+
+    // Lay out: cover left, text right (on large screens)
+    hero.innerHTML = '';
+    hero.appendChild(imgWrap);
+    hero.appendChild(text);
+
+    // Render the rest
+    const rest = books.filter(b => b !== featured);
+    const wrap = document.getElementById('more-books');
+    wrap.innerHTML = '';
+    if (!rest.length){
+      document.getElementById('empty-msg')?.style.setProperty('display','block');
+      return;
+    }
+    document.getElementById('empty-msg')?.style.setProperty('display','none');
+
+    rest.forEach(b=>{
+      const a = document.createElement('a');
+      a.className = 'card';
+      a.href = b.url || '#';
+      if (b.external) { a.target = "_blank"; a.rel = "noopener"; }
+      a.innerHTML = `
+        <span class="badge">${b.status || 'Book'}</span>
+        <h3>${b.title}</h3>
+        <p class="muted">${b.description || b.summary || ''}</p>
+      `;
+      wrap.appendChild(a);
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', ()=> setTimeout(renderBooks, 30));
+</script>
