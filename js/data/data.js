@@ -158,3 +158,5 @@
   window.ESSAYS = ESSAYS;
   window.READING = READING;
 })();
+
+<script src="./js/nav.js"></script>
