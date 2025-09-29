@@ -11,16 +11,21 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
-    :root{ --ink:#111827; --muted:#6b7280; --accent:#0f766e; --bg:#F7F4EE; --card:#fff; --ring:rgba(15,118,110,.25); }
+    /* Light augmentation that cooperates with style.css */
+    :root{
+      --ink:#111827; --muted:#6b7280; --accent:#0f766e; --bg:#F7F4EE; --card:#fff; --ring:rgba(15,118,110,.25);
+    }
     body{background:var(--bg);color:var(--ink)}
     .shell{max-width:1060px;margin:0 auto;padding:20px 20px 48px}
 
+    /* Header / nav */
     .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
     .brand{font-weight:700;text-decoration:none;color:var(--ink)}
     .nav{display:flex;gap:18px;flex-wrap:wrap}
     .nav a{color:var(--ink);text-decoration:none}
     .nav a:hover{text-decoration:underline}
 
+    /* Hero */
     .hero{padding:42px 0 20px;text-align:center}
     .hero h1{margin:.25rem 0 .4rem;font-size:clamp(1.8rem,2.8vw,2.6rem)}
     .tagline{color:var(--muted);min-height:1.6em;transition:opacity .35s}
@@ -30,12 +35,14 @@
     .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
     .divider{height:1px;background:#e5e7eb;margin:28px 0}
 
+    /* Cards */
     .grid{display:grid;gap:16px}
     @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
     .card{background:var(--card);border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s;color:inherit;text-decoration:none;display:block}
     .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
     .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
 
+    /* Flip card (for projects / writing previews) */
     .flip{perspective:1000px}
     .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .5s}
     .flip:hover .flip-inner{transform:rotateY(180deg)}
@@ -48,47 +55,48 @@
     .section-head a{color:var(--accent);text-decoration:none;font-weight:600}
     .section-head a:hover{text-decoration:underline}
 
-    .book-hero{display:grid;gap:18px;align-items:center}
-    @media(min-width:900px){.book-hero{grid-template-columns:160px 1fr}}
-    .book-cover{width:100%;height:auto;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+    /* Featured book hero (bigger cover) */
+    .book-hero{display:grid;gap:18px;align-items:start}
+    @media(min-width:900px){.book-hero{grid-template-columns:300px 1fr}}
+    .book-cover{width:100%;height:auto;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+    .book-copy h3{margin:.2rem 0}
+    .book-copy .muted{margin:.4rem 0 .6rem}
+    .book-desc p{margin:.65rem 0;line-height:1.7}
 
-    .reviews{display:grid;gap:12px}
-    @media(min-width:900px){.reviews{grid-template-columns:repeat(3,1fr)}}
-    .review{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:10px;padding:12px}
-    .review small{color:var(--muted)}
     .footer{text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem}
   </style>
-
-  <!-- IMPORTANT: load site data BEFORE inline scripts -->
-  <script src="./js/data/data.js"></script>
 </head>
 
 <body>
   <div class="shell">
+    <!-- HEADER -->
     <header class="site-header">
       <a class="brand" href="./index.html">Michael C. Barros</a>
       <nav class="nav" aria-label="Main">
         <a href="./about.html">About</a>
         <a href="./books.html">Books</a>
-        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
         <a href="./projects.html">Projects</a>
         <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
         <a href="./contact.html">Contact</a>
       </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero" aria-labelledby="title">
       <h1 id="title">Michael C. Barros</h1>
-      <p id="rotating" class="tagline">Where myth and meaning surface in games, film, and fiction.</p>
+      <p id="rotating" class="tagline">
+        Where myth and meaning surface in games, film, and fiction.
+      </p>
       <div class="cta-row" role="group" aria-label="Primary actions">
         <a class="btn" href="./books.html">Explore Books →</a>
-        <a class="btn ghost" id="cta-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Visit Substack →</a>
+        <a class="btn ghost" id="cta-blog" href="#" target="_blank" rel="noopener">Visit Substack →</a>
       </div>
     </section>
 
     <div class="divider" role="presentation"></div>
 
-    <!-- Featured Book -->
+    <!-- FEATURED BOOK -->
     <section aria-labelledby="book-heading">
       <div class="section-head">
         <h2 id="book-heading">Featured Book</h2>
@@ -96,29 +104,30 @@
       </div>
 
       <div class="book-hero" id="book-hero">
+        <!-- JS fills this with the featured/current book -->
         <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
-        <div>
-          <h3 style="margin:.2rem 0">Your Current Book</h3>
+        <div class="book-copy">
+          <h3>Your Current Book</h3>
           <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
           <div class="cta-row" style="justify-content:flex-start">
             <a class="btn" href="./books.html">Learn more</a>
             <a class="btn ghost" href="./books.html">Buy</a>
           </div>
+          <div class="book-desc"></div>
         </div>
       </div>
-
-      <div id="reviews-wrap" class="reviews" style="margin-top:14px"></div>
     </section>
 
     <div class="divider" role="presentation"></div>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section aria-labelledby="projects-heading">
       <div class="section-head">
         <h2 id="projects-heading">Projects</h2>
         <a href="./projects.html">More →</a>
       </div>
       <div class="grid cols-3" id="projects-grid">
+        <!-- Fallback static cards; JS will replace if projects exist -->
         <div class="flip">
           <div class="flip-inner">
             <div class="flip-face">
@@ -147,11 +156,11 @@
 
     <div class="divider" role="presentation"></div>
 
-    <!-- Substack -->
+    <!-- MEDIA / LATEST FROM SUBSTACK -->
     <section aria-labelledby="media-heading">
       <div class="section-head">
         <h2 id="media-heading">Latest from Substack</h2>
-        <a id="open-substack" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Open Substack →</a>
+        <a id="open-substack" href="#" target="_blank" rel="noopener">Open Substack →</a>
       </div>
       <div class="grid cols-3" id="substack-cards"></div>
     </section>
@@ -159,18 +168,12 @@
     <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
-  <script>
-    // Links from SITE_DATA
-    (function(){
-      const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      document.getElementById('nav-blog').href     = LINKS.blog || 'https://mythonoesis.substack.com/';
-      document.getElementById('cta-blog').href     = LINKS.blog || 'https://mythonoesis.substack.com/';
-      document.getElementById('open-substack').href= LINKS.blog || 'https://mythonoesis.substack.com/';
-      document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
-      document.getElementById('year').textContent  = new Date().getFullYear();
-    })();
+  <!-- Data + shared nav config -->
+  <script defer src="./js/data/data.js"></script>
+  <script defer src="./js/nav.js"></script>
 
-    // Rotating tagline
+  <script>
+    // --- rotating tagline ---
     (function(){
       const el = document.getElementById('rotating');
       const lines = (window.SITE_DATA && window.SITE_DATA.taglines) || [
@@ -182,45 +185,42 @@
       setInterval(()=>{ i=(i+1)%lines.length; el.style.opacity=0; setTimeout(()=>{ el.textContent = lines[i]; el.style.opacity=1; },180);}, 4200);
     })();
 
-    // Featured book
+    // --- footer year ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- featured book (bigger cover + full description; NO reviews on home) ---
     (function(){
-      const books = (window.SITE_DATA && window.SITE_DATA.books) || [];
+      const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
       if (!books.length) return;
       const featured = books.find(b=>b.featured) || books[0];
       const hero = document.getElementById('book-hero');
 
       const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
       const url   = featured.url || './books.html';
-      const summary = featured.summary || featured.description || '';
-      const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
+      const buy   = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
+      const desc  = featured.description || featured.summary || "";
 
+      // Build hero block
       hero.innerHTML = `
         <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
-        <div>
-          <h3 style="margin:.2rem 0">${featured.title}</h3>
-          <p class="muted">${summary}</p>
+        <div class="book-copy">
+          <h3>${featured.title}</h3>
+          ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ``}
           <div class="cta-row" style="justify-content:flex-start">
             <a class="btn" href="${url}">Learn more</a>
             ${buy ? `<a class="btn ghost" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ``}
           </div>
+          <div class="book-desc">
+            ${desc.split(/\n{2,}/).map(p=>`<p>${p.trim()}</p>`).join("")}
+          </div>
         </div>
       `;
-
-      // Reviews (optional)
-      const wrap = document.getElementById('reviews-wrap');
-      wrap.innerHTML = '';
-      (featured.reviews || []).slice(0,3).forEach(r=>{
-        const div = document.createElement('div');
-        div.className = 'review';
-        div.innerHTML = `<p>“${(r.quote||'').replace(/(^"|"$)/g,'')}”</p><small>— ${r.source||'Reviewer'}</small>`;
-        wrap.appendChild(div);
-      });
     })();
 
-    // Projects
+    // --- projects (flip cards) ---
     (function(){
-      const projects = (window.SITE_DATA && window.SITE_DATA.projects) || [];
-      if (!projects.length) return;
+      const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
+      if (!projects.length) return; // keep the static 3
       const grid = document.getElementById('projects-grid');
       grid.innerHTML = '';
       projects.slice(0,6).forEach(p=>{
@@ -251,17 +251,30 @@
       });
     })();
 
-    // Substack (latest 3)
+    // --- Substack (latest 3) ---
     (function(){
       const feed = document.getElementById('substack-cards');
-      const posts = (window.SITE_DATA && window.SITE_DATA.substack && window.SITE_DATA.substack.posts) || [];
-      const list = posts.slice().sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0,3);
-      if (!list.length){ feed.innerHTML = `<div class="card muted" style="grid-column:1/-1">Add posts in <code>js/data/data.js</code> (SUBSTACK_POSTS).</div>`; return; }
-      list.forEach(p=>{
+      const posts = (window.SITE_DATA?.substack?.posts || window.SUBSTACK_POSTS || [])
+        .slice()
+        .sort((a,b)=> new Date(b.date)-new Date(a.date))
+        .slice(0,3);
+      const blogUrl = (window.SITE_DATA?.links?.blog) || (window.LINKS?.blog) || 'https://mythonoesis.substack.com/';
+      document.getElementById('open-substack').href = blogUrl;
+
+      if (!feed) return;
+      if (!posts.length){
+        feed.innerHTML = `<div class="card muted" style="grid-column:1/-1">Add posts in <code>js/data/data.js</code> (SUBSTACK_POSTS).</div>`;
+        return;
+      }
+      posts.forEach(p=>{
         const a = document.createElement('a');
         a.className = 'card';
         a.href = p.url; a.target = "_blank"; a.rel = "noopener";
-        a.innerHTML = `<span class="badge">Substack</span><h3>${p.title}</h3><p class="muted">${p.summary || ''}</p>`;
+        a.innerHTML = `
+          <span class="badge">Substack</span>
+          <h3>${p.title}</h3>
+          <p class="muted">${p.summary || ''}</p>
+        `;
         feed.appendChild(a);
       });
     })();
