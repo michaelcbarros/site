@@ -23,13 +23,11 @@
   const BOOKS = [
     {
       id: "pkd-theology",
-      title: "The Theology of Philip K. Dick",
+      title: "The Esoteric Theology of Philip K. Dick",
       featured: true,                       // homepage & books hero will pick this one
       status: "Published",
       cover: "./assets/images/books/pkd.jpg", // project-relative (no leading slash)
       url: "./books.html#pkd-theology",
-      summary:
-        "A scholarly collection on Philip K. Dick’s mystical experiences and esoteric Christian gnosis.",
       description:
         "This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.",
       buy_links: [
