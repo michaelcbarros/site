@@ -4,35 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Books — Michael C. Barros</title>
+
   <link rel="stylesheet" href="./style.css" />
-  <!-- Load your data source (must exist at this path) -->
-  <script defer src="./js/data/data.js"></script>
   <style>
-    .shell{max-width:1060px;margin:0 auto;padding:20px 20px 48px}
+    /* Scoped polish for the Books hero */
+    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25); }
+    .shell{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
     .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
     .brand{font-weight:700;text-decoration:none;color:var(--ink)}
     .nav{display:flex;gap:18px;flex-wrap:wrap}
     .nav a{color:var(--ink);text-decoration:none}
     .nav a:hover{text-decoration:underline}
-    .hero--compact{padding:18px 0 6px}
+
+    .page-title{font-size:2.25rem;margin:0 0 .35rem}
     .muted{color:var(--muted)}
-    .book-hero{display:grid;gap:18px;align-items:center}
-    @media(min-width:900px){.book-hero{grid-template-columns:180px 1fr}}
-    .book-cover{width:100%;height:auto;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.08)}
-    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.5rem}
-    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+    .divider{height:1px;background:#e5e7eb;margin:24px 0}
+
+    .book-hero{display:grid;gap:22px;align-items:start}
+    @media(min-width:980px){ .book-hero{grid-template-columns: 280px 1fr} }
+    .book-cover{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+    .book-head h2{margin:.1rem 0 .35rem;font-size:1.75rem}
+    .status-pill{display:inline-block;font-size:.75rem;border:1px solid #e5e7eb;border-radius:999px;padding:.22rem .6rem;margin-right:.4rem}
+    .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:#111827;color:#fff;font-weight:700;text-decoration:none}
     .btn:hover{filter:brightness(1.08)}
-    .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+    .btn.ghost{background:transparent;color:#111827;border:2px solid #111827}
+
+    .desc p{margin:.65rem 0;line-height:1.7}
+    .blurbs{display:grid;gap:16px;margin-top:18px}
+    @media(min-width:980px){ .blurbs{grid-template-columns: repeat(2,1fr)} }
+    .blurb{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .blurb blockquote{margin:0 0 .6rem;font-size:1.05rem;line-height:1.6}
+    .blurb small{color:var(--muted)}
+
+    .more-wrap{margin-top:28px}
     .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
     .card{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s}
     .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
-    .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
-    .empty{padding:1rem;border:1px dashed #e5e7eb;border-radius:.75rem;background:#fafafa}
- .book-hero { align-items: start }
-.book-hero h2 { font-size: clamp(1.8rem, 3.2vw, 2.4rem); letter-spacing:-.01em }
-.review { background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:10px;padding:12px }
-
   </style>
 </head>
 <body class="page">
@@ -50,124 +59,130 @@
       </nav>
     </header>
 
-    <section class="hero--compact">
-      <h1>Books</h1>
+    <section>
+      <h1 class="page-title">Books</h1>
       <p class="muted">Published and forthcoming work on religion and popular culture.</p>
     </section>
 
     <div class="divider"></div>
 
-    <!-- Featured -->
+    <!-- Featured book -->
     <section aria-labelledby="featured-heading">
-      <div class="section-head">
-        <h2 id="featured-heading">Featured</h2>
-      </div>
-
+      <h2 id="featured-heading" style="margin:0 0 .6rem">Featured</h2>
       <div class="book-hero" id="book-hero">
-        <!-- JS fills this. Fallback shows if no data. -->
-        <img class="book-cover" src="./assets/images/books/pkd.jpg" alt="Book cover" loading="lazy">
-        <div>
-          <h3 style="margin:.2rem 0">Current Book</h3>
+        <!-- JS will render cover + content here -->
+        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
+        <div class="book-head">
+          <h2>Current Book</h2>
           <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
           <div class="cta-row">
-            <a class="btn" href="./books.html">All books</a>
-            <a class="btn ghost" href="https://amzn.to/46Fn12N" target="_blank" rel="noopener">Buy on Amazon</a>
+            <!-- Only show Buy; we remove “All books” as requested -->
+            <a class="btn" href="#" id="buy-link" target="_blank" rel="noopener">Buy on Amazon</a>
           </div>
         </div>
       </div>
+
+      <!-- Description + blurbs -->
+      <div id="book-extras" class="more-wrap" style="display:none">
+        <div class="desc" id="book-desc"></div>
+        <div class="blurbs" id="book-blurbs"></div>
+      </div>
     </section>
 
-    <div class="divider"></div>
-
-    <!-- More Books -->
-    <section aria-labelledby="more-heading">
-      <div class="section-head">
-        <h2 id="more-heading">More Books</h2>
-      </div>
-      <div id="more-books" class="grid cols-3"></div>
-      <div id="empty-msg" class="empty" style="display:none">No additional books yet.</div>
+    <!-- More books (hidden when there’s only one) -->
+    <section id="more-books" class="more-wrap" style="display:none">
+      <h2>More Books</h2>
+      <div class="grid cols-3" id="books-grid"></div>
     </section>
 
     <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
+  <script defer src="./js/data/data.js"></script>
   <script>
-    // Basic external links (optional)
-    const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {
-      blog: "https://mythonoesis.substack.com/",
-      research: "https://www.researchgate.net/",
-    };
-    document.getElementById('nav-blog').href = LINKS.blog;
-    document.getElementById('nav-research').href = LINKS.research;
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // external links
+    (function(){
+      const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
+      document.getElementById('nav-blog').href = LINKS.blog || 'https://mythonoesis.substack.com/';
+      document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
 
-    <script>
-  function renderBooks(){
-    const books = (window.SITE_DATA && Array.isArray(window.SITE_DATA.books) ? window.SITE_DATA.books : (window.BOOKS || []));
-    const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
-    if (!books.length){
-      console.warn("No books found. Check js/data/data.js and SITE_DATA.books.");
-      document.getElementById('empty-msg')?.style.setProperty('display','block');
-      return;
-    }
+    // books rendering
+    (function(){
+      const data = window.SITE_DATA || {};
+      const books = Array.isArray(data.books) ? data.books : (window.BOOKS || []);
+      if (!books.length) return;
 
-    const featured = books.find(b=>b.featured) || books[0];
-    const hero = document.getElementById('book-hero');
+      const featured = books.find(b => b.featured) || books[0];
 
-    // Build text column first
-    const text = document.createElement('div');
-    text.innerHTML = `
-      <h2 style="margin:.2rem 0 0.4rem;font-size:1.9rem">${featured.title}</h2>
-      ${featured.description ? `<p class="muted" style="margin:0.4rem 0 0.6rem">${featured.description}</p>` : (featured.summary ? `<p class="muted">${featured.summary}</p>` : ``)}
-      <div class="cta-row" style="justify-content:flex-start">
-        <a class="btn" href="${featured.url || './books.html'}">All books</a>
-        ${featured.buy_links?.length ? `<a class="btn ghost" href="${featured.buy_links[0].url}" target="_blank" rel="noopener">${featured.buy_links[0].label || 'Buy'}</a>` : ``}
-      </div>
-      ${featured.reviews?.length ? `
-        <div class="review" style="margin-top:14px">
-          <p style="margin:0 0 .4rem">“${featured.reviews[0].quote.replace(/(^"|"$)/g,'')}”</p>
-          <small>— ${featured.reviews[0].source}</small>
-        </div>` : ``}
-    `;
+      // Hero
+      const hero = document.getElementById('book-hero');
+      const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
+      const status = featured.status ? `<span class="status-pill">${featured.status}</span>` : '';
+      const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
 
-    // Build image (with onload/onerror to avoid alt flash)
-    const imgWrap = document.createElement('div');
-    const img = new Image();
-    img.className = 'book-cover';
-    img.alt = `${featured.title} cover`;
-    img.loading = 'lazy';
-    img.src = featured.cover || './assets/images/books/placeholder.jpg';
-    img.onerror = () => { img.src = './assets/images/books/placeholder.jpg'; };
-    imgWrap.appendChild(img);
-
-    // Lay out: cover left, text right (on large screens)
-    hero.innerHTML = '';
-    hero.appendChild(imgWrap);
-    hero.appendChild(text);
-
-    // Render the rest
-    const rest = books.filter(b => b !== featured);
-    const wrap = document.getElementById('more-books');
-    wrap.innerHTML = '';
-    if (!rest.length){
-      document.getElementById('empty-msg')?.style.setProperty('display','block');
-      return;
-    }
-    document.getElementById('empty-msg')?.style.setProperty('display','none');
-
-    rest.forEach(b=>{
-      const a = document.createElement('a');
-      a.className = 'card';
-      a.href = b.url || '#';
-      if (b.external) { a.target = "_blank"; a.rel = "noopener"; }
-      a.innerHTML = `
-        <span class="badge">${b.status || 'Book'}</span>
-        <h3>${b.title}</h3>
-        <p class="muted">${b.description || b.summary || ''}</p>
+      hero.innerHTML = `
+        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
+        <div class="book-head">
+          <div>${status}</div>
+          <h2>${featured.title}</h2>
+          ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ``}
+          <div class="cta-row">
+            ${buy ? `<a class="btn" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ``}
+          </div>
+        </div>
       `;
-      wrap.appendChild(a);
-    });
-  }
 
-  window.addEventListener('DOMContentLoaded', ()=> setTimeout(renderBooks, 30));
-</script>
+      // Description + blurbs
+      const extras = document.getElementById('book-extras');
+      const descEl = document.getElementById('book-desc');
+      const blurbsEl = document.getElementById('book-blurbs');
+
+      const paragraphs = (featured.description || '')
+        .split(/\n{2,}/)            // support hard breaks if you add them later
+        .map(s => s.trim())
+        .filter(Boolean);
+
+      if (paragraphs.length) {
+        descEl.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+      }
+
+      const reviews = featured.reviews || [];
+      if (reviews.length) {
+        blurbsEl.innerHTML = reviews.slice(0,2).map(r => `
+          <div class="blurb">
+            <blockquote>“${(r.quote || '').replace(/^"|”$/g,'')}”</blockquote>
+            <small>— ${r.source || 'Reviewer'}</small>
+          </div>
+        `).join('');
+      }
+
+      if (paragraphs.length || reviews.length) {
+        extras.style.display = 'block';
+      }
+
+      // More books (if any beyond featured)
+      const others = books.filter(b => b !== featured);
+      if (others.length) {
+        const wrap = document.getElementById('more-books');
+        const grid = document.getElementById('books-grid');
+        grid.innerHTML = others.map(b => `
+          <article class="card">
+            <div style="display:flex; gap:12px">
+              ${b.cover ? `<img src="${b.cover}" alt="" style="width:80px;height:auto;border-radius:8px">` : ``}
+              <div>
+                <div class="status-pill">${b.status || 'Book'}</div>
+                <h3 style="margin:.35rem 0 .2rem">${b.title}</h3>
+                ${b.summary ? `<p class="muted">${b.summary}</p>` : ``}
+                ${(b.buy_links && b.buy_links[0]) ? `<p style="margin-top:.4rem"><a class="btn btn-sm" style="padding:.5rem .8rem" href="${b.buy_links[0].url}" target="_blank" rel="noopener">${b.buy_links[0].label || 'Buy'}</a></p>` : ``}
+              </div>
+            </div>
+          </article>
+        `).join('');
+        wrap.style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
