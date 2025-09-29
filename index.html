@@ -55,12 +55,40 @@
     .section-head a{color:var(--accent);text-decoration:none;font-weight:600}
     .section-head a:hover{text-decoration:underline}
 
-    /* Featured book hero (bigger cover) */
-    .book-hero{display:grid;gap:18px;align-items:start}
-    @media(min-width:900px){.book-hero{grid-template-columns:300px 1fr}}
-    .book-cover{width:100%;height:auto;border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.12)}
-    .book-copy h3{margin:.2rem 0}
-    .book-copy .muted{margin:.4rem 0 .6rem}
+    /* --- Featured Book container ("dynamic box") --- */
+    .section-card{
+      background:#fff;
+      border:1px solid rgba(160,125,59,.25);
+      border-radius:16px;
+      box-shadow:0 8px 26px rgba(0,0,0,.06);
+      padding:18px;
+    }
+    @media (min-width:900px){ .section-card{ padding:22px 22px; } }
+
+    /* --- Featured Book layout --- */
+    .book-hero{
+      display:grid;
+      gap:20px;
+      align-items:start;
+    }
+    @media (min-width:900px){
+      .book-hero{ grid-template-columns: 360px 1fr; }
+    }
+    @media (min-width:1280px){
+      .book-hero{ grid-template-columns: 400px 1fr; }
+    }
+
+    .book-cover{
+      width:100%;
+      height:auto;
+      border-radius:12px;
+      box-shadow:0 12px 30px rgba(0,0,0,.12);
+      background:#fff;
+      object-fit:contain;
+    }
+    .book-copy h3{ margin:.2rem 0; font-size:1.55rem; }
+    .book-copy .muted{ margin-bottom:.35rem; }
+    .book-copy .book-desc{ margin-top:.6rem; max-width:72ch; }
     .book-desc p{margin:.65rem 0;line-height:1.7}
 
     .footer{text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem}
@@ -103,7 +131,8 @@
         <a href="./books.html">All books →</a>
       </div>
 
-      <div class="book-hero" id="book-hero">
+      <!-- Wrap hero in the card -->
+      <div class="section-card book-hero" id="book-hero">
         <!-- JS fills this with the featured/current book -->
         <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
         <div class="book-copy">
@@ -168,7 +197,7 @@
     <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
-    <!-- Data + shared nav config -->
+  <!-- Data + shared nav config -->
   <script defer src="./js/data/data.js"></script>
   <script defer src="./js/nav.js"></script>
 
@@ -236,7 +265,7 @@
                 </div>
                 <div class="flip-back">
                   <h3>${p.title}</h3>
-                  <p class="muted">${p.description}</p>
+                  ${p.description ? `<p class="muted">${p.description}</p>` : ``}
                 </div>
               </a>`;
             grid.appendChild(c);
