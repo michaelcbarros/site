@@ -1,113 +1,159 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Michael C. Barros</title>
-  <meta name="description" content="Bio, research focus, and affiliations for Michael C. Barros.">
-  <link rel="stylesheet" href="./style.css">
+
+  <link rel="stylesheet" href="./style.css" />
   <style>
-    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25) }
-    .shell{max-width:960px;margin:0 auto;padding:24px 20px 48px}
-    .site-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
-    .nav{display:flex;gap:18px;flex-wrap:wrap}
-    .nav a{color:var(--ink);text-decoration:none}
-    .nav a[aria-current="page"]{text-decoration:underline}
-    .hero{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center}
-    .hero img{width:110px;height:110px;object-fit:cover;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-    .muted{color:var(--muted)}
-    .lead{font-size:1.1rem}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0}
-    .stat{background:#fff;border:1px solid #e5e7eb;border-radius:.75rem;padding:12px;text-align:center}
-    .stat .n{font-weight:700;font-size:1.25rem}
-    .list{margin:0;padding-left:18px}
-    .btn{display:inline-block;padding:.6rem 1rem;border-radius:.6rem;background:#111827;color:#fff;text-decoration:none;font-weight:700}
+    /* Page-scoped polish for About */
+    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25); }
+    .shell{max-width:1160px;margin:0 auto;padding:24px 20px 56px}
+
+    /* Hero block */
+    .about-hero{
+      display:grid; gap:18px; align-items:end; margin:8px 0 18px;
+    }
+    @media (min-width:980px){
+      .about-hero{ grid-template-columns: minmax(260px, 360px) 1fr; }
+    }
+    .about-title h1{
+      margin:0; font-size:clamp(2rem, 4.2vw, 3.2rem); letter-spacing:-.015em;
+      line-height:1.05;
+    }
+    .about-kicker{
+      color:var(--muted);
+      font-weight:600;
+      line-height:1.25;
+      white-space:pre-line;               /* keeps the stacked lines look */
+    }
+
+    /* Summary paragraph */
+    .lede{font-size:1.05rem; line-height:1.8; color:var(--ink); margin-top:8px}
+
+    /* Quick actions */
+    .cta-row{display:flex; gap:.6rem; flex-wrap:wrap; margin:14px 0 2px}
+    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.8rem;background:#111827;color:#fff;
+      text-decoration:none;font-weight:700;transition:transform .15s ease, box-shadow .15s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.12)}
     .btn.ghost{background:transparent;color:#111827;border:2px solid #111827}
-    .links{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+
+    /* Section headings */
+    .section{margin:26px 0}
+    .section h2{font-size:1.6rem; margin:.2rem 0 .6rem}
+
+    /* Two-column details list */
+    .cols{display:grid; gap:14px}
+    @media(min-width:980px){ .cols{grid-template-columns:1fr 1fr} }
+    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px}
+
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:#e5e7eb;margin:24px 0}
+    .footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.95rem}
   </style>
 </head>
 <body>
   <div class="shell">
+    <!-- Header -->
     <header class="site-header">
       <a class="brand" href="./index.html">Michael C. Barros</a>
       <nav class="nav" aria-label="Main">
         <a href="./about.html" aria-current="page">About</a>
         <a href="./books.html">Books</a>
-        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
         <a href="./projects.html">Projects</a>
         <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
         <a href="./contact.html">Contact</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <img src="./assets/images/hero/portrait.jpg" alt="Michael C. Barros portrait" onerror="this.style.display='none'">
-        <div>
-          <h1>About</h1>
-          <p class="muted">Scholar of religion & popular culture</p>
-        </div>
-      </section>
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-title">
+        <h1>About</h1>
+        <div class="about-kicker">Scholar of
+religion &amp;
+popular
+culture</div>
+      </div>
 
-      <section>
-        <p class="lead">
-          Michael C. Barros studies how games, film, and speculative fiction become sites of religious experience, symbolic imagination, and encounters with the sacred.
-          His work draws on theology, cultural history, and media analysis.
+      <div>
+        <p class="lede">
+          Michael C. Barros studies how games, film, and speculative fiction become sites of religious
+          experience, symbolic imagination, and encounters with the sacred. His work draws on theology,
+          cultural history, and media analysis.
         </p>
-        <div class="links">
+
+        <div class="cta-row" role="group" aria-label="Primary actions">
           <a class="btn" href="./books.html">Books</a>
           <a class="btn ghost" href="./projects.html">Projects</a>
-          <a class="btn ghost" id="cv-link" href="#" target="_blank" rel="noopener">Curriculum Vitae</a>
+          <a class="btn ghost" href="./contact.html">Curriculum Vitae</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <div class="divider"></div>
+    <div class="divider" role="presentation"></div>
 
-      <section aria-labelledby="stats-h">
-        <h2 id="stats-h">At a glance</h2>
-        <div id="stats" class="stats"></div>
-      </section>
+    <!-- Affiliations & Focus -->
+    <section class="section">
+      <h2>Affiliations &amp; Focus</h2>
+      <div class="cols">
+        <div class="card">
+          <h3 style="margin:.1rem 0 .35rem">Areas</h3>
+          <ul class="muted" style="margin:.4rem 0 0; padding-left:1.1rem">
+            <li>Religion &amp; popular culture</li>
+            <li>Myth, ritual, and symbolic imagination</li>
+            <li>Games &amp; interactive media</li>
+            <li>Film and speculative fiction</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:.1rem 0 .35rem">Methods</h3>
+          <ul class="muted" style="margin:.4rem 0 0; padding-left:1.1rem">
+            <li>Theology &amp; religious studies</li>
+            <li>Media analysis &amp; cultural history</li>
+            <li>Reception &amp; adaptation studies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <div class="divider"></div>
+    <!-- Recent & Links -->
+    <section class="section">
+      <h2>Selected Links</h2>
+      <div class="cols">
+        <div class="card">
+          <h3 style="margin:.1rem 0 .35rem">Research profile</h3>
+          <p class="muted" style="margin:.35rem 0 .6rem">
+            External publications, preprints, and works-in-progress.
+          </p>
+          <a class="btn" id="about-research" href="#" target="_blank" rel="noopener">Open ResearchGate</a>
+        </div>
+        <div class="card">
+          <h3 style="margin:.1rem 0 .35rem">Substack</h3>
+          <p class="muted" style="margin:.35rem 0 .6rem">
+            Short-form writing, notes, and ongoing conversations.
+          </p>
+          <a class="btn ghost" id="about-blog" href="#" target="_blank" rel="noopener">Visit Substack</a>
+        </div>
+      </div>
+    </section>
 
-      <section aria-labelledby="aff-h">
-        <h2 id="aff-h">Affiliations & Focus</h2>
-        <ul class="list">
-          <li>Religion & popular culture; myth and meaning in interactive media</li>
-          <li>Theological aesthetics; ritual, simulation, and sacrament</li>
-          <li>Philip K. Dick, Tolkien, and speculative tradition</li>
-        </ul>
-      </section>
-    </main>
-
-    <footer class="footer" style="text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem">
-      © <span id="year"></span> Michael C. Barros
-    </footer>
+    <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
+  <!-- Shared data + nav injection -->
   <script defer src="./js/data/data.js"></script>
+  <script defer src="./js/nav.js"></script>
   <script>
-    // Links from data.js
-    const LINKS=(window.SITE_DATA&&SITE_DATA.links)||window.LINKS||{};
-    const statsData=(window.SITE_DATA&&SITE_DATA.stats)||[];
-    document.getElementById('nav-blog').href = LINKS.blog || 'https://mythonoesis.substack.com/';
-    document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
-    document.getElementById('cv-link').href = (LINKS.cv || '#');
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Render stats if provided in data.js
-    const mount = document.getElementById('stats');
-    if (Array.isArray(statsData) && statsData.length){
-      mount.innerHTML = statsData.map(s=>`
-        <div class="stat">
-          <div class="n">${s.value}</div>
-          <div class="muted" style="font-size:.9rem">${s.label}</div>
-        </div>
-      `).join('');
-    } else {
-      mount.innerHTML = `<div class="muted" style="grid-column:1/-1">Add quick stats in <code>SITE_DATA.stats</code> (e.g., publications, talks, downloads).</div>`;
-    }
+    // Page-local hookups
+    window.addEventListener('DOMContentLoaded', () => {
+      const links = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
+      document.getElementById('about-research').href = links.research || 'https://www.researchgate.net/';
+      document.getElementById('about-blog').href = links.blog || 'https://mythonoesis.substack.com/';
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
