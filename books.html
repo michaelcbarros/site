@@ -70,13 +70,12 @@
     <section aria-labelledby="featured-heading">
       <h2 id="featured-heading" style="margin:0 0 .6rem">Featured</h2>
       <div class="book-hero" id="book-hero">
-        <!-- JS will render cover + content here -->
+        <!-- Fallback until JS renders -->
         <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
         <div class="book-head">
           <h2>Current Book</h2>
           <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
           <div class="cta-row">
-            <!-- Only show Buy; we remove “All books” as requested -->
             <a class="btn" href="#" id="buy-link" target="_blank" rel="noopener">Buy on Amazon</a>
           </div>
         </div>
@@ -98,18 +97,19 @@
     <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
-  <script defer src="./js/data/data.js"></script>
+  <!-- IMPORTANT: load data BEFORE the inline renderer (no defer) -->
+  <script src="./js/data/data.js?v=3"></script>
+
   <script>
-    // external links
-    (function(){
+    // Ensure we run after DOM is ready (and after data.js is loaded)
+    window.addEventListener('DOMContentLoaded', function () {
+      // external links
       const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
       document.getElementById('nav-blog').href = LINKS.blog || 'https://mythonoesis.substack.com/';
       document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
       document.getElementById('year').textContent = new Date().getFullYear();
-    })();
 
-    // books rendering
-    (function(){
+      // books rendering
       const data = window.SITE_DATA || {};
       const books = Array.isArray(data.books) ? data.books : (window.BOOKS || []);
       if (!books.length) return;
@@ -134,13 +134,13 @@
         </div>
       `;
 
-      // Description + blurbs
+      // Description + blurbs (Peterson-style)
       const extras = document.getElementById('book-extras');
       const descEl = document.getElementById('book-desc');
       const blurbsEl = document.getElementById('book-blurbs');
 
       const paragraphs = (featured.description || '')
-        .split(/\n{2,}/)            // support hard breaks if you add them later
+        .split(/\n{2,}/)
         .map(s => s.trim())
         .filter(Boolean);
 
@@ -182,7 +182,7 @@
         `).join('');
         wrap.style.display = 'block';
       }
-    })();
+    });
   </script>
 </body>
 </html>
