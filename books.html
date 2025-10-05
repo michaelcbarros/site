@@ -22,18 +22,18 @@
       gap: 0.35rem;
       padding: 0.3rem 0.85rem;
       border-radius: 999px;
-      border: 1px solid rgba(192, 132, 252, 0.4);
-      background: rgba(192, 132, 252, 0.18);
-      color: #f5f2ff;
+      border: 1px solid rgba(98, 87, 165, 0.5);
+      background: rgba(98, 87, 165, 0.15);
+      color: rgba(233, 232, 245, 0.9);
       font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
     .blurb {
-      border: 1px solid rgba(186, 210, 255, 0.28);
+      border: 1px solid rgba(94, 108, 155, 0.55);
       border-radius: var(--radius-md);
       padding: 1.2rem;
-      background: rgba(8, 10, 30, 0.65);
+      background: rgba(18, 22, 44, 0.82);
       box-shadow: var(--shadow-card);
     }
     .blurb blockquote {
@@ -71,7 +71,7 @@
         </div>
         <article class="section-card">
           <div class="book-hero" id="book-hero">
-            <img class="book-cover" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20600%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23c084fc%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2338bdf8%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27400%27%20height%3D%27600%27%20fill%3D%27%23080b1f%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2740%27%20width%3D%27328%27%20height%3D%27520%27%20rx%3D%2736%27%20fill%3D%27url%28%23g%29%27%20opacity%3D%270.88%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%20font-family%3D%27Playfair%20Display%2C%20serif%27%20font-size%3D%2748%27%20fill%3D%27%23f5f6ff%27%20letter-spacing%3D%274%27%3EMyth%3C/text%3E%3C/svg%3E" alt="Book cover" loading="lazy" />
+            <img class="book-cover" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20600%27%3E%0A%20%20%3Crect%20width%3D%27400%27%20height%3D%27600%27%20fill%3D%27%2311152a%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2748%27%20width%3D%27320%27%20height%3D%27504%27%20rx%3D%2724%27%20fill%3D%27none%27%20stroke%3D%27%236257a5%27%20stroke-width%3D%272%27/%3E%0A%20%20%3Cpath%20d%3D%27M80%20160h240M80%20300h240M80%20440h240%27%20stroke%3D%27%233f4668%27%20stroke-width%3D%271%27/%3E%0A%20%20%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%20font-family%3D%27Playfair%20Display%2C%20serif%27%20font-size%3D%2748%27%20fill%3D%27%23d1b97a%27%20letter-spacing%3D%274%27%3EMyth%3C/text%3E%0A%3C/svg%3E" alt="Book cover" loading="lazy" />
             <div class="book-copy">
               <h3>Current Book</h3>
               <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
@@ -95,7 +95,10 @@
       </section>
     </main>
 
-    <footer>© <span id="year"></span> Michael C. Barros</footer>
+    <footer>
+      <p class="footer-tagline">Myth · Media · Imagination</p>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
   </div>
 
   <script>
@@ -113,15 +116,10 @@
         'data:image/svg+xml;charset=UTF-8,' +
         encodeURIComponent(`
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
-            <defs>
-              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#c084fc" />
-                <stop offset="100%" stop-color="#38bdf8" />
-              </linearGradient>
-            </defs>
-            <rect width="400" height="600" fill="#080b1f" />
-            <rect x="36" y="40" width="328" height="520" rx="36" fill="url(#g)" opacity="0.88" />
-            <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-family="Playfair Display, serif" font-size="48" fill="#f5f6ff" letter-spacing="4">Myth</text>
+            <rect width="400" height="600" fill="#11152a" />
+            <rect x="40" y="48" width="320" height="504" rx="24" fill="none" stroke="#6257a5" stroke-width="2" />
+            <path d="M80 160h240M80 300h240M80 440h240" stroke="#3f4668" stroke-width="1" />
+            <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-family="Playfair Display, serif" font-size="48" fill="#d1b97a" letter-spacing="4">Myth</text>
           </svg>
         `);
       const cover = featured.cover || featured.image || FALLBACK_COVER;
@@ -176,7 +174,7 @@
           grid.innerHTML = others.map(b => `
             <article class="card">
               <div class="feature-copy">
-                ${b.cover ? `<img src="${b.cover}" alt="" style="width: 100%; max-width: 140px; border-radius: var(--radius-sm); box-shadow: 0 16px 32px rgba(8, 10, 32, 0.55);">` : ''}
+                  ${b.cover ? `<img src="${b.cover}" alt="" style="width: 100%; max-width: 140px; border-radius: var(--radius-sm); box-shadow: 0 16px 32px rgba(5, 7, 18, 0.55);">` : ''}
                 <div>
                   <div class="meta-row">
                     <span class="status-pill">${b.status || 'Book'}</span>

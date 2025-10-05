@@ -36,8 +36,8 @@
     <main>
       <section class="page-header">
         <span class="eyebrow">Contact</span>
-        <h1 class="page-title">Invite the conversation</h1>
-        <p class="page-kicker">Speaking invitations, media requests, or collaboration inquiries. Share your event details, timeline, and goals.</p>
+        <h1 class="page-title">Contact &amp; Speaking</h1>
+        <p class="page-kicker">For speaking invitations, interviews, or collaborations, please include event details, proposed dates, and format. I respond to all messages as time permits.</p>
       </section>
 
       <section class="contact-grid">
@@ -45,20 +45,23 @@
           <h2>Email</h2>
           <p>I read every message and respond as time permits.</p>
           <div class="contact-actions">
-            <code id="addr">michael@example.com</code>
-            <button id="copy" class="btn" type="button">Copy</button>
-            <a id="mailto" class="btn ghost" href="#">Open mail app</a>
+            <code id="addr">barrostheology@gmail.com</code>
+            <button id="copy" class="btn ghost" type="button">Copy</button>
+            <a id="mailto" class="btn" href="#">Open mail app</a>
           </div>
         </article>
 
         <article class="section-card">
           <h2>Speaking &amp; media</h2>
-          <p>For lectures, interviews, or workshops on religion &amp; popular culture, please include proposed dates, audience, and format. I can tailor talks for academic, community, or industry settings.</p>
+          <p>For lectures, interviews, or workshops on religion and popular culture, please share institutional or publication context alongside logistics. Sessions are tailored for academic, community, and industry settings.</p>
         </article>
       </section>
     </main>
 
-    <footer>© <span id="year"></span> Michael C. Barros</footer>
+    <footer>
+      <p class="footer-tagline">Myth · Media · Imagination</p>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
   </div>
 
   <script defer src="./js/data/data.js"></script>
@@ -66,7 +69,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      const EMAIL = (window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) || 'michael@example.com';
+      const EMAIL = (window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) || 'barrostheology@gmail.com';
 
       const blog = document.getElementById('nav-blog');
       if (blog) blog.href = LINKS.blog || 'https://mythonoesis.substack.com/';

@@ -129,6 +129,7 @@
           card.rel = 'noopener';
         }
         card.innerHTML = `
+          ${motifMarkup(p.id)}
           <span class="badge">${p.status}</span>
           <h3>${p.title}</h3>
           <div class="meta-row">
@@ -140,6 +141,23 @@
         grid.appendChild(card);
       }
     });
+  }
+
+  function motifMarkup(id) {
+    const svg = (function () {
+      switch (id) {
+        case 'waypoint':
+          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 22v76M22 60h76" /></svg>';
+        case 'zelda-religion':
+          return '<svg viewBox="0 0 120 120"><path d="M60 24l32 56H28z" /><path d="M60 24v56" /></svg>';
+        case 'pkd-theology-proj':
+        case 'pkd-theology':
+          return '<svg viewBox="0 0 120 120"><rect x="28" y="28" width="64" height="64" rx="6" /><path d="M28 60h64M60 28v64" /></svg>';
+        default:
+          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg>';
+      }
+    })();
+    return `<span class="card__motif" aria-hidden="true">${svg}</span>`;
   }
 
   function slugify(value) {
