@@ -14,9 +14,9 @@
 
   // ---------- Taglines (homepage rotator) ----------
   const TAGLINES = [
-    "Where myth and meaning surface in games, film, and fiction.",
-    "Exploring how culture becomes a site of religious experience.",
-    "Religion, imagination, and popular culture."
+    "Interdisciplinary scholarship on religion, imagination, and media.",
+    "Analysing contemporary storytelling through theological and cultural history.",
+    "Grounded cognition, sacred imagination, and popular culture."
   ];
 
   // ---------- Books ----------
@@ -25,9 +25,11 @@
       id: "pkd-theology",
       title: "The Esoteric Theology of Philip K. Dick",
       featured: true,                       // homepage & books hero will pick this one
-      status: "Published",
+      status: "Forthcoming",
       cover: "./assets/images/books/pkd.jpg", // project-relative (no leading slash)
       url: "./books.html#pkd-theology",
+      summary:
+        "Edited scholarly volume (Bloomsbury, 2025) examining Philip K. Dick's theological imagination across literature and adaptation.",
       description:
         "This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.",
       buy_links: [
@@ -50,11 +52,11 @@
     {
       id: "waypoint",
       title: "Waypoint Institute",
-      status: "Lab",
+      status: "Institute",
       type: "Collaboration",
-      tags: ["Collaboration", "Institute"],
-      short: "Research & publishing initiative.",
-      description: "A space for myth, meaning, and media praxis.",
+      tags: ["Religion", "Media"],
+      short: "Independent research and publishing initiative examining religion, imagination, and culture.",
+      description: "Curates symposia, publications, and public scholarship that surface sacred cartographies in contemporary media ecosystems.",
       url: "./projects.html#waypoint",
       external: false
     },
@@ -64,9 +66,9 @@
       status: "Forthcoming",
       type: "Book",
       tags: ["PKD", "Editing"],
-      short: "Edited volume of essays.",
+      short: "Edited scholarly volume (Bloomsbury, 2025) analysing Philip K. Dick's theological imagination.",
       description:
-        "Commemorating 50 years since PKD’s 1974 experiences; theological and cultural analysis.",
+        "Essays trace Dick's visionary experiences, scriptural experimentation, and cultural afterlives across literature and screen adaptations.",
       url: "./books.html#pkd-theology",
       external: false
     },
@@ -76,7 +78,9 @@
       status: "In Progress",
       type: "Book",
       tags: ["Games", "Myth"],
-      short: "Time, sacrifice, and mythopoesis in Zelda.",
+      short: "Time, sacrifice, and mythopoesis in The Legend of Zelda as a theological study of sacred structure within game worlds.",
+      description:
+        "Draws on ritual theory, liturgical studies, and ludology to articulate how Nintendo's series stages sacrificial imagination and heroic vocation.",
       url: "./books.html#zelda-religion",
       external: false
     }
@@ -98,10 +102,10 @@
       date: "2025-05-13"
     },
     {
-      title: "Example: Film, Ritual, Memory",
-      url: "https://YOUR-SUBSTACK-URL/p/example-post-3",
-      summary: "Cinema as a vessel of communal meaning.",
-      date: "2025-05-10"
+      title: "Cartographies of Sacred Play",
+      url: "https://mythonoesis.substack.com/p/cartographies-of-sacred-play",
+      summary: "Field notes on ritual architecture in contemporary games and interactive media.",
+      date: "2025-05-05"
     }
   ];
 

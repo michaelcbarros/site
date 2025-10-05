@@ -4,180 +4,200 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Books — Michael C. Barros</title>
-
+  <meta name="description" content="Books and forthcoming work on religion, myth, and popular culture by Michael C. Barros." />
   <link rel="stylesheet" href="./style.css" />
   <style>
-    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25); }
-    .shell{max-width:1100px;margin:0 auto;padding:20px 20px 48px}
-    .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
-    .nav{display:flex;gap:18px;flex-wrap:wrap}
-    .nav a{color:var(--ink);text-decoration:none}
-    .nav a:hover{text-decoration:underline}
-
-    .page-title{font-size:2.25rem;margin:0 0 .35rem}
-    .muted{color:var(--muted)}
-    .divider{height:1px;background:#e5e7eb;margin:24px 0}
-
-    .book-hero{display:grid;gap:22px;align-items:start}
-    @media(min-width:980px){ .book-hero{grid-template-columns: 280px 1fr} }
-    .book-cover{width:100%;height:auto;border-radius:12px;box-shadow:0 10px 28px rgba(0,0,0,.12)}
-    .book-head h2{margin:.1rem 0 .35rem;font-size:1.75rem}
-    .status-pill{display:inline-block;font-size:.75rem;border:1px solid #e5e7eb;border-radius:999px;padding:.22rem .6rem;margin-right:.4rem}
-    .cta-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
-    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:#111827;color:#fff;font-weight:700;text-decoration:none}
-    .btn:hover{filter:brightness(1.08)}
-    .btn.ghost{background:transparent;color:#111827;border:2px solid #111827}
-
-    .desc p{margin:.65rem 0;line-height:1.7}
-    .blurbs{display:grid;gap:16px;margin-top:18px}
-    @media(min-width:980px){ .blurbs{grid-template-columns: repeat(2,1fr)} }
-    .blurb{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    .blurb blockquote{margin:0 0 .6rem;font-size:1.05rem;line-height:1.6}
-    .blurb small{color:var(--muted)}
-
-    .more-wrap{margin-top:28px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
-    .card{background:#fff;border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s}
-    .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .book-hero {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 980px) {
+      .book-hero {
+        grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+      }
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--subtle);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .blurb {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      background: var(--surface);
+      box-shadow: var(--shadow-card);
+    }
+    .blurb blockquote {
+      margin: 0 0 0.6rem;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
   </style>
-
-  <!-- Load data BEFORE scripting -->
-  <script src="./js/data/data.js"></script>
+  <script defer src="./js/data/data.js"></script>
 </head>
-<body class="page">
+<body class="page page--books">
   <div class="shell">
-    <header class="site-header">
+    <header class="site-header" aria-label="Site">
       <a class="brand" href="./index.html">Michael C. Barros</a>
-      <nav class="nav" aria-label="Main">
-        <a href="./about.html">About</a>
-        <a href="./books.html" aria-current="page">Books</a>
-        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
-        <a href="./projects.html">Projects</a>
-        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-        <a href="./contact.html">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html">About</a>
+        <a class="nav__link" href="./books.html" aria-current="page">Books</a>
+        <a class="nav__link" id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html">Contact</a>
       </nav>
     </header>
 
-    <section>
-      <h1 class="page-title">Books</h1>
-      <p class="muted">Published and forthcoming work on religion and popular culture.</p>
-    </section>
+    <main>
+      <section class="page-header">
+        <span class="eyebrow">Books</span>
+        <h1 class="page-title">Scholarly publications &amp; forthcoming work</h1>
+        <p class="page-kicker">Editorial and authorial projects tracing theology, myth, and sacred imagination across popular media.</p>
+      </section>
 
-    <div class="divider"></div>
-
-    <!-- Featured book -->
-    <section aria-labelledby="featured-heading">
-      <h2 id="featured-heading" style="margin:0 0 .6rem">Featured</h2>
-      <div class="book-hero" id="book-hero">
-        <img class="book-cover" src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy">
-        <div class="book-head">
-          <h2>Current Book</h2>
-          <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
-          <div class="cta-row">
-            <a class="btn" href="#" id="buy-link" target="_blank" rel="noopener">Buy on Amazon</a>
-          </div>
+      <section aria-labelledby="featured-heading">
+        <div class="section-heading">
+          <h2 id="featured-heading">Featured</h2>
         </div>
-      </div>
+        <article class="section-card">
+          <div class="book-hero" id="book-hero">
+            <img class="book-cover" src="./assets/images/books/pkd.jpg" alt="Cover of The Esoteric Theology of Philip K. Dick" loading="lazy" />
+            <div class="book-copy">
+              <div><span class="status-pill">Forthcoming</span></div>
+              <h3>The Esoteric Theology of Philip K. Dick</h3>
+              <p class="muted">Edited scholarly volume (Bloomsbury, 2025) examining Philip K. Dick’s theological imagination across literature and adaptation.</p>
+              <div class="cta-row">
+                <a class="btn" href="https://amzn.to/46Fn12N" target="_blank" rel="noopener">Preorder</a>
+                <a class="btn ghost" href="./books.html#pkd-theology">Publication details</a>
+              </div>
+            </div>
+          </div>
+          <div id="book-extras" class="detail-grid" style="margin-top: 2rem; display: none;">
+            <div class="book-copy" id="book-desc"></div>
+            <div class="detail-grid" id="book-blurbs"></div>
+          </div>
+        </article>
+      </section>
 
-      <!-- Description + blurbs -->
-      <div id="book-extras" class="more-wrap" style="display:none">
-        <div class="desc" id="book-desc"></div>
-        <div class="blurbs" id="book-blurbs"></div>
-      </div>
-    </section>
+      <section id="more-books" style="display: none; margin-top: 3rem;">
+        <div class="section-heading">
+          <h2>More titles</h2>
+        </div>
+        <div class="grid cols-3" id="books-grid"></div>
+      </section>
+    </main>
 
-    <!-- More books (hidden when there’s only one) -->
-    <section id="more-books" class="more-wrap" style="display:none">
-      <h2>More Books</h2>
-      <div class="grid cols-3" id="books-grid"></div>
-    </section>
-
-    <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
+    <footer>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
   </div>
 
   <script>
-    // External links from data
-    (function(){
-      const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      document.getElementById('nav-blog').href     = LINKS.blog || 'https://mythonoesis.substack.com/';
-      document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
-      document.getElementById('year').textContent  = new Date().getFullYear();
-    })();
+    window.addEventListener('DOMContentLoaded', () => {
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
 
-    // Books rendering
-    (function(){
       const books = (window.SITE_DATA && window.SITE_DATA.books) || [];
       if (!books.length) return;
 
       const featured = books.find(b => b.featured) || books[0];
-
-      // Hero
       const hero = document.getElementById('book-hero');
-      const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
+      if (!hero) return;
+      const FALLBACK_COVER =
+        'data:image/svg+xml;charset=UTF-8,' +
+        encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+            <rect width="400" height="600" fill="#11152a" />
+            <rect x="40" y="48" width="320" height="504" rx="24" fill="none" stroke="#6257a5" stroke-width="2" />
+            <path d="M80 160h240M80 300h240M80 440h240" stroke="#3f4668" stroke-width="1" />
+            <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-family="Playfair Display, serif" font-size="48" fill="#d1b97a" letter-spacing="4">Myth</text>
+          </svg>
+        `);
+      const cover = featured.cover || featured.image || FALLBACK_COVER;
       const status = featured.status ? `<span class="status-pill">${featured.status}</span>` : '';
       const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
 
       hero.innerHTML = `
-        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
-        <div class="book-head">
+        <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy" />
+        <div class="book-copy">
           <div>${status}</div>
-          <h2>${featured.title}</h2>
-          ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ``}
+          <h3>${featured.title}</h3>
+          ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ''}
           <div class="cta-row">
-            ${buy ? `<a class="btn" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ``}
+            ${buy ? `<a class="btn" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Preorder'}</a>` : ''}
+            ${featured.url ? `<a class="btn ghost" href="${featured.url}">Publication details</a>` : ''}
           </div>
         </div>
       `;
 
-      // Description + blurbs
       const extras = document.getElementById('book-extras');
       const descEl = document.getElementById('book-desc');
       const blurbsEl = document.getElementById('book-blurbs');
 
       const paragraphs = (featured.description || '')
-        .split(/\n{2,}/).map(s=>s.trim()).filter(Boolean);
+        .split(/\n{2,}/)
+        .map(s => s.trim())
+        .filter(Boolean);
 
-      if (paragraphs.length) {
+      if (paragraphs.length && descEl) {
         descEl.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
       }
 
       const reviews = featured.reviews || [];
-      if (reviews.length) {
-        blurbsEl.innerHTML = reviews.slice(0,2).map(r => `
+      if (reviews.length && blurbsEl) {
+        blurbsEl.innerHTML = reviews.slice(0, 2).map(r => `
           <div class="blurb">
-            <blockquote>“${(r.quote || '').replace(/^"|”$/g,'')}”</blockquote>
-            <small>— ${r.source || 'Reviewer'}</small>
+            <blockquote>“${(r.quote || '').replace(/^"|”$/g, '')}”</blockquote>
+            <small class="muted">— ${r.source || 'Reviewer'}</small>
           </div>
         `).join('');
       }
 
-      if (paragraphs.length || reviews.length) {
-        extras.style.display = 'block';
+      if ((paragraphs.length || reviews.length) && extras) {
+        extras.style.display = 'grid';
       }
 
-      // More books (only if you add more later)
       const others = books.filter(b => b !== featured);
       if (others.length) {
         const wrap = document.getElementById('more-books');
         const grid = document.getElementById('books-grid');
-        grid.innerHTML = others.map(b => `
-          <article class="card">
-            <div style="display:flex; gap:12px">
-              ${b.cover ? `<img src="${b.cover}" alt="" style="width:80px;height:auto;border-radius:8px">` : ``}
-              <div>
-                <div class="status-pill">${b.status || 'Book'}</div>
-                <h3 style="margin:.35rem 0 .2rem">${b.title}</h3>
-                ${b.summary ? `<p class="muted">${b.summary}</p>` : ``}
-                ${(b.buy_links && b.buy_links[0]) ? `<p style="margin-top:.4rem"><a class="btn btn-sm" style="padding:.5rem .8rem" href="${b.buy_links[0].url}" target="_blank" rel="noopener">${b.buy_links[0].label || 'Buy'}</a></p>` : ``}
+        if (wrap && grid) {
+          grid.innerHTML = others.map(b => `
+            <article class="card">
+              <div class="feature-copy">
+                ${b.cover ? `<img src="${b.cover}" alt="" style="width: 120px; border-radius: var(--radius-sm); margin-bottom: 1rem;">` : ''}
+                <div class="meta-row">
+                  <span class="status-pill">${b.status || 'Book'}</span>
+                </div>
+                <h3>${b.title}</h3>
+                ${b.summary ? `<p class="muted">${b.summary}</p>` : ''}
+                ${(b.buy_links && b.buy_links[0]) ? `<a class="btn ghost" style="margin-top: 0.6rem;" href="${b.buy_links[0].url}" target="_blank" rel="noopener">${b.buy_links[0].label || 'Preorder'}</a>` : ''}
               </div>
-            </div>
-          </article>
-        `).join('');
-        wrap.style.display = 'block';
+            </article>
+          `).join('');
+          wrap.style.display = 'block';
+        }
       }
-    })();
+    });
   </script>
+  <script defer src="./js/nav.js"></script>
 </body>
 </html>
