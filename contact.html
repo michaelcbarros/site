@@ -1,86 +1,96 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Michael C. Barros</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="Get in touch with Michael C. Barros for speaking, media, or collaboration." />
+  <link rel="stylesheet" href="./style.css" />
   <style>
-    :root{ --ink:#111827; --muted:#6b7280 }
-    .shell{max-width:720px;margin:0 auto;padding:24px 20px 48px}
-    .site-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
-    .nav{display:flex;gap:18px;flex-wrap:wrap}
-    .nav a{color:var(--ink);text-decoration:none}
-    .nav a[aria-current="page"]{text-decoration:underline}
-    .muted{color:var(--muted)}
-    .card{background:#fff;border:1px solid #e5e7eb;border-radius:.85rem;padding:16px}
-    .btn{display:inline-block;padding:.6rem 1rem;border-radius:.6rem;background:#111827;color:#fff;text-decoration:none;font-weight:700}
-    .btn.ghost{background:transparent;color:#111827;border:2px solid #111827}
-    .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
-    code.addr{padding:.25rem .4rem;background:#f8f8f8;border:1px solid #e5e7eb;border-radius:.4rem}
+    .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
   </style>
 </head>
-<body>
+<body class="page page--contact">
   <div class="shell">
-    <header class="site-header">
+    <header class="site-header" aria-label="Site">
       <a class="brand" href="./index.html">Michael C. Barros</a>
-      <nav class="nav" aria-label="Main">
-        <a href="./about.html">About</a>
-        <a href="./books.html">Books</a>
-        <a id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
-        <a href="./projects.html">Projects</a>
-        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-        <a href="./contact.html" aria-current="page">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html">About</a>
+        <a class="nav__link" href="./books.html">Books</a>
+        <a class="nav__link" id="nav-blog" href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html" aria-current="page">Contact</a>
       </nav>
     </header>
 
     <main>
-      <h1>Contact</h1>
-      <p class="muted">Speaking invitations, media requests, or collaboration.</p>
+      <section class="page-header">
+        <span class="eyebrow">Contact</span>
+        <h1 class="page-title">Invite the conversation</h1>
+        <p class="page-kicker">Speaking invitations, media requests, or collaboration inquiries. Share your event details, timeline, and goals.</p>
+      </section>
 
-      <div class="card">
-        <h2>Email</h2>
-        <p class="muted">I read all messages and reply as time permits.</p>
-        <div class="row">
-          <code id="addr" class="addr">michael<span aria-hidden="true">[at]</span>example<span aria-hidden="true">[dot]</span>com</code>
-          <button id="copy" class="btn">Copy</button>
-          <a id="mailto" class="btn ghost" href="#">Open mail app</a>
-        </div>
-      </div>
+      <section class="contact-grid">
+        <article class="section-card">
+          <h2>Email</h2>
+          <p>I read every message and respond as time permits.</p>
+          <div class="contact-actions">
+            <code id="addr">michael@example.com</code>
+            <button id="copy" class="btn" type="button">Copy</button>
+            <a id="mailto" class="btn ghost" href="#">Open mail app</a>
+          </div>
+        </article>
 
-      <div class="divider"></div>
-
-      <div class="card">
-        <h2>Speaking</h2>
-        <p>Interested in a lecture or interview on religion & popular culture, games, or speculative fiction? Provide proposed date(s), audience, and format.</p>
-      </div>
+        <article class="section-card">
+          <h2>Speaking &amp; media</h2>
+          <p>For lectures, interviews, or workshops on religion &amp; popular culture, please include proposed dates, audience, and format. I can tailor talks for academic, community, or industry settings.</p>
+        </article>
+      </section>
     </main>
 
-    <footer class="footer" style="text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem">
-      © <span id="year"></span> Michael C. Barros
-    </footer>
+    <footer>© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
   <script defer src="./js/data/data.js"></script>
+  <script defer src="./js/nav.js"></script>
   <script>
-    // Pull configured links + email from data.js
-    const LINKS=(window.SITE_DATA&&SITE_DATA.links)||window.LINKS||{};
-    const EMAIL=(window.SITE_DATA&&SITE_DATA.contact&&SITE_DATA.contact.email)||"michael@example.com";
-    document.getElementById('nav-blog').href = LINKS.blog || 'https://mythonoesis.substack.com/';
-    document.getElementById('nav-research').href = LINKS.research || 'https://www.researchgate.net/';
-    document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('DOMContentLoaded', () => {
+      const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
+      const EMAIL = (window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) || 'michael@example.com';
 
-    // Simple obfuscation replacement + copy
-    const addrEl=document.getElementById('addr');
-    addrEl.textContent = EMAIL;
-    document.getElementById('mailto').href = `mailto:${EMAIL}`;
-    document.getElementById('copy').addEventListener('click', async ()=>{
-      try { await navigator.clipboard.writeText(EMAIL); }
-      catch {}
-      const b = document.getElementById('copy');
-      b.textContent = "Copied";
-      setTimeout(()=> b.textContent = "Copy", 1200);
+      const blog = document.getElementById('nav-blog');
+      if (blog) blog.href = LINKS.blog || 'https://mythonoesis.substack.com/';
+      const research = document.getElementById('nav-research');
+      if (research) research.href = LINKS.research || 'https://www.researchgate.net/';
+
+      const addrEl = document.getElementById('addr');
+      if (addrEl) addrEl.textContent = EMAIL;
+
+      const mailto = document.getElementById('mailto');
+      if (mailto) mailto.href = `mailto:${EMAIL}`;
+
+      const copy = document.getElementById('copy');
+      if (copy) {
+        copy.addEventListener('click', async () => {
+          try { await navigator.clipboard.writeText(EMAIL); }
+          catch {}
+          copy.textContent = 'Copied';
+          setTimeout(() => { copy.textContent = 'Copy'; }, 1200);
+        });
+      }
+
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
     });
   </script>
 </body>

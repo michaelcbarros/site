@@ -1,331 +1,288 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Michael C. Barros — Scholar of Religion & Popular Culture</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Michael C. Barros — Scholar of Myth, Media, and Esoteric Imagination</title>
+  <meta name="description" content="Scholar of religion and popular culture exploring the luminous edges of myth, media, and the sacred." />
+  <meta name="theme-color" content="#050310" />
 
-  <meta name="description" content="Where myth and meaning surface in games, film, and fiction. Books, selected writing, media, and speaking.">
-  <meta name="theme-color" content="#1f2937">
-
-  <link rel="stylesheet" href="./style.css">
-
-  <style>
-    /* Light augmentation that cooperates with style.css */
-    :root{
-      --ink:#111827; --muted:#6b7280; --accent:#0f766e; --bg:#F7F4EE; --card:#fff; --ring:rgba(15,118,110,.25);
-    }
-    body{background:var(--bg);color:var(--ink)}
-    .shell{max-width:1060px;margin:0 auto;padding:20px 20px 48px}
-
-    /* Header / nav */
-    .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
-    .brand{font-weight:700;text-decoration:none;color:var(--ink)}
-    .nav{display:flex;gap:18px;flex-wrap:wrap}
-    .nav a{color:var(--ink);text-decoration:none}
-    .nav a:hover{text-decoration:underline}
-
-    /* Hero */
-    .hero{padding:42px 0 20px;text-align:center}
-    .hero h1{margin:.25rem 0 .4rem;font-size:clamp(1.8rem,2.8vw,2.6rem)}
-    .tagline{color:var(--muted);min-height:1.6em;transition:opacity .35s}
-    .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:14px}
-    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.7rem;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
-    .btn:hover{filter:brightness(1.08)}
-    .btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-    .divider{height:1px;background:#e5e7eb;margin:28px 0}
-
-    /* Cards */
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
-    .card{background:var(--card);border:1px solid rgba(160,125,59,.25);border-radius:12px;padding:16px;transition:.2s;color:inherit;text-decoration:none;display:block}
-    .card:hover{border-color:rgba(160,125,59,.5);box-shadow:0 10px 26px rgba(0,0,0,.08);transform:translateY(-2px)}
-    .badge{display:inline-block;border:1px solid rgba(160,125,59,.35);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:.72rem;padding:.15rem .45rem;border-radius:.4rem;margin-bottom:.35rem}
-
-    /* Flip card (for projects / writing previews) */
-    .flip{perspective:1000px}
-    .flip-inner{position:relative;transform-style:preserve-3d;transition:transform .5s}
-    .flip:hover .flip-inner{transform:rotateY(180deg)}
-    .flip-face{backface-visibility:hidden}
-    .flip-back{position:absolute;inset:0;transform:rotateY(180deg)}
-    .flip-face,.flip-back{border-radius:12px;border:1px solid rgba(160,125,59,.25);padding:16px;background:#fff}
-
-    .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 .6rem}
-    .section-head h2{margin:0;font-size:1.25rem}
-    .section-head a{color:var(--accent);text-decoration:none;font-weight:600}
-    .section-head a:hover{text-decoration:underline}
-
-    /* --- Featured Book container ("dynamic box") --- */
-    .section-card{
-      background:#fff;
-      border:1px solid rgba(160,125,59,.25);
-      border-radius:16px;
-      box-shadow:0 8px 26px rgba(0,0,0,.06);
-      padding:18px;
-    }
-    @media (min-width:900px){ .section-card{ padding:22px 22px; } }
-
-/* --- Featured Book layout --- */
-.section-card{
-  background:#fff;
-  border:1px solid rgba(160,125,59,.25);
-  border-radius:16px;
-  box-shadow:0 8px 26px rgba(0,0,0,.06);
-  padding:18px;
-}
-@media (min-width:900px){ .section-card{ padding:22px 22px; } }
-
-.book-hero{
-  display:grid;
-  gap:24px;                 /* a touch more breathing room */
-  align-items:start;        /* grid items start at the top */
-}
-@media (min-width:900px){
-  .book-hero{ grid-template-columns: 380px 1fr; }  /* was 360 */
-}
-@media (min-width:1280px){
-  .book-hero{ grid-template-columns: 420px 1fr; }  /* was 400 */
-}
-
-.book-cover{
-  display:block;            /* prevents inline-img baseline jiggle */
-  width:100%;
-  height:auto;
-  border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
-  background:#fff;
-  object-fit:contain;
-  align-self:start;         /* top-align the image within the grid cell */
-  margin:0;                 /* guard against UA margins */
-}
-
-.book-copy{
-  align-self:start;         /* top-align the text column too */
-  display:flex;
-  flex-direction:column;
-  gap:.6rem;
-}
-
-.book-copy h3{ margin:.2rem 0 0; font-size:1.55rem; } /* no top bump */
-.book-copy .muted{ margin-bottom:.35rem; }
-.book-copy .book-desc{ margin-top:.4rem; max-width:72ch; }
-.book-desc p{ margin:.65rem 0; line-height:1.7; }
-
-
-    .footer{text-align:center;color:var(--muted);margin-top:32px;font-size:.95rem}
-  </style>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body>
+<body class="home">
   <div class="shell">
-    <!-- HEADER -->
-    <header class="site-header">
+    <header class="site-header" aria-label="Site">
       <a class="brand" href="./index.html">Michael C. Barros</a>
-      <nav class="nav" aria-label="Main">
-        <a href="./about.html">About</a>
-        <a href="./books.html">Books</a>
-        <a id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
-        <a href="./projects.html">Projects</a>
-        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-        <a href="./contact.html">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html">About</a>
+        <a class="nav__link" href="./books.html">Books</a>
+        <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html">Contact</a>
       </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="title">
-      <h1 id="title">Michael C. Barros</h1>
-      <p id="rotating" class="tagline">
-        Where myth and meaning surface in games, film, and fiction.
-      </p>
-      <div class="cta-row" role="group" aria-label="Primary actions">
-        <a class="btn" href="./books.html">Explore Books →</a>
-        <a class="btn ghost" id="cta-blog" href="#" target="_blank" rel="noopener">Visit Substack →</a>
-      </div>
-    </section>
-
-    <div class="divider" role="presentation"></div>
-
-<!-- FEATURED BOOK -->
-<section aria-labelledby="book-heading">
-  <div class="section-head">
-    <h2 id="book-heading">Featured Book</h2>
-    <a href="./books.html" style="color:var(--brand);text-decoration:none;font-weight:600">All books →</a>
-  </div>
-
-  <div class="feature-box">
-    <div class="feature-grid" id="book-hero">
-      <!-- JS will inject cover + copy + full description -->
-      <div class="feature-media"><img src="./assets/images/books/placeholder.jpg" alt="Book cover" loading="lazy"></div>
-      <div class="feature-body">
-        <h3>Your Current Book</h3>
-        <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
-        <div class="cta-row">
-          <a class="btn" href="./books.html">Learn more</a>
-          <a class="btn ghost" href="./books.html">Buy</a>
-        </div>
-        <div class="desc"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <div class="divider" role="presentation"></div>
-
-    <!-- PROJECTS -->
-    <section aria-labelledby="projects-heading">
-      <div class="section-head">
-        <h2 id="projects-heading">Projects</h2>
-        <a href="./projects.html">More →</a>
-      </div>
-      <div class="grid cols-3" id="projects-grid">
-        <!-- Fallback static cards; JS will replace if projects exist -->
-        <div class="flip">
-          <div class="flip-inner">
-            <div class="flip-face">
-              <span class="badge">Waypoint</span>
-              <h3>Waypoint Institute</h3>
-              <p class="muted">Research and publishing initiative (coming soon).</p>
+    <main>
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero__content">
+          <span class="eyebrow">Myth + Media Praxis</span>
+          <h1 id="home-title">Mapping the sacred across popular culture.</h1>
+          <p id="rotating" class="hero__tagline">
+            Where myth and meaning surface in games, film, and fiction.
+          </p>
+          <div class="hero__meta">
+            <div class="badge-row" aria-label="Areas of focus">
+              <span class="badge">Games</span>
+              <span class="badge">Film</span>
+              <span class="badge">Speculative Fiction</span>
             </div>
-            <div class="flip-back">
-              <h3>Waypoint Institute</h3>
-              <p class="muted">A space for myth, meaning, and media praxis. Learn more →</p>
+            <div class="cta-row" role="group" aria-label="Primary actions">
+              <a class="btn" href="./books.html">Explore Books →</a>
+              <a class="btn ghost" id="cta-blog" href="#" target="_blank" rel="noopener">Visit Substack →</a>
             </div>
           </div>
         </div>
-        <a class="card" href="./books.html">
-          <span class="badge">In Progress</span>
-          <h3>Zelda & Religion</h3>
-          <p class="muted">Time, sacrifice, and mythopoesis in The Legend of Zelda.</p>
-        </a>
-        <a class="card" href="./books.html">
-          <span class="badge">Forthcoming</span>
-          <h3>The Esoteric Theology of Philip K. Dick</h3>
-          <p class="muted">Metaphysics of time and the sacred in PKD.</p>
-        </a>
-      </div>
-    </section>
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__orb">
+            <div class="hero__glyph">✶</div>
+          </div>
+        </div>
+      </section>
 
-    <div class="divider" role="presentation"></div>
+      <div class="divider" role="presentation"></div>
 
-    <!-- MEDIA / LATEST FROM SUBSTACK -->
-    <section aria-labelledby="media-heading">
-      <div class="section-head">
-        <h2 id="media-heading">Latest from Substack</h2>
-        <a id="open-substack" href="#" target="_blank" rel="noopener">Open Substack →</a>
-      </div>
-      <div class="grid cols-3" id="substack-cards"></div>
-    </section>
+      <section aria-labelledby="book-heading">
+        <div class="section-heading">
+          <h2 id="book-heading">Featured Book</h2>
+          <a class="link" href="./books.html">All books →</a>
+        </div>
+        <article class="section-card">
+          <div class="feature-grid two-col" id="book-hero">
+            <div class="feature-media">
+              <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20600%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23c084fc%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2338bdf8%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27400%27%20height%3D%27600%27%20fill%3D%27%23080b1f%27/%3E%3Crect%20x%3D%2736%27%20y%3D%2740%27%20width%3D%27328%27%20height%3D%27520%27%20rx%3D%2736%27%20fill%3D%27url%28%23g%29%27%20opacity%3D%270.88%27/%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%20font-family%3D%27Playfair%20Display%2C%20serif%27%20font-size%3D%2748%27%20fill%3D%27%23f5f6ff%27%20letter-spacing%3D%274%27%3EMyth%3C/text%3E%3C/svg%3E" alt="Book cover" loading="lazy" />
+            </div>
+            <div class="book-copy">
+              <h3>Your Current Book</h3>
+              <p class="muted">Add details in <code>js/data/data.js</code> to populate this section.</p>
+              <div class="cta-row">
+                <a class="btn" href="./books.html">Learn more</a>
+                <a class="btn ghost" href="./books.html">Buy</a>
+              </div>
+              <div class="book-desc"></div>
+            </div>
+          </div>
+        </article>
+      </section>
 
-    <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
+      <div class="divider" role="presentation"></div>
+
+      <section aria-labelledby="projects-heading">
+        <div class="section-heading">
+          <h2 id="projects-heading">Projects</h2>
+          <a class="link" href="./projects.html">Browse all →</a>
+        </div>
+        <div class="grid cols-3" id="projects-grid">
+          <a class="card" href="./projects.html">
+            <span class="badge">Waypoint</span>
+            <h3>Waypoint Institute</h3>
+            <p>Research and publishing initiative (coming soon).</p>
+          </a>
+          <a class="card" href="./books.html">
+            <span class="badge">In Progress</span>
+            <h3>Zelda &amp; Religion</h3>
+            <p>Time, sacrifice, and mythopoesis in The Legend of Zelda.</p>
+          </a>
+          <a class="card" href="./books.html">
+            <span class="badge">Forthcoming</span>
+            <h3>The Esoteric Theology of Philip K. Dick</h3>
+            <p>Metaphysics of time and the sacred in PKD.</p>
+          </a>
+        </div>
+      </section>
+
+      <div class="divider" role="presentation"></div>
+
+      <section aria-labelledby="media-heading">
+        <div class="section-heading">
+          <h2 id="media-heading">Latest from Substack</h2>
+          <a class="link" id="open-substack" href="#" target="_blank" rel="noopener">Open Substack →</a>
+        </div>
+        <div class="grid cols-3" id="substack-cards">
+          <div class="empty" style="grid-column: 1/-1;">
+            Add posts in <code>js/data/data.js</code> to surface Substack updates.
+          </div>
+        </div>
+      </section>
+
+      <div class="divider" role="presentation"></div>
+
+      <section aria-labelledby="bio-heading">
+        <article class="section-card">
+          <div class="feature-grid two-col">
+            <div class="feature-media feature-media--avatar" role="img" aria-label="Abstract portrait of Michael C. Barros"></div>
+            <div class="feature-body">
+              <span class="eyebrow">About Michael</span>
+              <h3 id="bio-heading">Scholar of religion &amp; popular culture</h3>
+              <p>Exploring how sacred imagination moves through games, film, and speculative fiction—tracing the esoteric threads that surface in contemporary storytelling.</p>
+              <div class="cta-row">
+                <a class="btn ghost" href="./about.html">Read full bio</a>
+                <a class="btn" href="./contact.html">Connect</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Michael C. Barros</footer>
   </div>
 
-  <!-- Data + shared nav config -->
   <script defer src="./js/data/data.js"></script>
   <script defer src="./js/nav.js"></script>
-
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      // --- rotating tagline ---
+      // rotating tagline
       (function(){
         const el = document.getElementById('rotating');
         const lines = (window.SITE_DATA && window.SITE_DATA.taglines) || [
-          "Where myth and meaning surface in games, film, and fiction.",
-          "Exploring how culture becomes a site of religious experience.",
-          "Religion, imagination, and popular culture."
+          'Where myth and meaning surface in games, film, and fiction.',
+          'Exploring how culture becomes a site of religious experience.',
+          'Religion, imagination, and popular culture.'
         ];
+        if (!el) return;
         let i = 0;
-        setInterval(()=>{ i=(i+1)%lines.length; el.style.opacity=0; setTimeout(()=>{ el.textContent = lines[i]; el.style.opacity=1; },180);}, 4200);
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (lines.length < 2 || reduceMotion) {
+          el.textContent = lines[0];
+          return;
+        }
+        el.textContent = lines[0];
+        setInterval(() => {
+          i = (i + 1) % lines.length;
+          el.style.opacity = 0;
+          setTimeout(() => {
+            el.textContent = lines[i];
+            el.style.opacity = 1;
+          }, 180);
+        }, 4200);
       })();
 
-      // --- footer year ---
-      document.getElementById('year').textContent = new Date().getFullYear();
+      // footer year
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
 
-      // --- featured book (bigger cover + full description; NO reviews on home) ---
+      // featured book
       (function(){
+        const FALLBACK_COVER =
+          'data:image/svg+xml;charset=UTF-8,' +
+          encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#c084fc" />
+                  <stop offset="100%" stop-color="#38bdf8" />
+                </linearGradient>
+              </defs>
+              <rect width="400" height="600" fill="#080b1f" />
+              <rect x="36" y="40" width="328" height="520" rx="36" fill="url(#g)" opacity="0.88" />
+              <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-family="Playfair Display, serif" font-size="48" fill="#f5f6ff" letter-spacing="4">Myth</text>
+            </svg>
+          `);
+
         const books = (window.SITE_DATA && window.SITE_DATA.books) || window.BOOKS || [];
         if (!books.length) return;
-        const featured = books.find(b=>b.featured) || books[0];
+        const featured = books.find(b => b.featured) || books[0];
         const hero = document.getElementById('book-hero');
+        if (!hero) return;
 
-        const cover = featured.cover || featured.image || './assets/images/books/placeholder.jpg';
-        const url   = featured.url || './books.html';
-        const buy   = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
-        const desc  = featured.description || featured.summary || "";
+        const cover = featured.cover || featured.image || FALLBACK_COVER;
+        const url = featured.url || './books.html';
+        const buy = (featured.buy_links && featured.buy_links[0]) ? featured.buy_links[0] : null;
+        const desc = featured.description || featured.summary || '';
 
         hero.innerHTML = `
-          <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy">
+          <div class="feature-media">
+            <img class="book-cover" src="${cover}" alt="${featured.title} cover" loading="lazy" />
+          </div>
           <div class="book-copy">
             <h3>${featured.title}</h3>
             ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ``}
-            <div class="cta-row" style="justify-content:flex-start">
+            <div class="cta-row">
               <a class="btn" href="${url}">Learn more</a>
               ${buy ? `<a class="btn ghost" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ``}
             </div>
             <div class="book-desc">
-              ${desc.split(/\n{2,}/).map(p=>`<p>${p.trim()}</p>`).join("")}
+              ${desc.split(/\n{2,}/).map(p => `<p>${p.trim()}</p>`).join('')}
             </div>
           </div>
         `;
       })();
 
-      // --- projects (flip cards) ---
+      // projects
       (function(){
         const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
-        if (!projects.length) return; // keep the static 3
+        if (!projects.length) return;
         const grid = document.getElementById('projects-grid');
+        if (!grid) return;
         grid.innerHTML = '';
-        projects.slice(0,6).forEach(p=>{
+        projects.slice(0, 6).forEach(p => {
           if (p.description) {
-            const c = document.createElement('div');
-            c.className = 'flip';
-            c.innerHTML = `
-              <a class="flip-inner" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"':''}>
-                <div class="flip-face">
+            const card = document.createElement('div');
+            card.className = 'flip';
+            card.innerHTML = `
+              <div class="flip-inner">
+                <a class="flip-face" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"' : ''}>
                   <span class="badge">${p.status || p.type || 'Project'}</span>
                   <h3>${p.title}</h3>
-                  <p class="muted">${p.short || p.summary || ''}</p>
-                </div>
-                <div class="flip-back">
+                  <p>${p.short || p.summary || ''}</p>
+                </a>
+                <a class="flip-back" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"' : ''}>
                   <h3>${p.title}</h3>
-                  ${p.description ? `<p class="muted">${p.description}</p>` : ``}
-                </div>
-              </a>`;
-            grid.appendChild(c);
+                  ${p.description ? `<p>${p.description}</p>` : ''}
+                </a>
+              </div>
+            `;
+            grid.appendChild(card);
           } else {
-            const a = document.createElement('a');
-            a.className = 'card';
-            a.href = p.url || '#';
-            if (p.external) { a.target = "_blank"; a.rel = "noopener"; }
-            a.innerHTML = `<span class="badge">${p.status || p.type || 'Project'}</span><h3>${p.title}</h3><p class="muted">${p.short || p.summary || ''}</p>`;
-            grid.appendChild(a);
+            const link = document.createElement('a');
+            link.className = 'card';
+            link.href = p.url || '#';
+            if (p.external) { link.target = '_blank'; link.rel = 'noopener'; }
+            link.innerHTML = `
+              <span class="badge">${p.status || p.type || 'Project'}</span>
+              <h3>${p.title}</h3>
+              <p>${p.short || p.summary || ''}</p>
+            `;
+            grid.appendChild(link);
           }
         });
       })();
 
-      // --- Substack (latest 3) ---
+      // substack
       (function(){
         const feed = document.getElementById('substack-cards');
         const posts = (window.SITE_DATA?.substack?.posts || window.SUBSTACK_POSTS || [])
           .slice()
-          .sort((a,b)=> new Date(b.date)-new Date(a.date))
-          .slice(0,3);
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 3);
         const blogUrl = (window.SITE_DATA?.links?.blog) || (window.LINKS?.blog) || 'https://mythonoesis.substack.com/';
-        document.getElementById('open-substack').href = blogUrl;
-
+        const open = document.getElementById('open-substack');
+        if (open) open.href = blogUrl;
         if (!feed) return;
-        if (!posts.length){
-          feed.innerHTML = `<div class="card muted" style="grid-column:1/-1">Add posts in <code>js/data/data.js</code> (SUBSTACK_POSTS).</div>`;
-          return;
-        }
-        posts.forEach(p=>{
+        if (!posts.length) return;
+        feed.innerHTML = '';
+        posts.forEach(post => {
           const a = document.createElement('a');
           a.className = 'card';
-          a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+          a.href = post.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
           a.innerHTML = `
             <span class="badge">Substack</span>
-            <h3>${p.title}</h3>
-            <p class="muted">${p.summary || ''}</p>
+            <h3>${post.title}</h3>
+            ${post.summary ? `<p>${post.summary}</p>` : ''}
           `;
           feed.appendChild(a);
         });
@@ -334,20 +291,3 @@
   </script>
 </body>
 </html>
-<section aria-labelledby="bio-heading" style="margin-top:22px">
-  <div class="feature-box">
-    <div class="feature-grid" style="grid-template-columns:minmax(120px,160px) 1fr">
-      <div class="feature-media">
-        <img src="./assets/images/headshot.jpg" alt="Michael C. Barros" loading="lazy">
-      </div>
-      <div class="feature-body">
-        <h3 id="bio-heading" style="margin-top:.1rem">About Michael</h3>
-        <p class="muted">Scholar of religion & popular culture, exploring how myth and meaning surface in games, film, and fiction.</p>
-        <div class="cta-row">
-          <a class="btn ghost" href="./about.html">Read full bio</a>
-          <a class="btn" href="./contact.html">Contact</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
