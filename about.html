@@ -4,155 +4,238 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Michael C. Barros</title>
-
+  <meta name="description" content="Research overview for Michael C. Barros, scholar of religion and popular culture focusing on sacred imagination in media." />
   <link rel="stylesheet" href="./style.css" />
   <style>
-    /* Page-scoped polish for About */
-    :root{ --ink:#111827; --muted:#6b7280; --ring:rgba(15,118,110,.25); }
-    .shell{max-width:1160px;margin:0 auto;padding:24px 20px 56px}
-
-    /* Hero block */
-    .about-hero{
-      display:grid; gap:18px; align-items:end; margin:8px 0 18px;
+    .about-hero {
+      display: grid;
+      gap: 2rem;
     }
-    @media (min-width:980px){
-      .about-hero{ grid-template-columns: minmax(260px, 360px) 1fr; }
+    @media (min-width: 960px) {
+      .about-hero {
+        grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+      }
     }
-    .about-title h1{
-      margin:0; font-size:clamp(2rem, 4.2vw, 3.2rem); letter-spacing:-.015em;
-      line-height:1.05;
+    .about-list {
+      display: grid;
+      gap: 1.4rem;
     }
-    .about-kicker{
-      color:var(--muted);
-      font-weight:600;
-      line-height:1.25;
-      white-space:pre-line;               /* keeps the stacked lines look */
+    @media (min-width: 880px) {
+      .about-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
-
-    /* Summary paragraph */
-    .lede{font-size:1.05rem; line-height:1.8; color:var(--ink); margin-top:8px}
-
-    /* Quick actions */
-    .cta-row{display:flex; gap:.6rem; flex-wrap:wrap; margin:14px 0 2px}
-    .btn{display:inline-block;padding:.7rem 1.1rem;border-radius:.8rem;background:#111827;color:#fff;
-      text-decoration:none;font-weight:700;transition:transform .15s ease, box-shadow .15s ease}
-    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.12)}
-    .btn.ghost{background:transparent;color:#111827;border:2px solid #111827}
-
-    /* Section headings */
-    .section{margin:26px 0}
-    .section h2{font-size:1.6rem; margin:.2rem 0 .6rem}
-
-    /* Two-column details list */
-    .cols{display:grid; gap:14px}
-    @media(min-width:980px){ .cols{grid-template-columns:1fr 1fr} }
-    .card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px}
-
-    .muted{color:var(--muted)}
-    .divider{height:1px;background:#e5e7eb;margin:24px 0}
-    .footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.95rem}
+    ul.about-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    ul.about-items li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      align-items: start;
+      column-gap: 0.8rem;
+      line-height: 1.6;
+    }
+    .about-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+    }
+    .about-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--highlight);
+      stroke-width: 1.5;
+      fill: none;
+      opacity: 0.8;
+    }
+    .about-icon svg .fill {
+      fill: var(--highlight);
+      stroke: none;
+      opacity: 0.65;
+    }
+    .page--about .info-card {
+      padding: 1.6rem;
+    }
   </style>
 </head>
-<body>
+<body class="page page--about">
   <div class="shell">
-    <!-- Header -->
-    <header class="site-header">
+    <header class="site-header" aria-label="Site">
       <a class="brand" href="./index.html">Michael C. Barros</a>
-      <nav class="nav" aria-label="Main">
-        <a href="./about.html" aria-current="page">About</a>
-        <a href="./books.html">Books</a>
-        <a id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
-        <a href="./projects.html">Projects</a>
-        <a id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-        <a href="./contact.html">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html" aria-current="page">About</a>
+        <a class="nav__link" href="./books.html">Books</a>
+        <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html">Contact</a>
       </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="about-hero">
-      <div class="about-title">
-        <h1>About</h1>
-        <div class="about-kicker">Scholar of
-religion &amp;
-popular
-culture</div>
-      </div>
-
-      <div>
-        <p class="lede">
-          Michael C. Barros studies how games, film, and speculative fiction become sites of religious
-          experience, symbolic imagination, and encounters with the sacred. His work draws on theology,
-          cultural history, and media analysis.
-        </p>
-
+    <main>
+      <section class="page-header">
+        <span class="eyebrow">About</span>
+        <h1 class="page-title">Research Overview</h1>
+        <p class="page-kicker">Scholarship that charts how sacred imagination moves through contemporary media cultures.</p>
         <div class="cta-row" role="group" aria-label="Primary actions">
           <a class="btn" href="./books.html">Books</a>
-          <a class="btn ghost" href="./projects.html">Projects</a>
-          <a class="btn ghost" href="./contact.html">Curriculum Vitae</a>
+          <a class="btn" href="./projects.html">Projects</a>
+          <a class="btn" href="./contact.html">Curriculum Vitae</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="divider" role="presentation"></div>
+      <section class="section-card">
+        <div class="about-hero">
+          <div class="feature-media feature-media--avatar" role="img" aria-label="Abstract portrait of Michael C. Barros"></div>
+          <div class="feature-body">
+            <h2>Research Overview</h2>
+            <p>Michael C. Barros studies how myth, ritual, and sacred imagination manifest in contemporary media. His work examines games, film, and speculative fiction as sites of religious experience and cultural formation, drawing on theology, cultural history, and media analysis to surface hidden architectures of meaning.</p>
+            <p>He develops frameworks that help players, readers, and viewers recognize the sacred textures embedded in contemporary storytelling, offering tools for scholarship, pedagogy, and practice.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Affiliations & Focus -->
-    <section class="section">
-      <h2>Affiliations &amp; Focus</h2>
-      <div class="cols">
-        <div class="card">
-          <h3 style="margin:.1rem 0 .35rem">Areas</h3>
-          <ul class="muted" style="margin:.4rem 0 0; padding-left:1.1rem">
-            <li>Religion &amp; popular culture</li>
-            <li>Myth, ritual, and symbolic imagination</li>
-            <li>Games &amp; interactive media</li>
-            <li>Film and speculative fiction</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3 style="margin:.1rem 0 .35rem">Methods</h3>
-          <ul class="muted" style="margin:.4rem 0 0; padding-left:1.1rem">
-            <li>Theology &amp; religious studies</li>
-            <li>Media analysis &amp; cultural history</li>
-            <li>Reception &amp; adaptation studies</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      <div class="divider" role="presentation"></div>
 
-    <!-- Recent & Links -->
-    <section class="section">
-      <h2>Selected Links</h2>
-      <div class="cols">
-        <div class="card">
-          <h3 style="margin:.1rem 0 .35rem">Research profile</h3>
-          <p class="muted" style="margin:.35rem 0 .6rem">
-            External publications, preprints, and works-in-progress.
-          </p>
-          <a class="btn" id="about-research" href="#" target="_blank" rel="noopener">Open ResearchGate</a>
+      <section>
+        <div class="section-heading">
+          <h2>Focus &amp; affiliations</h2>
         </div>
-        <div class="card">
-          <h3 style="margin:.1rem 0 .35rem">Substack</h3>
-          <p class="muted" style="margin:.35rem 0 .6rem">
-            Short-form writing, notes, and ongoing conversations.
-          </p>
-          <a class="btn ghost" id="about-blog" href="#" target="_blank" rel="noopener">Visit Substack</a>
+        <div class="about-list">
+          <article class="info-card">
+            <h3>Areas of inquiry</h3>
+            <ul class="about-items">
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 4v16M4 12h16" />
+                  </svg>
+                </span>
+                <span>Religion &amp; popular culture</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 19l14-14" />
+                    <path d="M9 5h10" />
+                    <path d="M5 19l4-.5L6.5 14" />
+                  </svg>
+                </span>
+                <span>Myth, ritual, and symbolic imagination</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 15c0-2.8 2-5 5-5h6c3 0 5 2.2 5 5" />
+                    <path d="M9 10V9a3 3 0 016 0v1" />
+                    <circle class="fill" cx="9" cy="15" r="1.4" />
+                    <circle class="fill" cx="15" cy="15" r="1.4" />
+                  </svg>
+                </span>
+                <span>Games &amp; interactive media</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="5" y="6" width="14" height="12" rx="1.5" />
+                    <circle class="fill" cx="8" cy="12" r="1.2" />
+                    <circle class="fill" cx="16" cy="12" r="1.2" />
+                  </svg>
+                </span>
+                <span>Film and speculative fiction</span>
+              </li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Approaches</h3>
+            <ul class="about-items">
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="7.5" />
+                    <path d="M12 6v12M6 12h12" />
+                  </svg>
+                </span>
+                <span>Theology &amp; religious studies</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M5 6h14v12H5z" />
+                    <path d="M5 10h14M9 6v12" />
+                  </svg>
+                </span>
+                <span>Media analysis &amp; cultural history</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="2.2" />
+                    <circle cx="17" cy="8" r="2.2" />
+                    <circle cx="17" cy="16" r="2.2" />
+                    <path d="M9 11l6-2M9 13l6 2" />
+                  </svg>
+                </span>
+                <span>Reception &amp; adaptation studies</span>
+              </li>
+              <li>
+                <span class="about-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 15c1.5-1.5 3.5-1.5 5 0s3.5 1.5 5 0 3.5-1.5 5 0" />
+                    <path d="M4 9c1.5 1.5 3.5 1.5 5 0s3.5-1.5 5 0 3.5 1.5 5 0" />
+                  </svg>
+                </span>
+                <span>Ethnography of fandom &amp; play</span>
+              </li>
+            </ul>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer class="footer">© <span id="year"></span> Michael C. Barros</footer>
+      <div class="divider" role="presentation"></div>
+
+      <section>
+        <div class="section-heading">
+          <h2>Connect</h2>
+        </div>
+        <div class="detail-grid two-col">
+          <article class="info-card">
+            <h3>Research profiles</h3>
+            <p>External publications, preprints, and works-in-progress.</p>
+            <a class="btn" id="about-research" href="#" target="_blank" rel="noopener">Open Research</a>
+          </article>
+          <article class="info-card">
+            <h3>Substack</h3>
+            <p>Short-form writing, field notes, and ongoing conversations.</p>
+            <a class="btn ghost" id="about-blog" href="#" target="_blank" rel="noopener">Visit Substack</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="footer-tagline">Myth · Media · Imagination</p>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
   </div>
 
-  <!-- Shared data + nav injection -->
   <script defer src="./js/data/data.js"></script>
   <script defer src="./js/nav.js"></script>
   <script>
-    // Page-local hookups
     window.addEventListener('DOMContentLoaded', () => {
       const links = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      document.getElementById('about-research').href = links.research || 'https://www.researchgate.net/';
-      document.getElementById('about-blog').href = links.blog || 'https://mythonoesis.substack.com/';
-      document.getElementById('year').textContent = new Date().getFullYear();
+      const research = document.getElementById('about-research');
+      if (research) research.href = links.research || 'https://www.researchgate.net/';
+      const blog = document.getElementById('about-blog');
+      if (blog) blog.href = links.blog || 'https://mythonoesis.substack.com/';
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
     });
   </script>
 </body>

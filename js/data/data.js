@@ -15,8 +15,8 @@
   // ---------- Taglines (homepage rotator) ----------
   const TAGLINES = [
     "Where myth and meaning surface in games, film, and fiction.",
-    "Exploring how culture becomes a site of religious experience.",
-    "Religion, imagination, and popular culture."
+    "Interpreting popular media as sites of religious experience.",
+    "Religion, imagination, and contemporary culture."
   ];
 
   // ---------- Books ----------
