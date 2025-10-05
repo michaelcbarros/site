@@ -19,21 +19,21 @@
     .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(98, 87, 165, 0.5);
-      background: rgba(98, 87, 165, 0.15);
-      color: rgba(233, 232, 245, 0.9);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
+      gap: 0.25rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--subtle);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
     .blurb {
-      border: 1px solid rgba(94, 108, 155, 0.55);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 1.2rem;
-      background: rgba(18, 22, 44, 0.82);
+      background: var(--surface);
       box-shadow: var(--shadow-card);
     }
     .blurb blockquote {
@@ -61,8 +61,8 @@
     <main>
       <section class="page-header">
         <span class="eyebrow">Books</span>
-        <h1 class="page-title">Theology, myth, and the popular imagination</h1>
-        <p class="page-kicker">Published and forthcoming work exploring how sacred imagination moves through games, film, and speculative fiction.</p>
+        <h1 class="page-title">Scholarly publications &amp; forthcoming work</h1>
+        <p class="page-kicker">Editorial and authorial projects tracing theology, myth, and sacred imagination across popular media.</p>
       </section>
 
       <section aria-labelledby="featured-heading">
@@ -71,12 +71,14 @@
         </div>
         <article class="section-card">
           <div class="book-hero" id="book-hero">
-            <img class="book-cover" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20600%27%3E%0A%20%20%3Crect%20width%3D%27400%27%20height%3D%27600%27%20fill%3D%27%2311152a%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2748%27%20width%3D%27320%27%20height%3D%27504%27%20rx%3D%2724%27%20fill%3D%27none%27%20stroke%3D%27%236257a5%27%20stroke-width%3D%272%27/%3E%0A%20%20%3Cpath%20d%3D%27M80%20160h240M80%20300h240M80%20440h240%27%20stroke%3D%27%233f4668%27%20stroke-width%3D%271%27/%3E%0A%20%20%3Ctext%20x%3D%2750%25%27%20y%3D%2752%25%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%20font-family%3D%27Playfair%20Display%2C%20serif%27%20font-size%3D%2748%27%20fill%3D%27%23d1b97a%27%20letter-spacing%3D%274%27%3EMyth%3C/text%3E%0A%3C/svg%3E" alt="Book cover" loading="lazy" />
+            <img class="book-cover" src="./assets/images/books/pkd.jpg" alt="Cover of The Esoteric Theology of Philip K. Dick" loading="lazy" />
             <div class="book-copy">
-              <h3>Current Book</h3>
-              <p class="muted">Add book details in <code>js/data/data.js</code>.</p>
+              <div><span class="status-pill">Forthcoming</span></div>
+              <h3>The Esoteric Theology of Philip K. Dick</h3>
+              <p class="muted">Edited scholarly volume (Bloomsbury, 2025) examining Philip K. Dick’s theological imagination across literature and adaptation.</p>
               <div class="cta-row">
-                <a class="btn" href="#" id="buy-link" target="_blank" rel="noopener">Buy</a>
+                <a class="btn" href="https://amzn.to/46Fn12N" target="_blank" rel="noopener">Preorder</a>
+                <a class="btn ghost" href="./books.html#pkd-theology">Publication details</a>
               </div>
             </div>
           </div>
@@ -96,7 +98,14 @@
     </main>
 
     <footer>
-      <p class="footer-tagline">Myth · Media · Imagination</p>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
   </div>
@@ -133,8 +142,8 @@
           <h3>${featured.title}</h3>
           ${featured.summary ? `<p class="muted">${featured.summary}</p>` : ''}
           <div class="cta-row">
-            ${buy ? `<a class="btn" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Buy'}</a>` : ''}
-            <a class="btn ghost" href="${featured.url || './books.html'}">Details</a>
+            ${buy ? `<a class="btn" href="${buy.url}" target="_blank" rel="noopener">${buy.label || 'Preorder'}</a>` : ''}
+            ${featured.url ? `<a class="btn ghost" href="${featured.url}">Publication details</a>` : ''}
           </div>
         </div>
       `;
@@ -174,15 +183,13 @@
           grid.innerHTML = others.map(b => `
             <article class="card">
               <div class="feature-copy">
-                  ${b.cover ? `<img src="${b.cover}" alt="" style="width: 100%; max-width: 140px; border-radius: var(--radius-sm); box-shadow: 0 16px 32px rgba(5, 7, 18, 0.55);">` : ''}
-                <div>
-                  <div class="meta-row">
-                    <span class="status-pill">${b.status || 'Book'}</span>
-                  </div>
-                  <h3>${b.title}</h3>
-                  ${b.summary ? `<p>${b.summary}</p>` : ''}
-                  ${(b.buy_links && b.buy_links[0]) ? `<a class="btn ghost" style="margin-top: 0.6rem;" href="${b.buy_links[0].url}" target="_blank" rel="noopener">${b.buy_links[0].label || 'Buy'}</a>` : ''}
+                ${b.cover ? `<img src="${b.cover}" alt="" style="width: 120px; border-radius: var(--radius-sm); margin-bottom: 1rem;">` : ''}
+                <div class="meta-row">
+                  <span class="status-pill">${b.status || 'Book'}</span>
                 </div>
+                <h3>${b.title}</h3>
+                ${b.summary ? `<p class="muted">${b.summary}</p>` : ''}
+                ${(b.buy_links && b.buy_links[0]) ? `<a class="btn ghost" style="margin-top: 0.6rem;" href="${b.buy_links[0].url}" target="_blank" rel="noopener">${b.buy_links[0].label || 'Preorder'}</a>` : ''}
               </div>
             </article>
           `).join('');

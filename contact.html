@@ -17,6 +17,16 @@
       flex-wrap: wrap;
       align-items: center;
     }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .link-list a {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body class="page page--contact">
@@ -43,23 +53,43 @@
       <section class="contact-grid">
         <article class="section-card">
           <h2>Email</h2>
-          <p>I read every message and respond as time permits.</p>
+          <p class="muted">Include event context, proposed dates, and format in your initial message.</p>
           <div class="contact-actions">
             <code id="addr">barrostheology@gmail.com</code>
             <button id="copy" class="btn ghost" type="button">Copy</button>
-            <a id="mailto" class="btn" href="#">Open mail app</a>
+            <a id="mailto" class="btn" href="#">Compose email</a>
           </div>
         </article>
 
         <article class="section-card">
           <h2>Speaking &amp; media</h2>
-          <p>For lectures, interviews, or workshops on religion and popular culture, please share institutional or publication context alongside logistics. Sessions are tailored for academic, community, and industry settings.</p>
+          <p class="muted">Michael has delivered talks and lectures at conferences including SWPACA and The Middle Ages in Modern Games. He is available for keynotes, seminars, and interviews on religion and media, Philip K. Dick, grounded cognition, and cultural theory.</p>
+        </article>
+
+        <article class="section-card" id="cv">
+          <h2>Curriculum vitae &amp; profiles</h2>
+          <p class="muted">Download the current CV or connect via research platforms.</p>
+          <ul class="link-list">
+            <li><a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></li>
+            <li><a href="https://www.researchgate.net/profile/Michael-Barros-2" target="_blank" rel="noopener">ResearchGate</a></li>
+            <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack — Mythonoesis</a></li>
+            <li><a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://orcid.org/" target="_blank" rel="noopener">ORCID (profile forthcoming)</a></li>
+            <li><a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
+          </ul>
         </article>
       </section>
     </main>
 
     <footer>
-      <p class="footer-tagline">Myth · Media · Imagination</p>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
   </div>

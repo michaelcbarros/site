@@ -7,14 +7,51 @@
   <meta name="description" content="Research overview for Michael C. Barros, scholar of religion and popular culture focusing on sacred imagination in media." />
   <link rel="stylesheet" href="./style.css" />
   <style>
-    .about-hero {
+    .about-layout {
       display: grid;
-      gap: 2rem;
+      gap: 2.2rem;
     }
-    @media (min-width: 960px) {
-      .about-hero {
-        grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    @media (min-width: 980px) {
+      .about-layout {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
       }
+    }
+    .about-sidebar {
+      border-left: 1px solid var(--border);
+      padding-left: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    @media (max-width: 979px) {
+      .about-sidebar {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border);
+        padding-top: 1.6rem;
+      }
+    }
+    .about-facts {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .about-fact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .about-fact__label {
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--subtle);
+    }
+    .about-fact__value {
+      color: var(--ink);
+      font-weight: 500;
     }
     .about-list {
       display: grid;
@@ -49,15 +86,15 @@
     .about-icon svg {
       width: 100%;
       height: 100%;
-      stroke: var(--highlight);
+      stroke: var(--accent);
       stroke-width: 1.5;
       fill: none;
-      opacity: 0.8;
+      opacity: 0.75;
     }
     .about-icon svg .fill {
-      fill: var(--highlight);
+      fill: var(--accent);
       stroke: none;
-      opacity: 0.65;
+      opacity: 0.55;
     }
     .page--about .info-card {
       padding: 1.6rem;
@@ -81,23 +118,44 @@
     <main>
       <section class="page-header">
         <span class="eyebrow">About</span>
-        <h1 class="page-title">Research Overview</h1>
-        <p class="page-kicker">Scholarship that charts how sacred imagination moves through contemporary media cultures.</p>
+        <h1 class="page-title">About Michael C. Barros</h1>
+        <p class="page-kicker">Interdisciplinary scholar of religion and media investigating how sacred imagination is structured within contemporary storytelling.</p>
         <div class="cta-row" role="group" aria-label="Primary actions">
           <a class="btn" href="./books.html">Books</a>
           <a class="btn" href="./projects.html">Projects</a>
-          <a class="btn" href="./contact.html">Curriculum Vitae</a>
+          <a class="btn" href="./contact.html#cv">Curriculum Vitae</a>
         </div>
       </section>
 
       <section class="section-card">
-        <div class="about-hero">
-          <div class="feature-media feature-media--avatar" role="img" aria-label="Abstract portrait of Michael C. Barros"></div>
-          <div class="feature-body">
+        <div class="about-layout">
+          <div>
             <h2>Research Overview</h2>
-            <p>Michael C. Barros studies how myth, ritual, and sacred imagination manifest in contemporary media. His work examines games, film, and speculative fiction as sites of religious experience and cultural formation, drawing on theology, cultural history, and media analysis to surface hidden architectures of meaning.</p>
-            <p>He develops frameworks that help players, readers, and viewers recognize the sacred textures embedded in contemporary storytelling, offering tools for scholarship, pedagogy, and practice.</p>
+            <p>Michael C. Barros is an interdisciplinary scholar whose work explores how myth, ritual, and sacred imagination emerge within contemporary media. He is currently ABD in Psychology at National University, where his dissertation examines the cognitive formation of supernatural agents in dreams through grounded cognition theory.</p>
+            <p>He holds a Master’s degree in Biblical and Theological Studies and has taught humanities, philosophy, and psychology at both secondary and postsecondary levels. His research integrates theology, cognitive science, and cultural analysis, with publications on religion in video games, Philip K. Dick, archetypal criticism, and media theory.</p>
+            <p>He serves as co-editor of <em>The Esoteric Theology of Philip K. Dick</em> (Bloomsbury, forthcoming 2025) and has published in venues including <em>Academia Letters</em>, <em>The Classical Connection</em>, and <em>SSHJ</em>.</p>
           </div>
+          <aside class="about-sidebar" aria-label="Quick facts">
+            <h3>Quick facts</h3>
+            <ul class="about-facts">
+              <li class="about-fact">
+                <span class="about-fact__label">Education</span>
+                <span class="about-fact__value">PhD (ABD) Psychology, MA Biblical &amp; Theological Studies, BS Engineering Technology, BA Mathematics</span>
+              </li>
+              <li class="about-fact">
+                <span class="about-fact__label">Teaching</span>
+                <span class="about-fact__value">Philosophy, Ethics, Literature, Psychology</span>
+              </li>
+              <li class="about-fact">
+                <span class="about-fact__label">Fields</span>
+                <span class="about-fact__value">Religion &amp; Media, Theology, Grounded Cognition, Cultural History</span>
+              </li>
+              <li class="about-fact">
+                <span class="about-fact__label">Publications</span>
+                <span class="about-fact__value">6+ peer-reviewed articles, 2 book chapters, 1 edited volume</span>
+              </li>
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -220,7 +278,14 @@
     </main>
 
     <footer>
-      <p class="footer-tagline">Myth · Media · Imagination</p>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
   </div>

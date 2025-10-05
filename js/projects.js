@@ -97,49 +97,26 @@
     grid.innerHTML = '';
 
     filtered.forEach((p) => {
-      if (p.cover) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'flip';
-        wrapper.innerHTML = `
-          <div class="flip-inner">
-            <a class="flip-face" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"' : ''}>
-              <img src="${p.cover}" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:12px;margin-bottom:.6rem" />
-              <span class="badge">${p.status}</span>
-              <h3>${p.title}</h3>
-              <div class="meta-row">
-                ${p.date ? `<time datetime="${p.date}">${formatDate(p.date)}</time>` : ''}
-                ${p.tags.length ? `· ${p.tags.join(', ')}` : ''}
-              </div>
-              <p class="muted">${p.short}</p>
-            </a>
-            <a class="flip-back" href="${p.url || '#'}" ${p.external ? 'target="_blank" rel="noopener"' : ''}>
-              <h3>${p.title}</h3>
-              ${p.description ? `<p class="muted">${p.description}</p>` : ''}
-              ${p.url ? `<div style="margin-top:.65rem"><span class="badge">${p.external ? 'External' : 'Details'}</span></div>` : ''}
-            </a>
-          </div>
-        `;
-        grid.appendChild(wrapper);
-      } else {
-        const card = document.createElement('a');
-        card.className = 'card';
-        card.href = p.url || '#';
-        if (p.external) {
-          card.target = '_blank';
-          card.rel = 'noopener';
-        }
-        card.innerHTML = `
-          ${motifMarkup(p.id)}
-          <span class="badge">${p.status}</span>
-          <h3>${p.title}</h3>
-          <div class="meta-row">
-            ${p.date ? `<time datetime="${p.date}">${formatDate(p.date)}</time>` : ''}
-            ${p.tags.length ? `· ${p.tags.join(', ')}` : ''}
-          </div>
-          ${p.short ? `<p class="muted">${p.short}</p>` : ''}
-        `;
-        grid.appendChild(card);
+      const card = document.createElement('a');
+      card.className = 'card';
+      card.href = p.url || '#';
+      if (p.external) {
+        card.target = '_blank';
+        card.rel = 'noopener';
       }
+      const tags = p.tags.length
+        ? `<div class="meta-row">${p.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>`
+        : '';
+      card.innerHTML = `
+        ${motifMarkup(p.id)}
+        <span class="badge">${p.status || 'Research'}</span>
+        <h3>${p.title}</h3>
+        ${p.date ? `<p class="muted small">${formatDate(p.date)}</p>` : ''}
+        ${p.short ? `<p class="muted">${p.short}</p>` : ''}
+        ${p.description ? `<p class="muted small">${p.description}</p>` : ''}
+        ${tags}
+      `;
+      grid.appendChild(card);
     });
   }
 
@@ -147,9 +124,9 @@
     const svg = (function () {
       switch (id) {
         case 'waypoint':
-          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 22v76M22 60h76" /></svg>';
+          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 24v72M24 60h72" /></svg>';
         case 'zelda-religion':
-          return '<svg viewBox="0 0 120 120"><path d="M60 24l32 56H28z" /><path d="M60 24v56" /></svg>';
+          return '<svg viewBox="0 0 120 120"><path d="M60 24l28 48H32z" /><path d="M60 24v48" /></svg>';
         case 'pkd-theology-proj':
         case 'pkd-theology':
           return '<svg viewBox="0 0 120 120"><rect x="28" y="28" width="64" height="64" rx="6" /><path d="M28 60h64M60 28v64" /></svg>';
