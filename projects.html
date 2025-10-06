@@ -4,20 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — Michael C. Barros</title>
-  <meta name="description" content="Current research, collaborations, and media experiments exploring myth and the sacred." />
-  <link rel="stylesheet" href="./style.css" />
-  <style>
-    .filters-panel {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      align-items: center;
-    }
-    .filters-panel input[type="search"] {
-      flex: 1 1 260px;
-      min-width: 220px;
-    }
-  </style>
+  <meta name="description" content="Waypoint Institute, The Legend of Zelda &amp; Religion, and an ABD dissertation on dream-based supernatural agents." />
+  <link rel="stylesheet" href="./style.css?v=20240607" />
 </head>
 <body class="page page--projects">
   <div class="shell">
@@ -40,35 +28,81 @@
         <p class="page-kicker">Current institutes, editorial collaborations, and theological studies examining sacred imagination in contemporary media.</p>
       </section>
 
-      <section class="section-card" aria-labelledby="proj-heading">
+      <section class="projects-section" aria-labelledby="projects-heading">
         <div class="section-heading">
-          <h2 id="proj-heading">Active research</h2>
-          <span class="muted small">Filter by status or theme to locate specific initiatives.</span>
+          <h2 id="projects-heading">Active initiatives</h2>
         </div>
-        <div class="filters-panel" role="group" aria-label="Filters">
-          <div id="filters" class="filters"></div>
-          <input id="search" type="search" placeholder="Search title, tags, or summary…" aria-label="Search projects" />
+        <p class="muted">Hover or tap each card to read the project overview.</p>
+
+        <div class="projects-grid" role="list">
+          <article class="proj-card" role="listitem" tabindex="0" id="waypoint">
+            <div class="proj-card-inner">
+              <div class="proj-card-face front">
+                <h3>Waypoint Institute</h3>
+                <p class="frontline">Tuition-free Christian education: great-books core, cohort-based, donor-supported.</p>
+              </div>
+              <div class="proj-card-face back">
+                <p class="blurb">
+                  Waypoint is a donor-supported, tuition-free Christian education project. We deliver a great-books core in Scripture,
+                  classical theology, and the liberal arts through online cohorts, clear syllabi, and a curated public-domain library.
+                  The emphasis is formation and rigorous study, with straightforward credit pathways for students who need them—so learners
+                  focus on reading, discussion, and service rather than cost or bureaucracy.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card" role="listitem" tabindex="0" id="dissertation">
+            <div class="proj-card-inner">
+              <div class="proj-card-face front">
+                <h3>Formation of Supernatural Agents in Dreams Through Simulation</h3>
+                <p class="subtitle muted">A Grounded Cognition Perspective</p>
+                <p class="frontline">Dream simulation and belief—an embodied, grounded-cognition account.</p>
+              </div>
+              <div class="proj-card-face back">
+                <p class="blurb">
+                  This project develops a grounded-cognition model of how dream simulations help people form and sustain concepts of
+                  supernatural agents. It operationalizes “simulation richness” (sensorimotor detail, agency, narrative) in dream reports
+                  and examines its relationship to religious and paranormal beliefs. The aim is a mechanistic, embodied alternative to
+                  simple “agency-detection” explanations in the cognitive science of religion.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj-card" role="listitem" tabindex="0" id="zelda">
+            <div class="proj-card-inner">
+              <div class="proj-card-face front">
+                <h3>The Legend of Zelda and Religion</h3>
+                <p class="frontline">Zelda as theology—religion emerging from inside the game world.</p>
+              </div>
+              <div class="proj-card-face back">
+                <p class="blurb">
+                  An edited volume arguing that religious meaning in <em>The Legend of Zelda</em> arises from within the games themselves—
+                  mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance,
+                  sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs,
+                  making the case for games as genuine sites of theological reflection.
+                </p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div id="projects-grid" class="grid cols-3" style="margin-top: 2rem;"></div>
-        <div id="empty" class="empty" style="display: none; margin-top: 1.5rem;">No projects match your filters yet—adjust the search or status.</div>
       </section>
     </main>
 
     <footer>
       <p class="footer-tagline">Religion · Media · Imagination</p>
       <nav class="footer-links" aria-label="Secondary">
-        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
-        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
       </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
   </div>
 
-  <script defer src="./js/data/data.js"></script>
-  <script defer src="./js/nav.js"></script>
-  <script defer src="./js/projects.js"></script>
+  <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/nav.js?v=20240607"></script>
+  <script defer src="./js/projects.js?v=20240607"></script>
 </body>
 </html>
