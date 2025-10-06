@@ -222,13 +222,11 @@
             link.rel = 'noopener';
           }
           const summary = p.short || p.summary || '';
-          const detail = p.description || '';
           link.innerHTML = `
             ${motif(id)}
             <span class="badge">${p.status || p.type || 'Research'}</span>
             <h3>${p.title}</h3>
             ${summary ? `<p class="muted">${summary}</p>` : ''}
-            ${detail ? `<p class="muted small">${detail}</p>` : ''}
           `;
           grid.appendChild(link);
         });
