@@ -54,34 +54,36 @@
       title: "Waypoint Institute",
       status: "Institute",
       type: "Collaboration",
-      tags: ["Religion", "Media"],
-      short: "Independent research and publishing initiative examining religion, imagination, and culture.",
-      description: "Curates symposia, publications, and public scholarship that surface sacred cartographies in contemporary media ecosystems.",
+      tags: ["Research", "Publishing", "Culture"],
+      short: "Independent institute curating studies of religion, imagination, and culture.",
+      description:
+        "Co-develops symposia, salons, and publications that chart sacred cartographies across media and civic life.",
       url: "./projects.html#waypoint",
       external: false
     },
     {
-      id: "pkd-theology-proj",
-      title: "Theology of Philip K. Dick",
-      status: "Forthcoming",
-      type: "Book",
-      tags: ["PKD", "Editing"],
-      short: "Edited scholarly volume (Bloomsbury, 2025) analysing Philip K. Dick's theological imagination.",
-      description:
-        "Essays trace Dick's visionary experiences, scriptural experimentation, and cultural afterlives across literature and screen adaptations.",
-      url: "./books.html#pkd-theology",
-      external: false
-    },
-    {
       id: "zelda-religion",
-      title: "Zelda & Religion",
+      title: "The Legend of Zelda & Religion",
       status: "In Progress",
-      type: "Book",
-      tags: ["Games", "Myth"],
+      type: "Book Project",
+      tags: ["Games", "Myth", "Theology"],
       short: "Time, sacrifice, and mythopoesis in The Legend of Zelda as a theological study of sacred structure within game worlds.",
       description:
         "Draws on ritual theory, liturgical studies, and ludology to articulate how Nintendo's series stages sacrificial imagination and heroic vocation.",
-      url: "./books.html#zelda-religion",
+      url: "./projects.html#zelda-religion",
+      external: false
+    },
+    {
+      id: "dream-simulation",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation",
+      status: "Dissertation",
+      type: "Research Study",
+      tags: ["Dreams", "Grounded Cognition", "Religion"],
+      short:
+        "Formation of Supernatural Agents in Dreams Through Simulation — An ABD dissertation at National University testing whether the sensorimotor “simulation richness” of dream reports predicts religiosity and paranormal belief, using grounded cognition and a 10–14-day dataset (n=120; n=60 with REM measures).",
+      description:
+        "Analyzes ~1,200 longitudinal dream reports with REM metrics to model how simulation processes construct and reactivate supernatural agent concepts.",
+      url: "./projects.html#dream-simulation",
       external: false
     }
   ];
