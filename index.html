@@ -7,7 +7,7 @@
   <meta name="description" content="Interdisciplinary research on religion, imagination, and media by Michael C. Barros." />
   <meta name="theme-color" content="#050310" />
 
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css?v=20240607" />
 </head>
 
 <body class="home">
@@ -109,21 +109,9 @@
             </span>
             <span class="badge">Institute</span>
             <h3>Waypoint Institute</h3>
-            <p class="muted">Independent research and publishing initiative mapping sacred imagination in culture.</p>
+            <p class="muted">Tuition-free Christian education: great-books core, cohort rhythm, donor-supported.</p>
           </a>
-          <a class="card card--zelda-religion" href="./projects.html#zelda-religion">
-            <span class="card__motif" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <path d="M60 26l22 38H38z" />
-                <path d="M60 26l-11 19h22z" />
-                <path d="M60 64l11 19H49z" />
-              </svg>
-            </span>
-            <span class="badge">In Progress</span>
-            <h3>The Legend of Zelda &amp; Religion</h3>
-            <p class="muted">Time, sacrifice, and mythopoesis in Hyrule through liturgical and theological frameworks.</p>
-          </a>
-          <a class="card card--dream-simulation" href="./projects.html#dream-simulation">
+          <a class="card card--dissertation" href="./projects.html#dissertation">
             <span class="card__motif" aria-hidden="true">
               <svg viewBox="0 0 120 120">
                 <circle cx="60" cy="60" r="34" />
@@ -132,8 +120,20 @@
               </svg>
             </span>
             <span class="badge">Dissertation</span>
-            <h3>Formation of Supernatural Agents in Dreams</h3>
-            <p class="muted">ABD dissertation testing how dream simulation richness predicts religiosity and paranormal belief.</p>
+            <h3>Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective</h3>
+            <p class="muted">Grounded-cognition account of dream simulation and belief (ABD, National University).</p>
+          </a>
+          <a class="card card--zelda" href="./projects.html#zelda">
+            <span class="card__motif" aria-hidden="true">
+              <svg viewBox="0 0 120 120">
+                <path d="M60 26l22 38H38z" />
+                <path d="M60 26l-11 19h22z" />
+                <path d="M60 64l11 19H49z" />
+              </svg>
+            </span>
+            <span class="badge">In Progress</span>
+            <h3>The Legend of Zelda and Religion (edited volume)</h3>
+            <p class="muted">Zelda as theology: religion emerging from inside the game world (edited volume).</p>
           </a>
         </div>
       </section>
@@ -185,8 +185,8 @@
     </footer>
   </div>
 
-  <script defer src="./js/data/data.js"></script>
-  <script defer src="./js/nav.js"></script>
+  <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/nav.js?v=20240607"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       // footer year
@@ -203,10 +203,10 @@
           switch (id) {
             case 'waypoint':
               return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 26v68M26 60h68" /><path d="M60 18l12 24-12 10-12-10z" /></svg></span>';
-            case 'zelda-religion':
-              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg></span>';
-            case 'dream-simulation':
+            case 'dissertation':
               return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="34" /><path d="M36 60c0-13.3 10.7-24 24-24s24 10.7 24 24-10.7 24-24 24" /><path d="M48 78c-9 0-16-7-16-16" /></svg></span>';
+            case 'zelda':
+              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg></span>';
             default:
               return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg></span>';
           }
