@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Michael C. Barros</title>
   <meta name="description" content="Research overview for Michael C. Barros, scholar of religion and popular culture focusing on sacred imagination in media." />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css?v=20240607" />
   <style>
     .about-layout {
       display: grid;
@@ -99,6 +99,16 @@
     .page--about .info-card {
       padding: 1.6rem;
     }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .link-list a {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body class="page page--about">
@@ -119,11 +129,11 @@
       <section class="page-header">
         <span class="eyebrow">About</span>
         <h1 class="page-title">About Michael C. Barros</h1>
-        <p class="page-kicker">Interdisciplinary scholar of religion and media investigating how sacred imagination is structured within contemporary storytelling.</p>
+        <p class="page-kicker">Scholar of religion &amp; culture.</p>
         <div class="cta-row" role="group" aria-label="Primary actions">
           <a class="btn" href="./books.html">Books</a>
           <a class="btn" href="./projects.html">Projects</a>
-          <a class="btn" href="./contact.html#cv">Curriculum Vitae</a>
+          <a class="btn" href="#profiles">Profiles</a>
         </div>
       </section>
 
@@ -131,9 +141,9 @@
         <div class="about-layout">
           <div>
             <h2>Research Overview</h2>
-            <p>Michael C. Barros is an interdisciplinary scholar whose work explores how myth, ritual, and sacred imagination emerge within contemporary media. He is currently ABD in Psychology at National University, where his dissertation examines the cognitive formation of supernatural agents in dreams through grounded cognition theory.</p>
-            <p>He holds a Master’s degree in Biblical and Theological Studies and has taught humanities, philosophy, and psychology at both secondary and postsecondary levels. His research integrates theology, cognitive science, and cultural analysis, with publications on religion in video games, Philip K. Dick, archetypal criticism, and media theory.</p>
-            <p>He serves as co-editor of <em>The Esoteric Theology of Philip K. Dick</em> (Bloomsbury, forthcoming 2025) and has published in venues including <em>Academia Letters</em>, <em>The Classical Connection</em>, and <em>SSHJ</em>.</p>
+            <p>Michael C. Barros is an interdisciplinary scholar of religion and culture with training in psychology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature. He is ABD in psychology at National University.</p>
+            <p>His dissertation, <em>Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective</em>, develops a grounded-cognition account of how dream simulations help form and sustain concepts of supernatural agents.</p>
+            <p>His research draws on the cognitive science of religion, theology, and cultural analysis, with particular attention to dreams, ritual and imagination, and how games, film, and speculative fiction function as sites of religious meaning. He is co-editor of <em>The Esoteric Theology of Philip K. Dick</em>.</p>
           </div>
           <aside class="about-sidebar" aria-label="Quick facts">
             <h3>Quick facts</h3>
@@ -148,15 +158,21 @@
               </li>
               <li class="about-fact">
                 <span class="about-fact__label">Fields</span>
-                <span class="about-fact__value">Religion &amp; Media, Theology, Grounded Cognition, Cultural History</span>
+                <span class="about-fact__value">Media &amp; game studies; Cognitive science of religion; Religion &amp; culture</span>
               </li>
               <li class="about-fact">
                 <span class="about-fact__label">Publications</span>
-                <span class="about-fact__value">6+ peer-reviewed articles, 2 book chapters, 1 edited volume</span>
+                <span class="about-fact__value">7 articles · 1 book · 1 chapter</span>
               </li>
             </ul>
           </aside>
         </div>
+      </section>
+
+      <section class="section-card">
+        <span class="eyebrow">Current research focus</span>
+        <h2>Formation of Supernatural Agents in Dreams Through Simulation</h2>
+        <p>My dissertation applies grounded cognition to dream data to explain how concepts of supernatural agents form and persist. I analyze ~1,200 dream reports from adults over 10–14 days (n=120), with a subsample wearing DREEM headbands (n=60). Dream content is coded for sensorimotor “simulation richness,” agent presence, and narrative structure, then tested against religiosity and paranormal belief scales, with REM sleep dynamics included. The goal is a mechanistic account of how dream simulations help construct and reactivate agent concepts.</p>
       </section>
 
       <div class="divider" role="presentation"></div>
@@ -263,10 +279,14 @@
           <h2>Connect</h2>
         </div>
         <div class="detail-grid two-col">
-          <article class="info-card">
-            <h3>Research profiles</h3>
-            <p>External publications, preprints, and works-in-progress.</p>
-            <a class="btn" id="about-research" href="#" target="_blank" rel="noopener">Open Research</a>
+          <article class="info-card" id="profiles">
+            <h3>Profiles</h3>
+            <ul class="link-list">
+              <li><a href="https://www.researchgate.net/profile/Michael-Barros-2" target="_blank" rel="noopener">ResearchGate</a></li>
+              <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+              <li><a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a></li>
+              <li><a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
+            </ul>
           </article>
           <article class="info-card">
             <h3>Substack</h3>
@@ -280,23 +300,19 @@
     <footer>
       <p class="footer-tagline">Religion · Media · Imagination</p>
       <nav class="footer-links" aria-label="Secondary">
-        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
-        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
       </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
   </div>
 
-  <script defer src="./js/data/data.js"></script>
-  <script defer src="./js/nav.js"></script>
+  <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/nav.js?v=20240607"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const links = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      const research = document.getElementById('about-research');
-      if (research) research.href = links.research || 'https://www.researchgate.net/';
       const blog = document.getElementById('about-blog');
       if (blog) blog.href = links.blog || 'https://mythonoesis.substack.com/';
       const year = document.getElementById('year');
