@@ -71,7 +71,7 @@
       short:
         "Dream simulation and belief—an embodied, grounded-cognition account.",
       description:
-        "This project develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents. It operationalizes “simulation richness” (sensorimotor detail, agency, narrative) in dream reports and examines its relationship to religious and paranormal beliefs. The aim is a mechanistic, embodied alternative to simple “agency-detection” explanations in the cognitive science of religion.",
+        "My dissertation develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents. It operationalizes “simulation richness” (sensorimotor detail, agency, narrative) in dream reports and examines its relationship to religious and paranormal beliefs. The aim is a mechanistic, embodied alternative to simple “agency-detection” explanations in the cognitive science of religion.",
       url: "./projects.html#dissertation",
       external: false
     },

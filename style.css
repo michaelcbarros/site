@@ -768,6 +768,43 @@ address {
   overflow: hidden;
 }
 
+#waypoint .proj-card-face.front {
+  background: linear-gradient(140deg, rgba(224, 237, 255, 0.96), rgba(255, 255, 255, 0.92));
+  border-color: rgba(18, 48, 86, 0.3);
+}
+
+#waypoint .proj-card-face.front h3 {
+  color: #113057;
+}
+
+#waypoint .proj-card-face.front p {
+  color: rgba(17, 48, 87, 0.8);
+}
+
+#dissertation .proj-card-face.front {
+  background: linear-gradient(150deg, #102c5d, #1f4f96);
+  border-color: rgba(45, 100, 176, 0.55);
+}
+
+#dissertation .proj-card-face.front h3,
+#dissertation .proj-card-face.front p {
+  color: rgba(234, 243, 255, 0.95);
+}
+
+#dissertation .proj-card-face.front .subtitle {
+  color: rgba(219, 233, 255, 0.85);
+}
+
+#zelda .proj-card-face.front {
+  background: linear-gradient(150deg, #14321f, #2c5c36);
+  border-color: rgba(58, 128, 78, 0.6);
+}
+
+#zelda .proj-card-face.front h3,
+#zelda .proj-card-face.front p {
+  color: rgba(232, 246, 236, 0.95);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .proj-card-inner {
     transition: none;
