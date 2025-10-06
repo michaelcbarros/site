@@ -1,7 +1,7 @@
 /* js/data/data.js
    Central, declarative data model for the site.
    - Primary:    window.SITE_DATA (preferred)
-   - Legacy:     window.BOOKS, window.PROJECTS, window.SUBSTACK_POSTS (for older scripts)
+   - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
    Keep URLs **relative** so Pages works under a project baseurl.
 */
 (function () {
@@ -14,7 +14,7 @@
 
   // ---------- Taglines (homepage rotator) ----------
   const TAGLINES = [
-    "Interdisciplinary scholarship on religion, imagination, and media.",
+    "Scholar of religion & culture exploring dreams, ritual, and imagination in media.",
     "Analysing contemporary storytelling through theological and cultural history.",
     "Grounded cognition, sacred imagination, and popular culture."
   ];
@@ -54,60 +54,48 @@
       title: "Waypoint Institute",
       status: "Institute",
       type: "Collaboration",
-      tags: ["Religion", "Media"],
-      short: "Independent research and publishing initiative examining religion, imagination, and culture.",
-      description: "Curates symposia, publications, and public scholarship that surface sacred cartographies in contemporary media ecosystems.",
+      tags: ["Education", "Theology", "Great Books"],
+      short:
+        "Tuition-free Christian education: great-books core, cohort-based, donor-supported.",
+      description:
+        "Waypoint is a donor-supported, tuition-free Christian education project. We deliver a great-books core in Scripture, classical theology, and the liberal arts through online cohorts, clear syllabi, and a curated public-domain library. The emphasis is formation and rigorous study, with straightforward credit pathways for students who need them—so learners focus on reading, discussion, and service rather than cost or bureaucracy.",
       url: "./projects.html#waypoint",
       external: false
     },
     {
-      id: "pkd-theology-proj",
-      title: "Theology of Philip K. Dick",
-      status: "Forthcoming",
-      type: "Book",
-      tags: ["PKD", "Editing"],
-      short: "Edited scholarly volume (Bloomsbury, 2025) analysing Philip K. Dick's theological imagination.",
+      id: "dissertation",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
+      status: "Dissertation",
+      type: "Research Study",
+      tags: ["Dreams", "Grounded Cognition", "Religion"],
+      short:
+        "Dream simulation and belief—an embodied, grounded-cognition account.",
       description:
-        "Essays trace Dick's visionary experiences, scriptural experimentation, and cultural afterlives across literature and screen adaptations.",
-      url: "./books.html#pkd-theology",
+        "My dissertation develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents. It operationalizes “simulation richness” (sensorimotor detail, agency, narrative) in dream reports and examines its relationship to religious and paranormal beliefs. The aim is a mechanistic, embodied alternative to simple “agency-detection” explanations in the cognitive science of religion.",
+      url: "./projects.html#dissertation",
       external: false
     },
     {
-      id: "zelda-religion",
-      title: "Zelda & Religion",
-      status: "In Progress",
-      type: "Book",
-      tags: ["Games", "Myth"],
-      short: "Time, sacrifice, and mythopoesis in The Legend of Zelda as a theological study of sacred structure within game worlds.",
+      id: "zelda",
+      title: "The Legend of Zelda and Religion",
+      status: "Edited Volume",
+      type: "Edited Volume",
+      tags: ["Games", "Religion", "Edited Volume"],
+      short:
+        "Zelda as theology—religion emerging from inside the game world.",
       description:
-        "Draws on ritual theory, liturgical studies, and ludology to articulate how Nintendo's series stages sacrificial imagination and heroic vocation.",
-      url: "./books.html#zelda-religion",
+        "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves—mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance, sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs, making the case for games as genuine sites of theological reflection.",
+      url: "./projects.html#zelda",
       external: false
     }
   ];
 
   // ---------- Substack (homepage & projects feed) ----------
   const SUBSTACK_HOME = "https://mythonoesis.substack.com/";
-  const SUBSTACK_POSTS = [
-    {
-      title: "Disney Adults Want God, but May Settle for Simulation",
-      url: "https://open.substack.com/pub/mythonoesis/p/disney-adults-want-god-but-may-settle?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary: "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'.",
-      date: "2025-05-20"
-    },
-    {
-      title: "Tolkien, Freud, and the Source of Story",
-      url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary: "A long discussion on a short exchange in the 1962 BBC interview.",
-      date: "2025-05-13"
-    },
-    {
-      title: "Cartographies of Sacred Play",
-      url: "https://mythonoesis.substack.com/p/cartographies-of-sacred-play",
-      summary: "Field notes on ritual architecture in contemporary games and interactive media.",
-      date: "2025-05-05"
-    }
-  ];
+  const SUBSTACK = {
+    url: SUBSTACK_HOME,
+    posts: []
+  };
 
   // ---------- Optional: Featured writing (leave empty if using ResearchGate) ----------
   const ESSAYS = [
@@ -129,10 +117,7 @@
     projects: PROJECTS,
 
     // optional feeds/sections
-    substack: {
-      url: SUBSTACK_HOME,
-      posts: SUBSTACK_POSTS
-    },
+    substack: SUBSTACK,
     essays: ESSAYS,
     reading: READING
   };
@@ -140,7 +125,7 @@
   // ---------- Legacy globals for older scripts (safe to keep) ----------
   window.LINKS = LINKS;
   window.SUBSTACK_HOME = SUBSTACK_HOME;
-  window.SUBSTACK_POSTS = SUBSTACK_POSTS;
+  window.SUBSTACK = SUBSTACK;
   window.BOOKS = BOOKS;
   window.PROJECTS = PROJECTS;
   window.ESSAYS = ESSAYS;

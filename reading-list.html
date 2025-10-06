@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reading list — Michael C. Barros</title>
+  <meta name="description" content="Curated shelves of formative books drawn from the Western canon and related traditions." />
+  <link rel="stylesheet" href="./style.css?v=20240607" />
+</head>
+<body class="page page--reading">
+  <div class="shell">
+    <header class="site-header" aria-label="Site">
+      <a class="brand" href="./index.html">Michael C. Barros</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html">About</a>
+        <a class="nav__link" href="./books.html">Books</a>
+        <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <span class="eyebrow">Reading list</span>
+        <h1 class="page-title">Books on deck</h1>
+        <p class="page-kicker">Curated stacks of formative works drawn from the Western canon. Update the line-up or notes as reading priorities shift.</p>
+      </section>
+
+      <section class="wrap reading-list">
+        <article class="reading-group" aria-labelledby="genre-theology">
+          <h2 id="genre-theology">Classical theology &amp; spirituality</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">Confessions</span>
+              <span class="reading-meta">Augustine of Hippo</span>
+              <p class="muted">Augustine’s prayerful autobiography framing memory, desire, and divine encounter.</p>
+            </li>
+            <li>
+              <span class="reading-title">The Ladder of Divine Ascent</span>
+              <span class="reading-meta">John Climacus</span>
+              <p class="muted">Monastic pedagogy on prayer, imagination, and the ascent toward virtue.</p>
+            </li>
+            <li>
+              <span class="reading-title">Institutes of the Christian Religion</span>
+              <span class="reading-meta">John Calvin</span>
+              <p class="muted">Systematic theology with rich treatments of devotion, scripture, and spiritual formation.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="reading-group" aria-labelledby="genre-philosophy">
+          <h2 id="genre-philosophy">Philosophy &amp; moral imagination</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">Nicomachean Ethics</span>
+              <span class="reading-meta">Aristotle</span>
+              <p class="muted">Virtue ethics and the cultivation of character through habituated practice.</p>
+            </li>
+            <li>
+              <span class="reading-title">Pensées</span>
+              <span class="reading-meta">Blaise Pascal</span>
+              <p class="muted">Fragmentary reflections bridging faith, reason, and the psychology of belief.</p>
+            </li>
+            <li>
+              <span class="reading-title">Leviathan</span>
+              <span class="reading-meta">Thomas Hobbes</span>
+              <p class="muted">Political theology and social imagination amid emerging modernity.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="reading-group" aria-labelledby="genre-literature">
+          <h2 id="genre-literature">Literature &amp; myth</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">The Divine Comedy</span>
+              <span class="reading-meta">Dante Alighieri</span>
+              <p class="muted">A pilgrimage through the afterlife mapping desire, judgment, and beatific vision.</p>
+            </li>
+            <li>
+              <span class="reading-title">The Iliad</span>
+              <span class="reading-meta">Homer</span>
+              <p class="muted">Epic imagination of honor, grief, and the divine amid war.</p>
+            </li>
+            <li>
+              <span class="reading-title">Paradise Lost</span>
+              <span class="reading-meta">John Milton</span>
+              <p class="muted">Cosmic drama of fall and redemption blending biblical epic with poetic innovation.</p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
+  </div>
+
+  <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/nav.js?v=20240607"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
