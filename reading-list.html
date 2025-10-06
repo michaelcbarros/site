@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reading list — Michael C. Barros</title>
+  <meta name="description" content="Placeholder reading list organized by genre for upcoming book and essay recommendations." />
+  <link rel="stylesheet" href="./style.css?v=20240607" />
+</head>
+<body class="page page--reading">
+  <div class="shell">
+    <header class="site-header" aria-label="Site">
+      <a class="brand" href="./index.html">Michael C. Barros</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="./about.html">About</a>
+        <a class="nav__link" href="./books.html">Books</a>
+        <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
+        <a class="nav__link" href="./projects.html">Projects</a>
+        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+        <a class="nav__link" href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <span class="eyebrow">Reading list</span>
+        <h1 class="page-title">Books &amp; essays on deck</h1>
+        <p class="page-kicker">Organized by genre with space reserved for annotations and links. Replace the placeholder entries with current selections when ready.</p>
+      </section>
+
+      <section class="wrap reading-list">
+        <article class="reading-group" aria-labelledby="genre-media">
+          <h2 id="genre-media">Media &amp; game studies</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Add a note about why this work matters for media and game analysis.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Use this slot for a design, phenomenology, or theology of play reference.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Optional: link to an article, essay, or conversation shaping current work.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="reading-group" aria-labelledby="genre-csr">
+          <h2 id="genre-csr">Cognitive science of religion</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Reserve this space for theoretical foundations or overview texts.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Add empirical or methodological pieces related to dreams and simulation.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Include an article or chapter that connects cognitive science with theology.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="reading-group" aria-labelledby="genre-culture">
+          <h2 id="genre-culture">Religion &amp; culture</h2>
+          <ul class="reading-items">
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Spotlight works on ritual, imagination, or cultural theory.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Include a book or essay that resonates with pastoral or pedagogical practice.</p>
+            </li>
+            <li>
+              <span class="reading-title">Title forthcoming</span>
+              <span class="reading-meta">Author forthcoming</span>
+              <p class="muted">Use this slot for speculative fiction, film, or art analysis intersecting religion.</p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <nav class="footer-links" aria-label="Secondary">
+        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
+        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+      </nav>
+      © <span id="year"></span> Michael C. Barros
+    </footer>
+  </div>
+
+  <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/nav.js?v=20240607"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
