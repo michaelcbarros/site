@@ -1,7 +1,7 @@
 /* js/data/data.js
    Central, declarative data model for the site.
    - Primary:    window.SITE_DATA (preferred)
-   - Legacy:     window.BOOKS, window.PROJECTS, window.SUBSTACK_POSTS (for older scripts)
+   - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
    Keep URLs **relative** so Pages works under a project baseurl.
 */
 (function () {
@@ -92,26 +92,10 @@
 
   // ---------- Substack (homepage & projects feed) ----------
   const SUBSTACK_HOME = "https://mythonoesis.substack.com/";
-  const SUBSTACK_POSTS = [
-    {
-      title: "Disney Adults Want God, but May Settle for Simulation",
-      url: "https://open.substack.com/pub/mythonoesis/p/disney-adults-want-god-but-may-settle?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary: "A Baudrillardian reflection on Natasha Burge's 'Disney Adults Just Want God'.",
-      date: "2025-05-20"
-    },
-    {
-      title: "Tolkien, Freud, and the Source of Story",
-      url: "https://open.substack.com/pub/mythonoesis/p/is-tolkiens-private-stock-just-freuds?r=5opgoc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false",
-      summary: "A long discussion on a short exchange in the 1962 BBC interview.",
-      date: "2025-05-13"
-    },
-    {
-      title: "Cartographies of Sacred Play",
-      url: "https://mythonoesis.substack.com/p/cartographies-of-sacred-play",
-      summary: "Field notes on ritual architecture in contemporary games and interactive media.",
-      date: "2025-05-05"
-    }
-  ];
+  const SUBSTACK = {
+    url: SUBSTACK_HOME,
+    posts: []
+  };
 
   // ---------- Optional: Featured writing (leave empty if using ResearchGate) ----------
   const ESSAYS = [
@@ -133,10 +117,7 @@
     projects: PROJECTS,
 
     // optional feeds/sections
-    substack: {
-      url: SUBSTACK_HOME,
-      posts: SUBSTACK_POSTS
-    },
+    substack: SUBSTACK,
     essays: ESSAYS,
     reading: READING
   };
@@ -144,7 +125,7 @@
   // ---------- Legacy globals for older scripts (safe to keep) ----------
   window.LINKS = LINKS;
   window.SUBSTACK_HOME = SUBSTACK_HOME;
-  window.SUBSTACK_POSTS = SUBSTACK_POSTS;
+  window.SUBSTACK = SUBSTACK;
   window.BOOKS = BOOKS;
   window.PROJECTS = PROJECTS;
   window.ESSAYS = ESSAYS;

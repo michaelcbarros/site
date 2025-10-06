@@ -510,6 +510,39 @@ a.nav__link::after {
   margin-bottom: 0.4rem;
 }
 
+.insight-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 1.6rem;
+}
+
+.insight-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.insight-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.insight-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.insight-card:hover,
+.insight-card:focus-within {
+  border-color: var(--border-strong);
+  box-shadow: 0 16px 34px rgba(5, 7, 15, 0.45);
+}
+
 .feature-grid {
   display: grid;
   gap: 1.8rem;
