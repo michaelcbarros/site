@@ -77,9 +77,9 @@
     },
     {
       id: "zelda",
-      title: "The Legend of Zelda and Religion (edited volume)",
-      status: "In Progress",
-      type: "Book Project",
+      title: "The Legend of Zelda and Religion",
+      status: "Edited Volume",
+      type: "Edited Volume",
       tags: ["Games", "Religion", "Edited Volume"],
       short:
         "Zelda as theology—religion emerging from inside the game world.",
