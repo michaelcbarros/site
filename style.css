@@ -438,6 +438,53 @@ a.nav__link::after {
   color: rgba(233, 240, 252, 0.96);
 }
 
+#projects-grid .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  min-height: 180px;
+  padding: 1.85rem 1.35rem 1.6rem;
+  transition: padding 0.28s ease, transform 0.28s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+#projects-grid .card .card__type {
+  margin: 0;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+}
+
+#projects-grid .card .card__title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(8px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.28s ease, transform 0.28s ease, max-height 0.32s ease;
+}
+
+#projects-grid .card:hover,
+#projects-grid .card:focus,
+#projects-grid .card:focus-visible {
+  padding-bottom: 2.4rem;
+  transform: translateY(-4px);
+}
+
+#projects-grid .card:hover .card__title,
+#projects-grid .card:focus .card__title,
+#projects-grid .card:focus-visible .card__title {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 220px;
+}
+
+#projects-grid .card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .card:hover,
 .flip:hover .flip-face,
 .flip:hover .flip-back,

@@ -76,7 +76,7 @@
       <section aria-labelledby="projects-heading">
         <div class="section-heading">
           <h2 id="projects-heading">Research &amp; Works in Progress</h2>
-          <a class="link" href="./projects.html">All research →</a>
+          <a class="link" href="./projects.html#projects-heading">All research →</a>
         </div>
         <p class="section-intro">
           Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.
@@ -90,9 +90,8 @@
                 <path d="M60 18l12 24-12 10-12-10z" />
               </svg>
             </span>
-            <span class="badge">Institute</span>
-            <h3>Waypoint Institute</h3>
-            <p class="muted">Tuition-free Christian education: great-books core, cohort-based, donor-supported.</p>
+            <h3 class="card__type">Institute</h3>
+            <p class="card__title">Waypoint Institute</p>
           </a>
           <a class="card card--dissertation" href="./projects.html#dissertation">
             <span class="card__motif" aria-hidden="true">
@@ -102,9 +101,8 @@
                 <path d="M48 78c-9 0-16-7-16-16" />
               </svg>
             </span>
-            <span class="badge">Dissertation</span>
-            <h3>Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective</h3>
-            <p class="muted">Dream simulation and belief—an embodied, grounded-cognition account.</p>
+            <h3 class="card__type">Dissertation</h3>
+            <p class="card__title">Formation of Supernatural Agents in Dreams Through Simulation</p>
           </a>
           <a class="card card--zelda" href="./projects.html#zelda">
             <span class="card__motif" aria-hidden="true">
@@ -114,9 +112,8 @@
                 <path d="M60 64l11 19H49z" />
               </svg>
             </span>
-            <span class="badge">Edited Volume</span>
-            <h3>The Legend of Zelda and Religion</h3>
-            <p class="muted">Zelda as theology—religion emerging from inside the game world.</p>
+            <h3 class="card__type">Edited Volume</h3>
+            <p class="card__title">The Legend of Zelda and Religion</p>
           </a>
         </div>
       </section>
@@ -194,6 +191,15 @@
               return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg></span>';
           }
         };
+        const projectTitle = (id, title) => {
+          if (!title) return '';
+          if (id === 'dissertation') {
+            const parts = String(title).split(':');
+            return parts[0] ? parts[0].trim() : String(title).trim();
+          }
+          return String(title).trim();
+        };
+
         grid.innerHTML = '';
         projects.slice(0, 6).forEach(p => {
           const link = document.createElement('a');
@@ -204,12 +210,15 @@
             link.target = '_blank';
             link.rel = 'noopener';
           }
-          const summary = p.short || p.summary || '';
+          const typeLabel = (p.status || p.type || 'Project');
+          const titleText = projectTitle(id, p.title || typeLabel);
+          if (titleText) {
+            link.setAttribute('aria-label', `${titleText} (${typeLabel})`);
+          }
           link.innerHTML = `
             ${motif(id)}
-            <span class="badge">${p.status || p.type || 'Research'}</span>
-            <h3>${p.title}</h3>
-            ${summary ? `<p class="muted">${summary}</p>` : ''}
+            <h3 class="card__type">${typeLabel}</h3>
+            <p class="card__title">${titleText}</p>
           `;
           grid.appendChild(link);
         });
