@@ -14,7 +14,7 @@
 
   // ---------- Taglines (homepage rotator) ----------
   const TAGLINES = [
-    "Interdisciplinary scholarship on religion, imagination, and media.",
+    "Scholar of religion & culture exploring dreams, ritual, and imagination in media.",
     "Analysing contemporary storytelling through theological and cultural history.",
     "Grounded cognition, sacred imagination, and popular culture."
   ];

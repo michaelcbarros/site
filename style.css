@@ -281,70 +281,50 @@ a.nav__link::after {
 .hero {
   position: relative;
   margin-top: 72px;
-  display: grid;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 2.4rem;
+  text-align: center;
 }
 
 .hero__content {
-  max-width: 560px;
-}
-
-@media (min-width: 960px) {
-  .hero {
-    grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.9fr);
-  }
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .hero__content h1 {
   color: var(--ink);
-  max-width: 16ch;
 }
 
 .hero__tagline {
   font-size: 1.15rem;
-  max-width: 620px;
+  max-width: 720px;
   color: var(--muted);
 }
 
 .hero__meta {
-  margin-top: 1.4rem;
+  margin-top: 0.2rem;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+  align-items: center;
 }
 
 .hero__meta .badge-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.55rem;
   font-size: 0.85rem;
   color: var(--subtle);
 }
 
-.hero__media {
-  position: relative;
-  width: min(380px, 100%);
-  justify-self: center;
-}
-
-.hero__motif {
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-}
-
-.hero__motif svg {
-  position: absolute;
-  inset: 12%;
-  width: 76%;
-  height: 76%;
-  opacity: 0.5;
-  stroke-width: 1;
-  stroke-linecap: square;
+.hero__meta .cta-row {
+  justify-content: center;
 }
 
 .badge {
@@ -419,26 +399,43 @@ a.nav__link::after {
   stroke-linejoin: miter;
 }
 .card--waypoint {
-  background: linear-gradient(135deg, rgba(11, 36, 62, 0.92), rgba(6, 18, 34, 0.92));
-  border-color: rgba(88, 163, 209, 0.45);
+  background: linear-gradient(135deg, rgba(234, 245, 255, 0.95), rgba(204, 227, 255, 0.95));
+  border-color: rgba(122, 176, 221, 0.6);
 }
 .card--waypoint .card__motif svg {
-  stroke: rgba(116, 204, 255, 0.6);
+  stroke: rgba(48, 98, 142, 0.45);
+}
+.card--waypoint h3,
+.card--waypoint p,
+.card--waypoint .badge {
+  color: #0f2740;
+  border-color: rgba(15, 39, 64, 0.25);
+  background: rgba(255, 255, 255, 0.35);
 }
 .card--zelda {
-  background: radial-gradient(circle at 30% 30%, rgba(28, 60, 24, 0.85), rgba(12, 26, 18, 0.92));
-  border-color: rgba(140, 198, 63, 0.4);
+  background: radial-gradient(circle at 30% 30%, rgba(32, 74, 38, 0.9), rgba(18, 44, 24, 0.92));
+  border-color: rgba(116, 176, 92, 0.5);
 }
 .card--zelda .card__motif svg {
-  stroke: rgba(218, 200, 120, 0.75);
-  fill: rgba(218, 200, 120, 0.18);
+  stroke: rgba(218, 200, 120, 0.7);
+  fill: rgba(218, 200, 120, 0.2);
+}
+.card--zelda h3,
+.card--zelda p,
+.card--zelda .badge {
+  color: rgba(237, 246, 238, 0.95);
 }
 .card--dissertation {
-  background: linear-gradient(160deg, rgba(38, 28, 68, 0.92), rgba(18, 32, 60, 0.9));
-  border-color: rgba(147, 129, 226, 0.45);
+  background: linear-gradient(160deg, rgba(34, 74, 129, 0.92), rgba(20, 48, 92, 0.92));
+  border-color: rgba(120, 170, 230, 0.5);
 }
 .card--dissertation .card__motif svg {
-  stroke: rgba(204, 186, 255, 0.7);
+  stroke: rgba(188, 216, 255, 0.65);
+}
+.card--dissertation h3,
+.card--dissertation p,
+.card--dissertation .badge {
+  color: rgba(233, 240, 252, 0.96);
 }
 
 .card:hover,
@@ -769,37 +766,37 @@ address {
 }
 
 #waypoint .proj-card-face.front {
-  background: linear-gradient(135deg, rgba(11, 36, 62, 0.92), rgba(6, 18, 34, 0.92));
-  border-color: rgba(88, 163, 209, 0.45);
+  background: linear-gradient(135deg, rgba(234, 245, 255, 0.95), rgba(204, 227, 255, 0.95));
+  border-color: rgba(122, 176, 221, 0.6);
 }
 
 #waypoint .proj-card-face.front h3,
 #waypoint .proj-card-face.front p {
-  color: rgba(222, 238, 255, 0.95);
+  color: #0f2740;
 }
 
 #dissertation .proj-card-face.front {
-  background: linear-gradient(160deg, rgba(38, 28, 68, 0.92), rgba(18, 32, 60, 0.9));
-  border-color: rgba(147, 129, 226, 0.45);
+  background: linear-gradient(160deg, rgba(34, 74, 129, 0.92), rgba(20, 48, 92, 0.92));
+  border-color: rgba(120, 170, 230, 0.5);
 }
 
 #dissertation .proj-card-face.front h3,
 #dissertation .proj-card-face.front p {
-  color: rgba(232, 234, 255, 0.95);
+  color: rgba(233, 240, 252, 0.96);
 }
 
 #dissertation .proj-card-face.front .subtitle {
-  color: rgba(210, 210, 255, 0.85);
+  color: rgba(210, 226, 255, 0.85);
 }
 
 #zelda .proj-card-face.front {
-  background: radial-gradient(circle at 30% 30%, rgba(28, 60, 24, 0.85), rgba(12, 26, 18, 0.92));
-  border-color: rgba(140, 198, 63, 0.4);
+  background: radial-gradient(circle at 30% 30%, rgba(32, 74, 38, 0.9), rgba(18, 44, 24, 0.92));
+  border-color: rgba(116, 176, 92, 0.5);
 }
 
 #zelda .proj-card-face.front h3,
 #zelda .proj-card-face.front p {
-  color: rgba(232, 246, 236, 0.95);
+  color: rgba(237, 246, 238, 0.95);
 }
 
 @media (prefers-reduced-motion: reduce) {
