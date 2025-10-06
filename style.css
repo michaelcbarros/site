@@ -406,7 +406,10 @@ a.nav__link::after {
   stroke: rgba(48, 98, 142, 0.45);
 }
 .card--waypoint h3,
-.card--waypoint p,
+.card--waypoint p {
+  color: #0f2740;
+}
+
 .card--waypoint .badge {
   color: #0f2740;
   border-color: rgba(15, 39, 64, 0.25);
@@ -443,8 +446,8 @@ a.nav__link::after {
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.35rem;
-  min-height: 180px;
-  padding: 1.85rem 1.35rem 1.6rem;
+  min-height: 150px;
+  padding: 1.55rem 1.25rem 1.35rem;
   transition: padding 0.28s ease, transform 0.28s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
@@ -468,7 +471,7 @@ a.nav__link::after {
 #projects-grid .card:hover,
 #projects-grid .card:focus,
 #projects-grid .card:focus-visible {
-  padding-bottom: 2.4rem;
+  padding-bottom: 1.85rem;
   transform: translateY(-4px);
 }
 
