@@ -55,7 +55,7 @@
           <h2>Email</h2>
           <p class="muted">Include event context, proposed dates, and format in your initial message.</p>
           <div class="contact-actions">
-            <code id="addr">barrostheology@gmail.com</code>
+            <code id="addr">Email hidden — use the buttons to get in touch.</code>
             <button id="copy" class="btn ghost" type="button">Copy</button>
             <a id="mailto" class="btn" href="#">Compose email</a>
           </div>
@@ -67,15 +67,13 @@
         </article>
 
         <article class="section-card" id="cv">
-          <h2>Curriculum vitae &amp; profiles</h2>
-          <p class="muted">Download the current CV or connect via research platforms.</p>
+          <h2>Research profiles</h2>
+          <p class="muted">Connect via academic networks and ongoing publications.</p>
           <ul class="link-list">
-            <li><a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a></li>
             <li><a href="https://www.researchgate.net/profile/Michael-Barros-2" target="_blank" rel="noopener">ResearchGate</a></li>
             <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack — Mythonoesis</a></li>
-            <li><a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://orcid.org/" target="_blank" rel="noopener">ORCID (profile forthcoming)</a></li>
-            <li><a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
+            <li><a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
           </ul>
         </article>
       </section>
@@ -84,11 +82,9 @@
     <footer>
       <p class="footer-tagline">Religion · Media · Imagination</p>
       <nav class="footer-links" aria-label="Secondary">
-        <a href="./assets/docs/michael-c-barros-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
-        <a href="https://github.com/michaelcbarros" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://independent.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
+        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
       </nav>
       © <span id="year"></span> Michael C. Barros
     </footer>
@@ -105,9 +101,6 @@
       if (blog) blog.href = LINKS.blog || 'https://mythonoesis.substack.com/';
       const research = document.getElementById('nav-research');
       if (research) research.href = LINKS.research || 'https://www.researchgate.net/';
-
-      const addrEl = document.getElementById('addr');
-      if (addrEl) addrEl.textContent = EMAIL;
 
       const mailto = document.getElementById('mailto');
       if (mailto) mailto.href = `mailto:${EMAIL}`;
