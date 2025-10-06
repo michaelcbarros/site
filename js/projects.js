@@ -98,7 +98,8 @@
 
     filtered.forEach((p) => {
       const card = document.createElement('a');
-      card.className = 'card';
+      const id = p.id || slugify(p.title);
+      card.className = `card card--${id}`;
       card.href = p.url || '#';
       if (p.external) {
         card.target = '_blank';
@@ -108,7 +109,7 @@
         ? `<div class="meta-row">${p.tags.map((tag) => `<span>${tag}</span>`).join('')}</div>`
         : '';
       card.innerHTML = `
-        ${motifMarkup(p.id)}
+        ${motifMarkup(id)}
         <span class="badge">${p.status || 'Research'}</span>
         <h3>${p.title}</h3>
         ${p.date ? `<p class="muted small">${formatDate(p.date)}</p>` : ''}
@@ -124,12 +125,11 @@
     const svg = (function () {
       switch (id) {
         case 'waypoint':
-          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 24v72M24 60h72" /></svg>';
+          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 26v68M26 60h68" /><path d="M60 18l12 24-12 10-12-10z" /></svg>';
         case 'zelda-religion':
-          return '<svg viewBox="0 0 120 120"><path d="M60 24l28 48H32z" /><path d="M60 24v48" /></svg>';
-        case 'pkd-theology-proj':
-        case 'pkd-theology':
-          return '<svg viewBox="0 0 120 120"><rect x="28" y="28" width="64" height="64" rx="6" /><path d="M28 60h64M60 28v64" /></svg>';
+          return '<svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg>';
+        case 'dream-simulation':
+          return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="34" /><path d="M36 60c0-13.3 10.7-24 24-24s24 10.7 24 24-10.7 24-24 24" /><path d="M48 78c-9 0-16-7-16-16" /></svg>';
         default:
           return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg>';
       }

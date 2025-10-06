@@ -99,6 +99,16 @@
     .page--about .info-card {
       padding: 1.6rem;
     }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .link-list a {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body class="page page--about">
@@ -123,7 +133,7 @@
         <div class="cta-row" role="group" aria-label="Primary actions">
           <a class="btn" href="./books.html">Books</a>
           <a class="btn" href="./projects.html">Projects</a>
-          <a class="btn" href="./contact.html#cv">Profiles</a>
+          <a class="btn" href="#profiles">Profiles</a>
         </div>
       </section>
 
@@ -157,6 +167,12 @@
             </ul>
           </aside>
         </div>
+      </section>
+
+      <section class="section-card">
+        <span class="eyebrow">Current research focus</span>
+        <h2>Formation of Supernatural Agents in Dreams Through Simulation</h2>
+        <p>My dissertation applies grounded cognition to dream data to explain how concepts of supernatural agents form and persist. I analyze ~1,200 dream reports from adults over 10–14 days (n=120), with a subsample wearing DREEM headbands (n=60). Dream content is coded for sensorimotor “simulation richness,” agent presence, and narrative structure, then tested against religiosity and paranormal belief scales, with REM sleep dynamics included. The goal is a mechanistic account of how dream simulations help construct and reactivate agent concepts.</p>
       </section>
 
       <div class="divider" role="presentation"></div>
@@ -263,9 +279,14 @@
           <h2>Connect</h2>
         </div>
         <div class="detail-grid two-col">
-          <article class="info-card">
+          <article class="info-card" id="profiles">
             <h3>Profiles</h3>
-            <a class="btn" id="about-research" href="#" target="_blank" rel="noopener">Open profiles</a>
+            <ul class="link-list">
+              <li><a href="https://www.researchgate.net/profile/Michael-Barros-2" target="_blank" rel="noopener">ResearchGate</a></li>
+              <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+              <li><a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a></li>
+              <li><a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
+            </ul>
           </article>
           <article class="info-card">
             <h3>Substack</h3>
@@ -292,8 +313,6 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const links = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
-      const research = document.getElementById('about-research');
-      if (research) research.href = links.research || 'https://www.researchgate.net/';
       const blog = document.getElementById('about-blog');
       if (blog) blog.href = links.blog || 'https://mythonoesis.substack.com/';
       const year = document.getElementById('year');
