@@ -54,36 +54,38 @@
       title: "Waypoint Institute",
       status: "Institute",
       type: "Collaboration",
-      tags: ["Research", "Publishing", "Culture"],
-      short: "Independent institute curating studies of religion, imagination, and culture.",
+      tags: ["Education", "Theology", "Great Books"],
+      short:
+        "Tuition-free Christian education: great-books core, cohort rhythm, donor-supported.",
       description:
-        "Co-develops symposia, salons, and publications that chart sacred cartographies across media and civic life.",
+        "Waypoint is a donor-funded, tuition-free Christian education project offering a great-books core grounded in Scripture, classical theology, and the liberal arts. Courses run online in cohorts with clear syllabi and a curated public-domain library (Gutenberg editions with commentary). Certificates exist, but the program’s focus is formation and rigorous study. We’re building transfer-friendly partnerships and a simple catalog with course descriptions, contact hours, and suggested sequencing so students can concentrate on learning while donors underwrite access.",
       url: "./projects.html#waypoint",
       external: false
     },
     {
-      id: "zelda-religion",
-      title: "The Legend of Zelda & Religion",
-      status: "In Progress",
-      type: "Book Project",
-      tags: ["Games", "Myth", "Theology"],
-      short: "Time, sacrifice, and mythopoesis in The Legend of Zelda as a theological study of sacred structure within game worlds.",
-      description:
-        "Draws on ritual theory, liturgical studies, and ludology to articulate how Nintendo's series stages sacrificial imagination and heroic vocation.",
-      url: "./projects.html#zelda-religion",
-      external: false
-    },
-    {
-      id: "dream-simulation",
-      title: "Formation of Supernatural Agents in Dreams Through Simulation",
+      id: "dissertation",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
       status: "Dissertation",
       type: "Research Study",
       tags: ["Dreams", "Grounded Cognition", "Religion"],
       short:
-        "Formation of Supernatural Agents in Dreams Through Simulation — An ABD dissertation at National University testing whether the sensorimotor “simulation richness” of dream reports predicts religiosity and paranormal belief, using grounded cognition and a 10–14-day dataset (n=120; n=60 with REM measures).",
+        "Grounded-cognition account of dream simulation and belief (ABD, National University).",
       description:
-        "Analyzes ~1,200 longitudinal dream reports with REM metrics to model how simulation processes construct and reactivate supernatural agent concepts.",
-      url: "./projects.html#dream-simulation",
+        "This dissertation tests whether the sensorimotor “simulation-richness” of dream reports predicts religiosity and paranormal belief. Using secondary analysis of a 10–14-day dataset (~1,200 dreams; n=120 adults; DREEM subsample n=60 with REM measures), dreams are coded for simulation richness, agentic figures, and narrative structure. Outcomes: BMMRS (religiosity) and RPBS (paranormal belief). Multiple regression evaluates links and REM moderation. Aim: a mechanistic, embodied account of how dream simulations construct and reactivate supernatural-agent concepts. Status: proposal stage (2025); Chair: Patrick McNamara.",
+      url: "./projects.html#dissertation",
+      external: false
+    },
+    {
+      id: "zelda",
+      title: "The Legend of Zelda and Religion (edited volume)",
+      status: "In Progress",
+      type: "Book Project",
+      tags: ["Games", "Religion", "Edited Volume"],
+      short:
+        "Zelda as theology: religion emerging from inside the game world (edited volume).",
+      description:
+        "A multi-author volume showing how sacred meanings arise from Zelda’s mechanics, spaces, symbols, and narratives—rather than importing external doctrine. Chapters span ritual performance, sacred time/space, law and normativity, technology and landscape, player phenomenology, and theological motifs. Target length: 72–90k words. Prospectus includes 18 contributors. Timeline: submit to series editor by March 1, 2026; aim to publish near the March 2027 film release. Editor: Michael C. Barros (with a contributor chapter).",
+      url: "./projects.html#zelda",
       external: false
     }
   ];

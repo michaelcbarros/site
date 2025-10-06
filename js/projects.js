@@ -126,10 +126,10 @@
       switch (id) {
         case 'waypoint':
           return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 26v68M26 60h68" /><path d="M60 18l12 24-12 10-12-10z" /></svg>';
-        case 'zelda-religion':
-          return '<svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg>';
-        case 'dream-simulation':
+        case 'dissertation':
           return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="34" /><path d="M36 60c0-13.3 10.7-24 24-24s24 10.7 24 24-10.7 24-24 24" /><path d="M48 78c-9 0-16-7-16-16" /></svg>';
+        case 'zelda':
+          return '<svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg>';
         default:
           return '<svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg>';
       }
