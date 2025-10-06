@@ -55,7 +55,7 @@
           <h2>Email</h2>
           <p class="muted">Include event context, proposed dates, and format in your initial message.</p>
           <div class="contact-actions">
-            <code id="addr">Email hidden — use the buttons to get in touch.</code>
+            <code id="addr">hello@example.com</code>
             <button id="copy" class="btn ghost" type="button">Copy</button>
             <a id="mailto" class="btn" href="#">Compose email</a>
           </div>
@@ -67,11 +67,10 @@
         </article>
 
         <article class="section-card" id="cv">
-          <h2>Research profiles</h2>
-          <p class="muted">Connect via academic networks and ongoing publications.</p>
+          <h2>Profiles</h2>
           <ul class="link-list">
             <li><a href="https://www.researchgate.net/profile/Michael-Barros-2" target="_blank" rel="noopener">ResearchGate</a></li>
-            <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack — Mythonoesis</a></li>
+            <li><a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a></li>
             <li><a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a></li>
             <li><a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a></li>
           </ul>
@@ -96,6 +95,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const LINKS = (window.SITE_DATA && window.SITE_DATA.links) || window.LINKS || {};
       const EMAIL = (window.SITE_DATA && window.SITE_DATA.contact && window.SITE_DATA.contact.email) || 'barrostheology@gmail.com';
+      const PLACEHOLDER = 'hello@example.com';
 
       const blog = document.getElementById('nav-blog');
       if (blog) blog.href = LINKS.blog || 'https://mythonoesis.substack.com/';
@@ -104,6 +104,9 @@
 
       const mailto = document.getElementById('mailto');
       if (mailto) mailto.href = `mailto:${EMAIL}`;
+
+      const addr = document.getElementById('addr');
+      if (addr) addr.textContent = PLACEHOLDER;
 
       const copy = document.getElementById('copy');
       if (copy) {
