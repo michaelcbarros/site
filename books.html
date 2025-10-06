@@ -82,6 +82,7 @@
               </div>
             </div>
           </div>
+          <button type="button" class="btn ghost" id="book-toggle" aria-expanded="false" aria-controls="book-extras" style="margin-top: 1.5rem; display: none;">Read more</button>
           <div id="book-extras" class="detail-grid" style="margin-top: 2rem; display: none;">
             <div class="book-copy" id="book-desc"></div>
             <div class="detail-grid" id="book-blurbs"></div>
@@ -149,6 +150,7 @@
       `;
 
       const extras = document.getElementById('book-extras');
+      const toggleBtn = document.getElementById('book-toggle');
       const descEl = document.getElementById('book-desc');
       const blurbsEl = document.getElementById('book-blurbs');
 
@@ -171,8 +173,25 @@
         `).join('');
       }
 
-      if ((paragraphs.length || reviews.length) && extras) {
-        extras.style.display = 'grid';
+      const hasExtras = (paragraphs.length || reviews.length) > 0;
+
+      if (hasExtras && toggleBtn && extras) {
+        const setExpanded = (expanded) => {
+          extras.style.display = expanded ? 'grid' : 'none';
+          toggleBtn.textContent = expanded ? 'Read less' : 'Read more';
+          toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          extras.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+        };
+
+        toggleBtn.style.display = 'inline-flex';
+        setExpanded(false);
+
+        toggleBtn.addEventListener('click', () => {
+          const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+          setExpanded(!isExpanded);
+        });
+      } else if (toggleBtn) {
+        toggleBtn.style.display = 'none';
       }
 
       const others = books.filter(b => b !== featured);
