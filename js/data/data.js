@@ -1,47 +1,56 @@
-/* js/data/data.js
-   Central, declarative data model for the site.
-   - Primary:    window.SITE_DATA (preferred)
-   - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
-   Keep URLs **relative** so Pages works under a project baseurl.
-*/
-(function () {
-  // ---------- Links / globals ----------
-  const LINKS = {
-    blog: "https://mythonoesis.substack.com/",
-    research: "https://www.researchgate.net/profile/Michael-Barros-2",
-    contact: "barrostheology@gmail.com"
-  };
+diff --git a/js/data/data.js b/js/data/data.js
+index 43fa601c0b13efd56e7927f81872af9242d07db0..b6482347ee5117a0bbc315411eb763b161dc4677 100644
+--- a/js/data/data.js
++++ b/js/data/data.js
+@@ -1,44 +1,44 @@
+ /* js/data/data.js
+    Central, declarative data model for the site.
+    - Primary:    window.SITE_DATA (preferred)
+    - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
+    Keep URLs **relative** so Pages works under a project baseurl.
+ */
+ (function () {
+   // ---------- Links / globals ----------
+   const LINKS = {
+     blog: "https://mythonoesis.substack.com/",
+     research: "https://www.researchgate.net/profile/Michael-Barros-2",
+     contact: "barrostheology@gmail.com"
+   };
+ 
+   // ---------- Taglines (homepage rotator) ----------
+   const TAGLINES = [
+-    "Scholar of religion & culture exploring dreams, ritual, and imagination in media.",
+-    "Analysing contemporary storytelling through theological and cultural history.",
+-    "Grounded cognition, sacred imagination, and popular culture."
++    "Scholar of religion & culture and researcher in the cognitive science of religion exploring dreams, ritual, and imagination in media.",
++    "Analysing contemporary storytelling through theological and cultural history with cognitive science of religion methods.",
++    "Grounded cognition, sacred imagination, and popular culture across religion & culture scholarship."
+   ];
+ 
+   // ---------- Books ----------
+   const BOOKS = [
+     {
+       id: "pkd-theology",
+       title: "The Esoteric Theology of Philip K. Dick",
+       featured: true,                       // homepage & books hero will pick this one
+       status: "Forthcoming",
+       cover: "./assets/images/books/pkd.jpg", // project-relative (no leading slash)
+       url: "./books.html#pkd-theology",
+       summary:
+         "Edited scholarly volume (Bloomsbury, 2025) examining Philip K. Dick's theological imagination across literature and adaptation.",
+       description:
+         "This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.",
+       buy_links: [
+         { label: "Buy on Amazon", url: "https://amzn.to/46Fn12N" }
+       ],
+       reviews: [
+         {
+           quote:
+             "Philip K. Dick has had a fantastic impact on American science fiction, film, and television. Here, however, we find a sci-fi master that is not generally known: the gnostic author who is inspired by his own direct mystical experience of some cosmic mind but who had long been involved in intensely religious questions about death, free will, capitalism, colonialism, and the end of all things (and people). Here is a stunningly honest interpretation of God (and Satan) that is superhuman, that is, fully human and historical, even rogue, but also transcendent to any local society or personalized ego. Here is a 'gospel' about our doubled identity coming from the future.",
+           source:
+             "Jeffrey J. Kripal, author of How to Think Impossibly: About Souls, UFOs, Time, Belief, and Everything Else"
+         }
 
-  // ---------- Taglines (homepage rotator) ----------
-  const TAGLINES = [
-    "Scholar of religion & culture exploring dreams, ritual, and imagination in media.",
-    "Analysing contemporary storytelling through theological and cultural history.",
-    "Grounded cognition, sacred imagination, and popular culture."
-  ];
-
-  // ---------- Books ----------
-  const BOOKS = [
-    {
-      id: "pkd-theology",
-      title: "The Esoteric Theology of Philip K. Dick",
-      featured: true,                       // homepage & books hero will pick this one
-      status: "Forthcoming",
-      cover: "./assets/images/books/pkd.jpg", // project-relative (no leading slash)
-      url: "./books.html#pkd-theology",
-      summary:
-        "Edited scholarly volume (Bloomsbury, 2025) examining Philip K. Dick's theological imagination across literature and adaptation.",
-      description:
-        "This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.",
-      buy_links: [
-        { label: "Buy on Amazon", url: "https://amzn.to/46Fn12N" }
-      ],
-      reviews: [
-        {
-          quote:
-            "Philip K. Dick has had a fantastic impact on American science fiction, film, and television. Here, however, we find a sci-fi master that is not generally known: the gnostic author who is inspired by his own direct mystical experience of some cosmic mind but who had long been involved in intensely religious questions about death, free will, capitalism, colonialism, and the end of all things (and people). Here is a stunningly honest interpretation of God (and Satan) that is superhuman, that is, fully human and historical, even rogue, but also transcendent to any local society or personalized ego. Here is a 'gospel' about our doubled identity coming from the future.",
-          source:
-            "Jeffrey J. Kripal, author of How to Think Impossibly: About Souls, UFOs, Time, Belief, and Everything Else"
-        }
       ]
     }
     // Add more books here later
