@@ -1,38 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Reading List</title>
-  <meta name="description" content="Books I've found most formative, organized by era and genre." />
-  <link rel="stylesheet" href="./style.css?v=20240607" />
-  <style>
-    .cover-card .badge { display: none !important; }
-    .cover-grid img { object-fit: cover; }
-  </style>
-</head>
-<body class="page page--reading">
-  <div class="shell">
-    <header class="site-header" aria-label="Site">
-      <a class="brand" href="./index.html">Michael C. Barros</a>
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="./about.html">About</a>
-        <a class="nav__link" href="./books.html">Books</a>
-        <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
-        <a class="nav__link" href="./projects.html">Projects</a>
-        <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-        <a class="nav__link" href="./contact.html">Contact</a>
-      </nav>
-    </header>
+diff --git a/reading-list.html b/reading-list.html
+index 663c3440ee04ffe77bed03b5f7d1d81ca0849a38..232935d2f75ba30b2ac8726a201c8bb8e8615e10 100644
+--- a/reading-list.html
++++ b/reading-list.html
+@@ -1,36 +1,37 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <title>Reading List</title>
+   <meta name="description" content="Books I've found most formative, organized by era and genre." />
+   <link rel="stylesheet" href="./style.css?v=20240607" />
+   <style>
+     .cover-card .badge { display: none !important; }
+     .cover-grid img { object-fit: cover; }
++    .cover-grid .cover-card:nth-child(n+4) { display: none; }
+   </style>
+ </head>
+ <body class="page page--reading">
+   <div class="shell">
+     <header class="site-header" aria-label="Site">
+       <a class="brand" href="./index.html">Michael C. Barros</a>
+       <nav class="nav" aria-label="Primary">
+         <a class="nav__link" href="./about.html">About</a>
+         <a class="nav__link" href="./books.html">Books</a>
+         <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
+         <a class="nav__link" href="./projects.html">Projects</a>
+         <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
+         <a class="nav__link" href="./contact.html">Contact</a>
+       </nav>
+     </header>
+ 
+     <main>
+       <section class="page-header">
+         <span class="eyebrow">Reading list</span>
+         <h1 class="page-title">Reading List</h1>
+         <p class="page-kicker">Books I've found most formative. Bias: everything before 500 or after 1800. Inclusion ≠ endorsement.</p>
+       </section>
+ 
+       <section class="reading-catalog" aria-label="Reading list organized by era and genre">
+ 
 
-    <main>
-      <section class="page-header">
-        <span class="eyebrow">Reading list</span>
-        <h1 class="page-title">Reading List</h1>
-        <p class="page-kicker">Books I've found most formative. Bias: everything before 500 or after 1800. Inclusion ≠ endorsement.</p>
-      </section>
-
-      <section class="reading-catalog" aria-label="Reading list organized by era and genre">
 
 <!-- ===== Ancient (to AD 1) ===== -->
 <section class="reading-era" id="era-ancient-bc" aria-labelledby="heading-ancient-bc">
