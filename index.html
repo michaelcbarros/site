@@ -4,8 +4,8 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-+  <title>Michael C. Barros — Scholar of religion &amp; culture · Cognitive science of religion researcher</title>
-+  <meta name="description" content="Scholar of religion and culture and researcher in the cognitive science of religion exploring dreams, ritual, imagination, and media." />
+  <title>Michael C. Barros — Scholar of religion &amp; culture · Cognitive science of religion researcher</title>
+  <meta name="description" content="Scholar of religion and culture and researcher in the cognitive science of religion exploring dreams, ritual, imagination, and media." />
    <meta name="theme-color" content="#050310" />
  
    <link rel="stylesheet" href="./style.css?v=20240607" />
@@ -29,10 +29,10 @@
        <section class="hero" aria-labelledby="home-title">
          <div class="hero__content">
 
-+          <h1 id="home-title">Scholar of religion &amp; culture · Cognitive science of religion researcher</h1>
+         <h1 id="home-title">Scholar of religion &amp; culture · Cognitive science of religion researcher</h1>
            <p class="hero__tagline">
 
-+            Michael C. Barros is an interdisciplinary scholar of religion and culture and an active researcher in the cognitive science of religion, with training in psychology and theology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature.
+           Michael C. Barros is an interdisciplinary scholar of religion and culture and an active researcher in the cognitive science of religion, with training in psychology and theology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature.
            </p>
            <div class="hero__meta">
              <div class="badge-row" aria-label="Areas of focus">
@@ -138,29 +138,38 @@
 
       <section aria-labelledby="reading-heading">
         <div class="section-heading">
-          <h2 id="reading-heading">Reading list</h2>
-          <a class="link" href="./reading-list.html">View full list →</a>
+        <h2 id="reading-heading">Reading list</h2>
         </div>
-        <p class="section-intro">Books from the Western canon anchoring ongoing research and teaching. Visit the full list for additional titles and annotations.</p>
-        <div class="grid cols-3 insight-grid reading-grid">
-          <article class="insight-card reading-card">
-            <h3>Classical theology &amp; spirituality</h3>
-            <p>Patristic and Reformation texts shaping contemplative and pastoral practice.</p>
-          </article>
-          <article class="insight-card reading-card">
-            <h3>Philosophy &amp; moral imagination</h3>
-            <p>Canonical works probing virtue, political order, and the drama of conscience.</p>
-          </article>
-          <article class="insight-card reading-card">
-            <h3>Literature &amp; myth</h3>
-            <p>Epic poetry and narrative worlds exploring desire, judgment, and redemption.</p>
-          </article>
+       <div class="reading-highlight">
+          <p class="section-intro">Selected works that ground current teaching, research design, and seminar discussions.</p>
+          <a class="btn ghost" href="./reading-list.html">View reading list</a>
         </div>
+      </section>
+      <div class="divider" role="presentation"></div>
+
+      <section aria-labelledby="appearances-heading" class="appearances">
+        <div class="section-heading">
+          <h2 id="appearances-heading">Appearances</h2>
+        </div>
+        <ul class="appearance-list" aria-label="Recent appearances">
+          <li>
+            <span class="appearance__meta">April 2024</span>
+            <a href="https://www.youtube.com/watch?v=Fp0VL1Y9bdc" target="_blank" rel="noopener">Panel — Cognitive science of religion and media</a>
+          </li>
+          <li>
+            <span class="appearance__meta">January 2024</span>
+            <a href="https://www.example.com/podcast" target="_blank" rel="noopener">Podcast — Ritual, play, and imagination</a>
+          </li>
+          <li>
+            <span class="appearance__meta">October 2023</span>
+            <a href="https://www.example.com/lecture" target="_blank" rel="noopener">Guest lecture — Dreams and religious cognition</a>
+          </li>
+        </ul>
       </section>
     </main>
 
     <footer>
-      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <p class="footer-tagline">Essays · Research · Projects</p>
       <nav class="footer-links" aria-label="Secondary">
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
         <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
@@ -215,7 +224,7 @@
             link.target = '_blank';
             link.rel = 'noopener';
           }
-          const typeLabel = (p.status || p.type || 'Project');
+const typeLabel = (p.tag || p.type || p.status || 'Project');
           const titleText = projectTitle(id, p.title || typeLabel);
           if (titleText) {
             link.setAttribute('aria-label', `${titleText} (${typeLabel})`);
