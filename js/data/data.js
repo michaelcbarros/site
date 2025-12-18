@@ -1,30 +1,23 @@
-diff --git a/js/data/data.js b/js/data/data.js
-index 43fa601c0b13efd56e7927f81872af9242d07db0..b6482347ee5117a0bbc315411eb763b161dc4677 100644
---- a/js/data/data.js
-+++ b/js/data/data.js
-@@ -1,44 +1,44 @@
- /* js/data/data.js
-    Central, declarative data model for the site.
-    - Primary:    window.SITE_DATA (preferred)
-    - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
-    Keep URLs **relative** so Pages works under a project baseurl.
- */
- (function () {
-   // ---------- Links / globals ----------
-   const LINKS = {
-     blog: "https://mythonoesis.substack.com/",
-     research: "https://www.researchgate.net/profile/Michael-Barros-2",
-     contact: "barrostheology@gmail.com"
-   };
- 
-   // ---------- Taglines (homepage rotator) ----------
-   const TAGLINES = [
--    "Scholar of religion & culture exploring dreams, ritual, and imagination in media.",
--    "Analysing contemporary storytelling through theological and cultural history.",
--    "Grounded cognition, sacred imagination, and popular culture."
-+    "Scholar of religion & culture and researcher in the cognitive science of religion exploring dreams, ritual, and imagination in media.",
-+    "Analysing contemporary storytelling through theological and cultural history with cognitive science of religion methods.",
-+    "Grounded cognition, sacred imagination, and popular culture across religion & culture scholarship."
+/* js/data/data.js
+   Central, declarative data model for the site.
+   - Primary:    window.SITE_DATA (preferred)
+   - Legacy:     window.BOOKS, window.PROJECTS (for older scripts)
+   Keep URLs **relative** so Pages works under a project baseurl.
+*/
+(function () {
+  // ---------- Links / globals ----------
+  const LINKS = {
+    blog: "https://mythonoesis.substack.com/",
+    research: "https://www.researchgate.net/profile/Michael-Barros-2",
+    contact: "barrostheology@gmail.com"
+  };
+
+  // ---------- Taglines (homepage rotator) ----------
+  const TAGLINES = [
+
+    "Scholar of religion & culture and researcher in the cognitive science of religion exploring dreams, ritual, and imagination in media.",
+    "Analysing contemporary storytelling through theological and cultural history with cognitive science of religion methods.",
+    "Grounded cognition, sacred imagination, and popular culture across religion & culture scholarship."
    ];
  
    // ---------- Books ----------
@@ -61,40 +54,71 @@ index 43fa601c0b13efd56e7927f81872af9242d07db0..b6482347ee5117a0bbc315411eb763b1
     {
       id: "waypoint",
       title: "Waypoint Institute",
-      status: "Institute",
-      type: "Collaboration",
+            status: "Completed first development phase and initial beta testing; incorporating feedback ahead of a second beta cohort. Targeting full launch in 2026.",
+      type: "Institute",
+      tag: "Institute",
       tags: ["Education", "Theology", "Great Books"],
       short:
-        "Tuition-free Christian education: great-books core, cohort-based, donor-supported.",
-      description:
-        "Waypoint is a donor-supported, tuition-free Christian education project. We deliver a great-books core in Scripture, classical theology, and the liberal arts through online cohorts, clear syllabi, and a curated public-domain library. The emphasis is formation and rigorous study, with straightforward credit pathways for students who need them—so learners focus on reading, discussion, and service rather than cost or bureaucracy.",
+     "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
+     description:  
+    "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission. Its curriculum is organized around self-paced modules, guided checkpoints, and oral capstones designed to preserve personal formation within a flexible, non-residential model.",
       url: "./projects.html#waypoint",
       external: false
     },
     {
       id: "dissertation",
       title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
-      status: "Dissertation",
-      type: "Research Study",
+      status: "Chapters 1–2 complete; data analysis underway and Chapter 3 in progress.",
+      type: "Dissertation",
+      tag: "Dissertation",
       tags: ["Dreams", "Grounded Cognition", "Religion"],
       short:
         "Dream simulation and belief—an embodied, grounded-cognition account.",
       description:
-        "My dissertation develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents. It operationalizes “simulation richness” (sensorimotor detail, agency, narrative) in dream reports and examines its relationship to religious and paranormal beliefs. The aim is a mechanistic, embodied alternative to simple “agency-detection” explanations in the cognitive science of religion.",
+       "Develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents.",
       url: "./projects.html#dissertation",
       external: false
     },
     {
       id: "zelda",
       title: "The Legend of Zelda and Religion",
-      status: "Edited Volume",
-      type: "Edited Volume",
+status: "Edited volume in development.",
+      type: "Book",
+      tag: "Book",
       tags: ["Games", "Religion", "Edited Volume"],
       short:
         "Zelda as theology—religion emerging from inside the game world.",
       description:
-        "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves—mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance, sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs, making the case for games as genuine sites of theological reflection.",
+       "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves—mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance, sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs, making the case for games as genuine sites of religious activity.",
       url: "./projects.html#zelda",
+      external: false
+     },
+    {
+      id: "omega-point",
+      title: "The Omega Point of Philip K. Dick",
+      status: "Early-stage research and drafting; projected publication 2028.",
+      type: "Book",
+      tag: "Book",
+      tags: ["Philip K. Dick", "Theology", "Monograph"],
+      short:
+        "Teilhard de Chardin’s theology refracted through Philip K. Dick’s fiction.",
+      description:
+        "A monograph examining how Philip K. Dick adapts the theology of Pierre Teilhard de Chardin.",
+      url: "./projects.html#omega-point",
+      external: false
+    },
+    {
+      id: "rse-generation",
+      title: "The Generation of Religious and Spiritual Experiences: A qualitative analysis and neurophenomenological model",
+      status: "Model drafted, undergoing iterative testing.",
+      type: "Journal Article (Collaborative)",
+      tag: "Journal Article (Collaborative)",
+      tags: ["RSE", "Neurophenomenology", "Qualitative"],
+      short:
+        "Qualitative and computational study extending McNamara’s Tripartite Model.",
+      description:
+        "A qualitative and computational study extending McNamara’s Tripartite Model to account for five recurrent domains of religious and spiritual experience using life-history interviews and neurophenomenological modeling.",
+      url: "./projects.html#rse-generation",
       external: false
     }
   ];
