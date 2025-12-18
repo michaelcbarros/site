@@ -62,7 +62,7 @@
       <section class="page-header">
         <span class="eyebrow">Books</span>
         <h1 class="page-title">Scholarly publications &amp; forthcoming work</h1>
-        <p class="page-kicker">Editorial and authorial projects tracing theology, myth, and sacred imagination across popular media.</p>
+
       </section>
 
       <section aria-labelledby="featured-heading">
@@ -98,7 +98,7 @@
     </main>
 
     <footer>
-      <p class="footer-tagline">Religion · Media · Imagination</p>
+      <p class="footer-tagline">Essays · Research · Projects</p>
       <nav class="footer-links" aria-label="Secondary">
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
         <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
@@ -117,6 +117,7 @@
       if (!books.length) return;
 
       const featured = books.find(b => b.featured) || books[0];
+        const amazonDescription = `This volume collects chapters written to commemorate the 50th anniversary of Philip K. Dick's transformative 1974 mystical experiences, through which he ultimately contextualized his influential and posthumously much-adapted science-fiction and speculative fiction. Contributing authors here examine the enduring significance of Philip K. Dick and his work, drawing on diverse scholarly perspectives that engage seriously with his self-understanding as Christian, gnostic, mystic, and theologian. Including contextual introduction and overviews, individual chapters focusing on specific works of PKD (as well as some of their adaptations), critical analysis, and examination of their significance within the life and worldview of PKD and his milieu, this collection continues foundational work that has characterized PKD's contributions to science fiction and speculative fiction as significant to its increasingly gnostic trajectory, as well as opening new avenues of exploration that situates PKD's impact within the broader appeal of esoteric worldviews as they have continued to propagate through the counterculture into the mainstream. PKD's commitment and dedication to Christian belief, faith, and practice, as well as Christian gnosis and mystical experience, are foci of particular interest, and this volume challenges the frequent misconception of PKD as exclusively relevant to Gnostic counter-cultural mysticism. Instead, his esoteric Christian gnosis is identified and analyzed as the basis of his ultimately moral and consistently humanistic theology.`;
       const hero = document.getElementById('book-hero');
       if (!hero) return;
       const FALLBACK_COVER =
@@ -150,7 +151,7 @@
       const descEl = document.getElementById('book-desc');
       const blurbsEl = document.getElementById('book-blurbs');
 
-      const paragraphs = (featured.description || '')
+    const paragraphs = (featured.description || amazonDescription || '')
         .split(/\n{2,}/)
         .map(s => s.trim())
         .filter(Boolean);
@@ -163,7 +164,7 @@
       if (reviews.length && blurbsEl) {
         blurbsEl.innerHTML = reviews.slice(0, 2).map(r => `
           <div class="blurb">
-            <blockquote>“${(r.quote || '').replace(/^"|”$/g, '')}”</blockquote>
+                    <blockquote><p>${r.quote || ''}</p></blockquote>
             <small class="muted">— ${r.source || 'Reviewer'}</small>
           </div>
         `).join('');
