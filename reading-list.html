@@ -1116,6 +1116,19 @@ index 663c3440ee04ffe77bed03b5f7d1d81ca0849a38..232935d2f75ba30b2ac8726a201c8bb8
     document.addEventListener('DOMContentLoaded', () => {
       const year = document.getElementById('year');
       if (year) year.textContent = new Date().getFullYear();
+      const grids = document.querySelectorAll('.cover-grid');
+      grids.forEach((grid) => {
+        const cards = grid.querySelectorAll('.cover-card');
+        if (cards.length <= 1) return;
+        const keepCount = Math.max(1, Math.floor(cards.length / 2));
+        cards.forEach((card, index) => {
+          if (index >= keepCount) {
+            card.setAttribute('hidden', '');
+            card.setAttribute('aria-hidden', 'true');
+            card.setAttribute('tabindex', '-1');
+          }
+        });
+      });
     });
   </script>
 </body>
