@@ -1,1130 +1,257 @@
- <!doctype html>
- <html lang="en">
- <head>
-   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width,initial-scale=1" />
-   <title>Reading List</title>
-   <meta name="description" content="Books I've found most formative, organized by era and genre." />
-   <link rel="stylesheet" href="./style.css?v=20240607" />
-   <style>
-     .cover-card .badge { display: none !important; }
-     .cover-grid img { object-fit: cover; }
-    .cover-grid .cover-card:nth-child(n+5) { display: none; }
-   </style>
- </head>
- <body class="page page--reading">
-   <div class="shell">
-     <header class="site-header" aria-label="Site">
-       <a class="brand" href="./index.html">Michael C. Barros</a>
-       <nav class="nav" aria-label="Primary">
-         <a class="nav__link" href="./about.html">About</a>
-         <a class="nav__link" href="./books.html">Books</a>
-         <a class="nav__link" id="nav-blog" href="#" target="_blank" rel="noopener">Blog</a>
-         <a class="nav__link" href="./projects.html">Projects</a>
-         <a class="nav__link" id="nav-research" href="#" target="_blank" rel="noopener">Research</a>
-         <a class="nav__link" href="./contact.html">Contact</a>
-       </nav>
-     </header>
- 
-     <main>
-       <section class="page-header">
-         <span class="eyebrow">Reading list</span>
-         <h1 class="page-title">Reading List</h1>
-         <p class="page-kicker">Books I've found most formative. Bias: everything before 500 or after 1800. Inclusion ≠ endorsement.</p>
-       </section>
- 
-       <section class="reading-catalog" aria-label="Reading list organized by era and genre">
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reading List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="stylesheet" href="styles.css" />
 
-<!-- ===== Ancient (to AD 1) ===== -->
-<section class="reading-era" id="era-ancient-bc" aria-labelledby="heading-ancient-bc">
-  <div class="era-heading">
-    <h2 id="heading-ancient-bc">Classical World</h2>
-    <p class="muted">to AD&nbsp;1</p>
-  </div>
+  <style>
+    /* Critical for hover-expand to remain intact */
+    .cover-grid {
+      overflow: visible;
+      position: relative;
+    }
 
-  <div class="subgenre-grid">
-    <!-- Literature -->
-    <article class="reading-subgenre" id="ancient-bc-literature" aria-labelledby="ancient-bc-literature-title">
-      <h3 id="ancient-bc-literature-title">Literature</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-literature-title">
-        <a class="cover-card" href="https://amzn.to/437YMJl" target="_blank" rel="noopener">
-          <img src="./assets/iliad.jpg" alt="The Iliad" />
+    .cover-card {
+      position: relative;
+      display: block;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      z-index: 0;
+    }
+
+    .cover-card:hover,
+    .cover-card:focus-visible {
+      transform: scale(1.25);
+      z-index: 50;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cover-card {
+        transition: none;
+      }
+      .cover-card:hover,
+      .cover-card:focus-visible {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main>
+
+  <!-- ========================= -->
+  <!-- BEFORE CHRIST -->
+  <!-- ========================= -->
+  <section class="era-section" id="before-christ">
+    <h2>Before Christ</h2>
+
+    <article class="subgenre-section" id="ancient-philosophy">
+      <h3>Ancient Philosophy</h3>
+
+      <div class="cover-grid" aria-labelledby="ancient-philosophy">
+        <a class="cover-card"
+           href="https://amzn.to/3wZ8eG5"
+           target="_blank" rel="noopener">
+          <img src="./assets/plato_republic.jpg"
+               alt="Plato: The Republic" />
         </a>
-        <a class="cover-card" href="https://amzn.to/4nAMt0i" target="_blank" rel="noopener">
-          <img src="./assets/odyssey.jpg" alt="The Odyssey" />
+
+        <a class="cover-card"
+           href="https://amzn.to/3XxGvS6"
+           target="_blank" rel="noopener">
+          <img src="./assets/aristotle_nicomachean.jpg"
+               alt="Aristotle: Nicomachean Ethics" />
         </a>
-        <a class="cover-card" href="https://amzn.to/47cPsq4" target="_blank" rel="noopener">
-          <img src="./assets/sophocles.jpg" alt="Sophocles: Tragedies" />
+
+        <a class="cover-card"
+           href="https://amzn.to/4cP7H4N"
+           target="_blank" rel="noopener">
+          <img src="./assets/aristotle_metaphysics.jpg"
+               alt="Aristotle: Metaphysics" />
         </a>
-        <a class="cover-card" href="https://amzn.to/47coFKs" target="_blank" rel="noopener">
-          <img src="./assets/virgil.jpg" alt="Virgil: Aeneid" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Classical poetry (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Classical drama (placeholder)" />
+
+        <a class="cover-card"
+           href="https://amzn.to/4d8hZ0A"
+           target="_blank" rel="noopener">
+          <img src="./assets/plato_timaeus.jpg"
+               alt="Plato: Timaeus" />
         </a>
       </div>
     </article>
+  </section>
 
-    <!-- History -->
-    <article class="reading-subgenre" id="ancient-bc-history" aria-labelledby="ancient-bc-history-title">
-      <h3 id="ancient-bc-history-title">History</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-history-title">
-        <a class="cover-card" href="https://amzn.to/42v2nkC" target="_blank" rel="noopener">
-          <img src="./assets/herodotus.jpg" alt="Herodotus: Histories" />
+  <!-- ========================= -->
+  <!-- AD 1–500 -->
+  <!-- ========================= -->
+  <section class="era-section" id="ad-1-500">
+    <h2>AD 1–500</h2>
+
+    <article class="subgenre-section" id="patristics">
+      <h3>Patristic Theology</h3>
+
+      <div class="cover-grid" aria-labelledby="patristics">
+
+        <a class="cover-card"
+           href="https://amzn.to/4gXTzJN"
+           target="_blank" rel="noopener">
+          <img src="./assets/city.jpg"
+               alt="Augustine: City of God" />
         </a>
-        <a class="cover-card" href="https://amzn.to/4o4cNjl" target="_blank" rel="noopener">
-          <img src="./assets/thucydides.jpg" alt="Thucydides: Peloponnesian War" />
+
+        <a class="cover-card"
+           href="https://amzn.to/3wP7k9C"
+           target="_blank" rel="noopener">
+          <img src="./assets/confessions.jpg"
+               alt="Augustine: Confessions" />
         </a>
-        <a class="cover-card" href="https://amzn.to/42VAfqU" target="_blank" rel="noopener">
-          <img src="./assets/manetho.jpg" alt="Manetho: Aegyptiaca" />
+
+        <a class="cover-card"
+           href="https://amzn.to/3VvB1oJ"
+           target="_blank" rel="noopener">
+          <img src="./assets/irenaeus1.jpg"
+               alt="Irenaeus: Against Heresies" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Xenophon: Anabasis (placeholder)" />
+
+        <a class="cover-card"
+           href="https://amzn.to/3XnQZs9"
+           target="_blank" rel="noopener">
+          <img src="./assets/athanasius_incarnation.jpg"
+               alt="Athanasius: On the Incarnation" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Polybius: Histories (placeholder)" />
+
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= -->
+  <!-- AD 500–1000 -->
+  <!-- ========================= -->
+  <section class="era-section" id="ad-500-1000">
+    <h2>AD 500–1000</h2>
+
+    <article class="subgenre-section" id="late-antique">
+      <h3>Late Antique Thought</h3>
+
+      <div class="cover-grid" aria-labelledby="late-antique">
+
+        <a class="cover-card"
+           href="https://amzn.to/3Yc1P3b"
+           target="_blank" rel="noopener">
+          <img src="./assets/boethius_consolation.jpg"
+               alt="Boethius: Consolation of Philosophy" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Livy: History of Rome (placeholder)" />
+
+        <a class="cover-card"
+           href="https://amzn.to/4eN5X7n"
+           target="_blank" rel="noopener">
+          <img src="./assets/dionysius_mystical.jpg"
+               alt="Pseudo-Dionysius: Mystical Theology" />
         </a>
+
+      </div>
+    </article>
+  </section>
+
+  <!-- ========================= -->
+  <!-- AD 1500–1800 -->
+  <!-- ========================= -->
+  <section class="era-section" id="early-modern">
+    <h2>AD 1500–1800</h2>
+
+    <article class="subgenre-section" id="early-modern-philosophy">
+      <h3>Early Modern Philosophy</h3>
+
+      <div class="cover-grid" aria-labelledby="early-modern-philosophy">
+
+        <a class="cover-card"
+           href="https://amzn.to/3Z1E7cN"
+           target="_blank" rel="noopener">
+          <img src="./assets/descartes_meditations.jpg"
+               alt="Descartes: Meditations on First Philosophy" />
+        </a>
+
+        <a class="cover-card"
+           href="https://amzn.to/3xT4s8N"
+           target="_blank" rel="noopener">
+          <img src="./assets/spinoza_ethics.jpg"
+               alt="Spinoza: Ethics" />
+        </a>
+
+        <a class="cover-card"
+           href="https://amzn.to/4bE9mF0"
+           target="_blank" rel="noopener">
+          <img src="./assets/locke_essay.jpg"
+               alt="John Locke: Essay Concerning Human Understanding" />
+        </a>
+
       </div>
     </article>
 
-    <!-- Mythic -->
-    <article class="reading-subgenre" id="ancient-bc-myth" aria-labelledby="ancient-bc-myth-title">
-      <h3 id="ancient-bc-myth-title">Mythic Cosmogony</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-myth-title">
-        <a class="cover-card" href="https://amzn.to/4pVbW6b" target="_blank" rel="noopener">
-          <img src="./assets/enuma.jpg" alt="Enuma Elish" />
+    <article class="subgenre-section" id="early-modern-political-philosophy">
+      <h3>Political Philosophy</h3>
+
+      <div class="cover-grid" aria-labelledby="early-modern-political-philosophy">
+
+        <a class="cover-card"
+           href="https://amzn.to/3ZB8N9W"
+           target="_blank" rel="noopener">
+          <img src="./assets/hobbes_leviathan.jpg"
+               alt="Thomas Hobbes: Leviathan" />
         </a>
-        <a class="cover-card" href="https://amzn.to/4gZIFmT" target="_blank" rel="noopener">
-          <img src="./assets/hesiod.jpg" alt="Hesiod: Theogony" />
+
+        <a class="cover-card"
+           href="https://amzn.to/3VZLxQ7"
+           target="_blank" rel="noopener">
+          <img src="./assets/rousseau_social.jpg"
+               alt="Jean-Jacques Rousseau: Social Contract" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Epic of Gilgamesh (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Egyptian Book of the Dead (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Rig Veda selections (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Ugaritic Myth texts (placeholder)" />
-        </a>
+
       </div>
     </article>
+  </section>
 
-    <!-- Biblical Studies -->
-    <article class="reading-subgenre" id="ancient-bc-biblical" aria-labelledby="ancient-bc-biblical-title">
-      <h3 id="ancient-bc-biblical-title">Biblical Studies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-biblical-title">
-        <a class="cover-card" href="https://amzn.to/437GRm1" target="_blank" rel="noopener">
-          <img src="./assets/gen1.jpg" alt="The Lost World of Genesis One" />
+  <!-- ========================= -->
+  <!-- AD 1800–1945 -->
+  <!-- ========================= -->
+  <section class="era-section" id="modern">
+    <h2>AD 1800–1945</h2>
+
+    <article class="subgenre-section" id="modern-philosophy">
+      <h3>Modern Philosophy</h3>
+
+      <div class="cover-grid" aria-labelledby="modern-philosophy">
+
+        <a class="cover-card"
+           href="https://amzn.to/3XGJ8Zq"
+           target="_blank" rel="noopener">
+          <img src="./assets/hegel_phenomenology.jpg"
+               alt="Hegel: Phenomenology of Spirit" />
         </a>
-        <a class="cover-card" href="https://amzn.to/4pZh5u9" target="_blank" rel="noopener">
-          <img src="./assets/messiah.jpg" alt="The Messiah Before Jesus" />
+
+        <a class="cover-card"
+           href="https://amzn.to/4aXy0JH"
+           target="_blank" rel="noopener">
+          <img src="./assets/kierkegaard_fear.jpg"
+               alt="Kierkegaard: Fear and Trembling" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Septuagint (placeholder)" />
+
+        <a class="cover-card"
+           href="https://amzn.to/4eV0QdP"
+           target="_blank" rel="noopener">
+          <img src="./assets/nietzsche_zarathustra.jpg"
+               alt="Nietzsche: Thus Spoke Zarathustra" />
         </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Dead Sea Scrolls reader (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="ANET: Ancient Near Eastern Texts (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="1 Enoch (placeholder)" />
-        </a>
+
       </div>
     </article>
+  </section>
 
-    <!-- Biographies -->
-    <article class="reading-subgenre" id="ancient-bc-bio" aria-labelledby="ancient-bc-bio-title">
-      <h3 id="ancient-bc-bio-title">Biographies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-bio-title">
-        <a class="cover-card" href="https://amzn.to/4h3KIXk" target="_blank" rel="noopener">
-          <img src="./assets/alexander.jpg" alt="Life of Alexander" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Cyropaedia: Life of Cyrus (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Life of Lycurgus (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Life of Solon (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Life of Julius Caesar (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Life of Sappho (placeholder)" />
-        </a>
-      </div>
-    </article>
+</main>
 
-    <!-- Philosophy -->
-    <article class="reading-subgenre" id="ancient-bc-philosophy" aria-labelledby="ancient-bc-philosophy-title">
-      <h3 id="ancient-bc-philosophy-title">Philosophy</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-bc-philosophy-title">
-        <a class="cover-card" href="https://amzn.to/3KBT8ca" target="_blank" rel="noopener">
-          <img src="./assets/republic.jpg" alt="Plato: Republic" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4ny7Mjf" target="_blank" rel="noopener">
-          <img src="./assets/aristotle.jpg" alt="Aristotle: Nicomachean Ethics" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/3KY9wUn" target="_blank" rel="noopener">
-          <img src="./assets/cicero.jpg" alt="Cicero: On Duties" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/48MSXEU" target="_blank" rel="noopener">
-          <img src="./assets/tao.jpg" alt="Laozi: Tao Te Ching" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/ancientphil05" target="_blank" rel="noopener">
-          <img src="./assets/lucretius-on-the-nature-of-things.jpg" alt="Lucretius: On the Nature of Things" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Pre-Socratics (placeholder)" />
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ===== Ancient (AD 1–500) ===== -->
-<section class="reading-era" id="era-ancient-ad" aria-labelledby="heading-ancient-ad">
-  <div class="era-heading">
-    <h2 id="heading-ancient-ad">Late Antiquity</h2>
-    <p class="muted">AD&nbsp;1–500</p>
-  </div>
-
-  <div class="subgenre-grid">
-    <!-- Literature -->
-    <article class="reading-subgenre" id="ancient-ad-literature" aria-labelledby="ancient-ad-literature-title">
-      <h3 id="ancient-ad-literature-title">Literature</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-literature-title">
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Petronius: Satyricon (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Apuleius: The Golden Ass (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Perpetua and Felicitas (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Lucian: Dialogues (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Longus: Daphnis and Chloe (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Martial: Epigrams (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- History -->
-    <article class="reading-subgenre" id="ancient-ad-history" aria-labelledby="ancient-ad-history-title">
-      <h3 id="ancient-ad-history-title">History</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-history-title">
-        <a class="cover-card" href="https://amzn.to/46PLxOA" target="_blank" rel="noopener">
-          <img src="./assets/josephus.jpg" alt="Josephus: Jewish War / Antiquities" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/48gLU7l" target="_blank" rel="noopener">
-          <img src="./assets/eusebius.jpg" alt="Eusebius: Church History" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4o1A9WJ" target="_blank" rel="noopener">
-          <img src="./assets/plutarch.jpg" alt="Plutarch: Parallel Lives" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Tacitus: Annals (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Cassius Dio: Roman History (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Ammianus Marcellinus (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Theology -->
-    <article class="reading-subgenre" id="ancient-ad-theology" aria-labelledby="ancient-ad-theology-title">
-      <h3 id="ancient-ad-theology-title">Theology</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-theology-title">
-        <a class="cover-card" href="https://amzn.to/48zSshB" target="_blank" rel="noopener">
-          <img src="./assets/apostolic.jpg" alt="Apostolic Fathers" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/3Wp3M8F2" target="_blank" rel="noopener">
-          <img src="./irenaeus1.jpg" alt="Irenaeus: Apostolic Preaching" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4gXTzJN" target="_blank" rel="noopener">
-          <img src="./city.jpg" alt="Augustine: City of God" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4h0TR2T" target="_blank" rel="noopener">
-          <img src="./assets/contra.jpg" alt="Irenaeus: Against Heresies" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4h3ZT2M" target="_blank" rel="noopener">
-          <img src="./assets/athanasius.jpg" alt="Athanasius: On the Incarnation" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Origen: On First Principles (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Biblical Studies -->
-    <article class="reading-subgenre" id="ancient-ad-biblical" aria-labelledby="ancient-ad-biblical-title">
-      <h3 id="ancient-ad-biblical-title">Biblical Studies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-biblical-title">
-        <a class="cover-card" href="https://amzn.to/4h0qYDJ" target="_blank" rel="noopener">
-          <img src="./assets/world.jpg" alt="N. T. Wright: NT in Its World" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/42sEg64" target="_blank" rel="noopener">
-          <img src="./assets/resurrection.jpg" alt="Resurrection of the Son of God" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4pTMbn7" target="_blank" rel="noopener">
-          <img src="./assets/ehrman.jpg" alt="How Jesus Became God" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/48X4xNE" target="_blank" rel="noopener">
-          <img src="./assets/misreading.jpg" alt="Misreading Scripture with Western Eyes" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/42vrBiN5" target="_blank" rel="noopener">
-          <img src="./assets/eyewitness.jpg" alt="Jesus and the Eyewitnesses" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Pauline studies (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Biographies -->
-    <article class="reading-subgenre" id="ancient-ad-bio" aria-labelledby="ancient-ad-bio-title">
-      <h3 id="ancient-ad-bio-title">Biographies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-bio-title">
-        <a class="cover-card" href="https://amzn.to/42Y9qSW" target="_blank" rel="noopener">
-          <img src="./assets/anthony.jpg" alt="Athanasius: Life of Antony" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/4mV7D8m" target="_blank" rel="noopener">
-          <img src="./assets/paul.jpg" alt="Paul: A Biography" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/3IY6pLC" target="_blank" rel="noopener">
-          <img src="./assets/suetonius.jpg" alt="Suetonius: The Twelve Caesars" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Eusebius: Life of Constantine (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Sulpicius Severus: Life of St. Martin (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Augustine: Confessions (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Philosophy -->
-    <article class="reading-subgenre" id="ancient-ad-philosophy" aria-labelledby="ancient-ad-philosophy-title">
-      <h3 id="ancient-ad-philosophy-title">Philosophy</h3>
-      <div class="cover-grid" role="group" aria-labelledby="ancient-ad-philosophy-title">
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Marcus Aurelius: Meditations (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Epictetus: Discourses (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Plotinus: Enneads (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Seneca: Letters (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Augustine: On Free Choice (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Porphyry: Isagoge (placeholder)" />
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-       <!-- ===== Early Medieval (AD 500–1000) ===== -->
-<section class="reading-era" id="era-early-medieval" aria-labelledby="heading-early-medieval">
-  <div class="era-heading">
-    <h2 id="heading-early-medieval">Early Medieval</h2>
-    <p class="muted">AD&nbsp;500–1000</p>
-  </div>
-
-  <div class="subgenre-grid">
-    <!-- Literature -->
-    <article class="reading-subgenre" id="early-medieval-literature" aria-labelledby="early-medieval-literature-title">
-      <h3 id="early-medieval-literature-title">Literature</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-literature-title">
-        <a class="cover-card" href="https://amzn.to/medievallit01" target="_blank" rel="noopener">
-          <img src="./assets/beowulf.jpg" alt="Beowulf" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval literature (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval literature (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval literature (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval literature (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval literature (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- History -->
-    <article class="reading-subgenre" id="early-medieval-history" aria-labelledby="early-medieval-history-title">
-      <h3 id="early-medieval-history-title">History</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-history-title">
-        <a class="cover-card" href="https://amzn.to/medievalhist01" target="_blank" rel="noopener">
-          <img src="./assets/bede-ecclesiastical-history.jpg" alt="Ecclesiastical History of the English People" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval history (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval history (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval history (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval history (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval history (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Theology -->
-    <article class="reading-subgenre" id="early-medieval-theology" aria-labelledby="early-medieval-theology-title">
-      <h3 id="early-medieval-theology-title">Theology</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-theology-title">
-        <a class="cover-card" href="https://amzn.to/medievaltheo04" target="_blank" rel="noopener">
-          <img src="./assets/pseudo-dionysius-mystical-theology.jpg" alt="The Mystical Theology" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval theology (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval theology (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval theology (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval theology (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval theology (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Exegesis & Homiletics (replacing 'Biblical studies') -->
-    <article class="reading-subgenre" id="early-medieval-exegesis" aria-labelledby="early-medieval-exegesis-title">
-      <h3 id="early-medieval-exegesis-title">Exegesis &amp; Homiletics</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-exegesis-title">
-        <a class="cover-card" href="https://amzn.to/medievalbible02" target="_blank" rel="noopener">
-          <img src="./assets/bede-genesis.jpg" alt="Bede on Genesis" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval exegesis (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval exegesis (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval exegesis (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval exegesis (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval exegesis (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Biographies -->
-    <article class="reading-subgenre" id="early-medieval-biographies" aria-labelledby="early-medieval-biographies-title">
-      <h3 id="early-medieval-biographies-title">Biographies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-biographies-title">
-        <a class="cover-card" href="https://amzn.to/4o4VEWC" target="_blank" rel="noopener">
-          <img src="./assets/alfred.jpg" alt="The White Horse King" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval biography (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Philosophy -->
-    <article class="reading-subgenre" id="early-medieval-philosophy" aria-labelledby="early-medieval-philosophy-title">
-      <h3 id="early-medieval-philosophy-title">Philosophy</h3>
-      <div class="cover-grid" role="group" aria-labelledby="early-medieval-philosophy-title">
-        <a class="cover-card" href="https://amzn.to/medievalphil02" target="_blank" rel="noopener">
-          <img src="./assets/boethius-consolation.jpg" alt="The Consolation of Philosophy" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Early medieval philosophy (placeholder)" />
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ===== High Medieval (AD 1000–1500) ===== -->
-<section class="reading-era" id="era-high-medieval" aria-labelledby="heading-high-medieval">
-  <div class="era-heading">
-    <h2 id="heading-high-medieval">High Medieval</h2>
-    <p class="muted">AD&nbsp;1000–1500</p>
-  </div>
-
-  <div class="subgenre-grid">
-    <!-- Literature -->
-    <article class="reading-subgenre" id="high-medieval-literature" aria-labelledby="high-medieval-literature-title">
-      <h3 id="high-medieval-literature-title">Literature</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-literature-title">
-        <a class="cover-card" href="https://amzn.to/medievallit02" target="_blank" rel="noopener">
-          <img src="./assets/song-of-roland.jpg" alt="The Song of Roland" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievallit03" target="_blank" rel="noopener">
-          <img src="./assets/nibelungenlied.jpg" alt="The Nibelungenlied" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievallit04" target="_blank" rel="noopener">
-          <img src="./assets/canterbury-tales.jpg" alt="The Canterbury Tales" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievallit05" target="_blank" rel="noopener">
-          <img src="./assets/poem-of-the-cid.jpg" alt="The Poem of the Cid" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalfic04" target="_blank" rel="noopener">
-          <img src="./assets/boccaccio-decameron.jpg" alt="The Decameron" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalfic05" target="_blank" rel="noopener">
-          <img src="./assets/city-of-ladies.jpg" alt="The Book of the City of Ladies" />
-        </a>
-      </div>
-    </article>
-
-    <!-- History -->
-    <article class="reading-subgenre" id="high-medieval-history" aria-labelledby="high-medieval-history-title">
-      <h3 id="high-medieval-history-title">History</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-history-title">
-        <a class="cover-card" href="https://amzn.to/medievalhist02" target="_blank" rel="noopener">
-          <img src="./assets/anna-komnene-alexiad.jpg" alt="The Alexiad" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalhist03" target="_blank" rel="noopener">
-          <img src="./assets/chronicle-of-the-crusades.jpg" alt="Chronicle of the Crusades" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalhist04" target="_blank" rel="noopener">
-          <img src="./assets/magna-carta.jpg" alt="Magna Carta" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalhist05" target="_blank" rel="noopener">
-          <img src="./assets/heimskringla.jpg" alt="Heimskringla" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval history (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval history (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Theology -->
-    <article class="reading-subgenre" id="high-medieval-theology" aria-labelledby="high-medieval-theology-title">
-      <h3 id="high-medieval-theology-title">Theology</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-theology-title">
-        <a class="cover-card" href="https://amzn.to/medievaltheo01" target="_blank" rel="noopener">
-          <img src="./assets/aquinas-summa-theologiae.jpg" alt="Summa Theologiae" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/42w9ZDs" target="_blank" rel="noopener">
-          <img src="./assets/anselm.jpg" alt="Cur Deus Homo" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievaltheo03" target="_blank" rel="noopener">
-          <img src="./assets/imitation-of-christ.jpg" alt="The Imitation of Christ" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievaltheo05" target="_blank" rel="noopener">
-          <img src="./assets/bonaventure-sentences.jpg" alt="Commentary on the Sentences" />
-        </a>
-        <!-- Maimonides appears twice in your original; one instance placed here as philosophical theology -->
-        <a class="cover-card" href="https://amzn.to/3VSLUTC" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="Placeholder" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval theology (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Exegesis & Homiletics (replacing 'Biblical studies') -->
-    <article class="reading-subgenre" id="high-medieval-exegesis" aria-labelledby="high-medieval-exegesis-title">
-      <h3 id="high-medieval-exegesis-title">Exegesis &amp; Homiletics</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-exegesis-title">
-        <a class="cover-card" href="https://amzn.to/medievalbible01" target="_blank" rel="noopener">
-          <img src="./assets/glossa-ordinaria.jpg" alt="Glossa Ordinaria" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalbible03" target="_blank" rel="noopener">
-          <img src="./assets/aquinas-catena-aurea.jpg" alt="Catena Aurea" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalbible04" target="_blank" rel="noopener">
-          <img src="./assets/hildegard-letters.jpg" alt="Letters of Hildegard of Bingen" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalbible05" target="_blank" rel="noopener">
-          <img src="./assets/victorine-psalms.jpg" alt="Victorine Exposition of the Psalms" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval exegesis (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval exegesis (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Biographies -->
-    <article class="reading-subgenre" id="high-medieval-biographies" aria-labelledby="high-medieval-biographies-title">
-      <h3 id="high-medieval-biographies-title">Biographies</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-biographies-title">
-        <a class="cover-card" href="https://amzn.to/48SHDqP" target="_blank" rel="noopener">
-          <img src="./assets/catherine.jpg" alt="Saint Catherine of Siena" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalfic03" target="_blank" rel="noopener">
-          <img src="./assets/john-mandeville-travels.jpg" alt="The Travels of Sir John Mandeville" />
-        </a>
-        <!-- Your duplicate City of Ladies kept by moving one copy to Literature; this one remains here per your original adds -->
-        <a class="cover-card" href="https://amzn.to/medievalfic05" target="_blank" rel="noopener">
-          <img src="./assets/city-of-ladies.jpg" alt="The Book of the City of Ladies" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval biography (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval biography (placeholder)" />
-        </a>
-      </div>
-    </article>
-
-    <!-- Philosophy -->
-    <article class="reading-subgenre" id="high-medieval-philosophy" aria-labelledby="high-medieval-philosophy-title">
-      <h3 id="high-medieval-philosophy-title">Philosophy</h3>
-      <div class="cover-grid" role="group" aria-labelledby="high-medieval-philosophy-title">
-        <!-- The second Maimonides entry kept here to preserve everything you added -->
-        <a class="cover-card" href="https://amzn.to/medievalphil03" target="_blank" rel="noopener">
-          <img src="./assets/maimonides.jpg" alt="Guide for the Perplexed" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalphil04" target="_blank" rel="noopener">
-          <img src="./assets/aquinas-summa-contra-gentiles.jpg" alt="Summa Contra Gentiles" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/medievalphil05" target="_blank" rel="noopener">
-          <img src="./assets/averroes-incoherence.jpg" alt="The Incoherence of the Incoherence" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval philosophy (placeholder)" />
-        </a>
-        <a class="cover-card" href="https://amzn.to/placeholder" target="_blank" rel="noopener">
-          <img src="./assets/placeholder.jpg" alt="High medieval philosophy (placeholder)" />
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-        <section class="reading-era" id="era-early-modern" aria-labelledby="heading-early-modern">
-          <div class="era-heading">
-            <h2 id="heading-early-modern">Early Modern</h2>
-            <p class="muted">Renaissance and Reformation voices bridging medieval insight with emerging modernity.</p>
-          </div>
-
-          <div class="subgenre-grid">
-            <article class="reading-subgenre" id="early-modern-literature" aria-labelledby="early-modern-literature-title">
-              <h3 id="early-modern-literature-title">Literature</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-literature-title">
-                <a class="cover-card" href="https://amzn.to/earlymodernlit01" target="_blank" rel="noopener">
-                  <img src="./assets/ariosto-orlando-furioso.jpg" alt="Cover of Orlando Furioso" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernlit02" target="_blank" rel="noopener">
-                  <img src="./assets/spenser-faerie-queene.jpg" alt="Cover of The Faerie Queene" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernlit03" target="_blank" rel="noopener">
-                  <img src="./assets/montaigne-essays.jpg" alt="Cover of Essays" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernlit04" target="_blank" rel="noopener">
-                  <img src="./assets/rabelais-gargantua.jpg" alt="Cover of Gargantua and Pantagruel" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/4o2Ysnd" target="_blank" rel="noopener">
-                  <img src="./assets/pilgrim.jpg" alt="Cover of The Pilgrim's Progress" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="early-modern-history" aria-labelledby="early-modern-history-title">
-              <h3 id="early-modern-history-title">History</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-history-title">
-                <a class="cover-card" href="https://amzn.to/earlymodernhist01" target="_blank" rel="noopener">
-                  <img src="./assets/machiavelli-the-prince.jpg" alt="Cover of The Prince" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernhist02" target="_blank" rel="noopener">
-                  <img src="./assets/knox-reformation-history.jpg" alt="Cover of The History of the Reformation" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernhist03" target="_blank" rel="noopener">
-                  <img src="./assets/diaz-del-castillo-conquest-of-new-spain.jpg" alt="Cover of The Conquest of New Spain" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernhist04" target="_blank" rel="noopener">
-                  <img src="./assets/raleigh-history-of-the-world.jpg" alt="Cover of The History of the World" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernhist05" target="_blank" rel="noopener">
-                  <img src="./assets/pepys-diary.jpg" alt="Cover of The Diary of Samuel Pepys" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="early-modern-theology" aria-labelledby="early-modern-theology-title">
-              <h3 id="early-modern-theology-title">Theology</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-theology-title">
-                <a class="cover-card" href="https://amzn.to/earlymoderntheo01" target="_blank" rel="noopener">
-                  <img src="./assets/ignatius-spiritual-exercises.jpg" alt="Cover of Spiritual Exercises" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymoderntheo02" target="_blank" rel="noopener">
-                  <img src="./assets/luther-freedom-of-a-christian.jpg" alt="Cover of The Freedom of a Christian" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymoderntheo03" target="_blank" rel="noopener">
-                  <img src="./assets/teresa-interior-castle.jpg" alt="Cover of The Interior Castle" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymoderntheo04" target="_blank" rel="noopener">
-                  <img src="./assets/cranmer-book-of-common-prayer.jpg" alt="Cover of The Book of Common Prayer" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymoderntheo05" target="_blank" rel="noopener">
-                  <img src="./assets/jewel-apology.jpg" alt="Cover of An Apology for the Church of England" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="early-modern-biblical" aria-labelledby="early-modern-biblical-title">
-              <h3 id="early-modern-biblical-title">Biblical studies</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-biblical-title">
-                <a class="cover-card" href="https://amzn.to/earlymodernbible01" target="_blank" rel="noopener">
-                  <img src="./assets/complutensian-polyglot.jpg" alt="Cover of the Complutensian Polyglot Bible" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernbible02" target="_blank" rel="noopener">
-                  <img src="./assets/erasmus-greek-nt.jpg" alt="Cover of Erasmus's Greek New Testament" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernbible03" target="_blank" rel="noopener">
-                  <img src="./assets/geneva-bible.jpg" alt="Cover of the Geneva Bible" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernbible04" target="_blank" rel="noopener">
-                  <img src="./assets/douay-rheims.jpg" alt="Cover of the Douay-Rheims Bible" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernbible05" target="_blank" rel="noopener">
-                  <img src="./assets/king-james-bible.jpg" alt="Cover of the King James Version" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="early-modern-philosophy" aria-labelledby="early-modern-philosophy-title">
-              <h3 id="early-modern-philosophy-title">Philosophy</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-fiction-title">
-                <a class="cover-card" href="https://amzn.to/4obZYUq" target="_blank" rel="noopener">
-                  <img src="./assets/purereason.jpg" alt="Cover of Critique of Pure Reason" />
-                </a>
-                 <a class="cover-card" href="https://amzn.to/46Wf8WA" target="_blank" rel="noopener">
-                  <img src="./assets/hegel.jpg" alt="Cover of Philosophy of History" />
-                   </a>
-                  <a class="cover-card" href="https://amzn.to/4o2F3Tn" target="_blank" rel="noopener">
-                  <img src="./assets/musashi.jpg" alt="Cover of Five Rings" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernfic02" target="_blank" rel="noopener">
-                  <img src="./assets/ben-jonson-alchemist.jpg" alt="Cover of The Alchemist" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernfic03" target="_blank" rel="noopener">
-                  <img src="./assets/cavendish-blazing-world.jpg" alt="Cover of The Blazing World" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/earlymodernfic04" target="_blank" rel="noopener">
-                  <img src="./assets/la-fayette-princess-of-cleves.jpg" alt="Cover of The Princess of Cleves" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="early-modern-philosophy" aria-labelledby="early-modern-politics-title">
-              <h3 id="early-modern-politics-title">Political Philosophy</h3>
-              <div class="cover-grid" role="group" aria-labelledby="early-modern-politics-title">
-              
-                <a class="cover-card" href="https://amzn.to/42Wo5hu" target="_blank" rel="noopener">
-                  <img src="./assets/descartes.jpg" alt="Cover of Meditations on First Philosophy" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/4gY3TBH" target="_blank" rel="noopener">
-                  <img src="./assets/leviathan.jpg" alt="Cover of Leviathan" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/48ed3Ys" target="_blank" rel="noopener">
-                  <img src="./assets/paine.jpg" alt="Cover of Common Sense" />
-                </a>
-                                <a class="cover-card" href="https://amzn.to/3Wpqiyh" target="_blank" rel="noopener">
-                  <img src="./assets/locke.jpg" alt="Cover of Treatises" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/46QRvic" target="_blank" rel="noopener">
-                  <img src="./assets/rousseau.jpg" alt="Cover of The Social Contract" />
-                </a>
-                  <a class="cover-card" href="https://amzn.to/3VP8Vqv" target="_blank" rel="noopener">
-                  <img src="./assets/prince.jpg" alt="Cover of The Prince" />
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="reading-era" id="era-late-modern" aria-labelledby="heading-late-modern">
-          <div class="era-heading">
-            <h2 id="heading-late-modern">Late Modern</h2>
-            <p class="muted">Nineteenth-century ferment and late modern classics anticipating contemporary debates.</p>
-          </div>
-
-          <div class="subgenre-grid">
-            <article class="reading-subgenre" id="late-modern-literature" aria-labelledby="late-modern-literature-title">
-              <h3 id="late-modern-literature-title">Literature</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-literature-title">
-                <a class="cover-card" href="https://amzn.to/modernlit01" target="_blank" rel="noopener">
-                  <img src="./assets/don-quixote.jpg" alt="Cover of Don Quixote" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernlit02" target="_blank" rel="noopener">
-                  <img src="./assets/paradise-lost.jpg" alt="Cover of Paradise Lost" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernlit03" target="_blank" rel="noopener">
-                  <img src="./assets/goethe-faust.jpg" alt="Cover of Faust" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernlit04" target="_blank" rel="noopener">
-                  <img src="./assets/pride-and-prejudice.jpg" alt="Cover of Pride and Prejudice" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernlit05" target="_blank" rel="noopener">
-                  <img src="./assets/moby-dick.jpg" alt="Cover of Moby-Dick" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="late-modern-history" aria-labelledby="late-modern-history-title">
-              <h3 id="late-modern-history-title">History</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-history-title">
-                <a class="cover-card" href="https://amzn.to/modernhist01" target="_blank" rel="noopener">
-                  <img src="./assets/gibbon-decline-fall.jpg" alt="Cover of The History of the Decline and Fall of the Roman Empire" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernhist02" target="_blank" rel="noopener">
-                  <img src="./assets/federalist-papers.jpg" alt="Cover of The Federalist Papers" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernhist03" target="_blank" rel="noopener">
-                  <img src="./assets/thomas-paine-rights-of-man.jpg" alt="Cover of The Rights of Man" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernhist04" target="_blank" rel="noopener">
-                  <img src="./assets/tocqueville-democracy-in-america.jpg" alt="Cover of Democracy in America" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernhist05" target="_blank" rel="noopener">
-                  <img src="./assets/carlyle-french-revolution.jpg" alt="Cover of The French Revolution" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="late-modern-theology" aria-labelledby="late-modern-theology-title">
-              <h3 id="late-modern-theology-title">Theology</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-theology-title">
-                <a class="cover-card" href="https://amzn.to/moderntheo01" target="_blank" rel="noopener">
-                  <img src="./assets/calvin-institutes.jpg" alt="Cover of Institutes of the Christian Religion" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/moderntheo02" target="_blank" rel="noopener">
-                  <img src="./assets/pascal-pensees.jpg" alt="Cover of Pensées" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/moderntheo03" target="_blank" rel="noopener">
-                  <img src="./assets/newman-sermons.jpg" alt="Cover of Parochial and Plain Sermons" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/moderntheo04" target="_blank" rel="noopener">
-                  <img src="./assets/chesterton-orthodoxy.jpg" alt="Cover of Orthodoxy" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/moderntheo05" target="_blank" rel="noopener">
-                  <img src="./assets/philokalia.jpg" alt="Cover of The Philokalia" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="late-modern-biblical" aria-labelledby="late-modern-biblical-title">
-              <h3 id="late-modern-biblical-title">Biblical studies</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-biblical-title">
-                <a class="cover-card" href="https://amzn.to/modernbible01" target="_blank" rel="noopener">
-                  <img src="./assets/barth-romans.jpg" alt="Cover of Commentary on Romans" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernbible02" target="_blank" rel="noopener">
-                  <img src="./assets/edersheim-life-and-times.jpg" alt="Cover of The Life and Times of Jesus the Messiah" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernbible03" target="_blank" rel="noopener">
-                  <img src="./assets/wescott-hort-greek-nt.jpg" alt="Cover of The New Testament in the Original Greek" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernbible04" target="_blank" rel="noopener">
-                  <img src="./assets/strauss-life-of-jesus.jpg" alt="Cover of The Life of Jesus Critically Examined" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernbible05" target="_blank" rel="noopener">
-                  <img src="./assets/neill-wright-interpretation.jpg" alt="Cover of The Interpretation of the New Testament" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="late-modern-fiction" aria-labelledby="late-modern-fiction-title">
-              <h3 id="late-modern-fiction-title">Fiction</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-fiction-title">
-                <a class="cover-card" href="https://amzn.to/modernfic01" target="_blank" rel="noopener">
-                  <img src="./assets/frankenstein.jpg" alt="Cover of Frankenstein" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernfic02" target="_blank" rel="noopener">
-                  <img src="./assets/wuthering-heights.jpg" alt="Cover of Wuthering Heights" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernfic03" target="_blank" rel="noopener">
-                  <img src="./assets/crime-and-punishment.jpg" alt="Cover of Crime and Punishment" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernfic04" target="_blank" rel="noopener">
-                  <img src="./assets/scarlet-letter.jpg" alt="Cover of The Scarlet Letter" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernfic05" target="_blank" rel="noopener">
-                  <img src="./assets/les-miserables.jpg" alt="Cover of Les Misérables" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="late-modern-philosophy" aria-labelledby="late-modern-politics-title">
-              <h3 id="late-modern-politics-title">Philosophy</h3>
-              <div class="cover-grid" role="group" aria-labelledby="late-modern-philosophy-title">
-                <a class="cover-card" href="https://amzn.to/46OPoNj" target="_blank" rel="noopener">
-                  <img src="./assets/goodevil.jpg" alt="Cover of Beyond Good and Evil" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernphil02" target="_blank" rel="noopener">
-                  <img src="./assets/spinoza-ethics.jpg" alt="Cover of Ethics" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernphil03" target="_blank" rel="noopener">
-                  <img src="./assets/kant-critique-of-pure-reason.jpg" alt="Cover of Critique of Pure Reason" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/4nEQ9yr" target="_blank" rel="noopener">
-                  <img src="./assets/phenomenology.jpg" alt="Cover of Phenomenology of Spirit" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/modernphil05" target="_blank" rel="noopener">
-                  <img src="./assets/mill-utilitarianism.jpg" alt="Cover of Utilitarianism" />
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="reading-era" id="era-contemporary" aria-labelledby="heading-contemporary">
-          <div class="era-heading">
-            <h2 id="heading-contemporary">Contemporary</h2>
-            <p class="muted">Twentieth and twenty-first century voices engaging modern dilemmas.</p>
-          </div>
-
-          <div class="subgenre-grid">
-            <article class="reading-subgenre" id="contemporary-literature" aria-labelledby="contemporary-literature-title">
-              <h3 id="contemporary-literature-title">Literature</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-literature-title">
-                <a class="cover-card" href="https://amzn.to/contemporarylit01" target="_blank" rel="noopener">
-                  <img src="./assets/eliot-waste-land.jpg" alt="Cover of The Waste Land" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarylit02" target="_blank" rel="noopener">
-                  <img src="./assets/marquez-one-hundred-years.jpg" alt="Cover of One Hundred Years of Solitude" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarylit03" target="_blank" rel="noopener">
-                  <img src="./assets/toni-morrison-beloved.jpg" alt="Cover of Beloved" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarylit04" target="_blank" rel="noopener">
-                  <img src="./assets/eco-name-of-the-rose.jpg" alt="Cover of The Name of the Rose" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarylit05" target="_blank" rel="noopener">
-                  <img src="./assets/rushdie-midnights-children.jpg" alt="Cover of Midnight's Children" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="contemporary-history" aria-labelledby="contemporary-history-title">
-              <h3 id="contemporary-history-title">History</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-history-title">
-                <a class="cover-card" href="https://amzn.to/contemporaryhist01" target="_blank" rel="noopener">
-                  <img src="./assets/tuchman-guns-of-august.jpg" alt="Cover of The Guns of August" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryhist02" target="_blank" rel="noopener">
-                  <img src="./assets/tony-judt-postwar.jpg" alt="Cover of Postwar" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryhist03" target="_blank" rel="noopener">
-                  <img src="./assets/huntington-clash-of-civilizations.jpg" alt="Cover of The Clash of Civilizations" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryhist04" target="_blank" rel="noopener">
-                  <img src="./assets/gaddis-cold-war.jpg" alt="Cover of The Cold War" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryhist05" target="_blank" rel="noopener">
-                  <img src="./assets/zinn-peoples-history.jpg" alt="Cover of A People's History of the United States" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="contemporary-theology" aria-labelledby="contemporary-theology-title">
-              <h3 id="contemporary-theology-title">Theology</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-theology-title">
-                <a class="cover-card" href="https://amzn.to/contemporarytheo01" target="_blank" rel="noopener">
-                  <img src="./assets/john-paul-ii-theology-of-the-body.jpg" alt="Cover of Theology of the Body" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarytheo02" target="_blank" rel="noopener">
-                  <img src="./assets/cs-lewis-god-in-the-dock.jpg" alt="Cover of God in the Dock" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarytheo03" target="_blank" rel="noopener">
-                  <img src="./assets/ratzinger-spirit-of-the-liturgy.jpg" alt="Cover of The Spirit of the Liturgy" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarytheo04" target="_blank" rel="noopener">
-                  <img src="./assets/paul-vi-evangelii-nuntiandi.jpg" alt="Cover of Evangelii Nuntiandi" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarytheo05" target="_blank" rel="noopener">
-                  <img src="./assets/balthasar-mysterium-paschale.jpg" alt="Cover of Mysterium Paschale" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="contemporary-fiction" aria-labelledby="contemporary-fiction-title">
-              <h3 id="contemporary-fiction-title">Fiction &amp; speculative</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-fiction-title">
-                <a class="cover-card" href="https://amzn.to/contemporaryfic01" target="_blank" rel="noopener">
-                  <img src="./assets/tolkien-lord-of-the-rings.jpg" alt="Cover of The Lord of the Rings" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryfic02" target="_blank" rel="noopener">
-                  <img src="./assets/frank-herbert-dune.jpg" alt="Cover of Dune" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryfic03" target="_blank" rel="noopener">
-                  <img src="./assets/le-guin-left-hand-of-darkness.jpg" alt="Cover of The Left Hand of Darkness" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryfic04" target="_blank" rel="noopener">
-                  <img src="./assets/a-wrinkle-in-time.jpg" alt="Cover of A Wrinkle in Time" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryfic05" target="_blank" rel="noopener">
-                  <img src="./assets/cs-lewis-narnia.jpg" alt="Cover of The Chronicles of Narnia" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="contemporary-philosophy" aria-labelledby="contemporary-philosophy-title">
-              <h3 id="contemporary-philosophy-title">Philosophy</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-philosophy-title">
-                <a class="cover-card" href="https://amzn.to/3KBmS96" target="_blank" rel="noopener">
-                  <img src="./assets/secular.jpg" alt="Cover of A Secular Age" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/48SNVGX" target="_blank" rel="noopener">
-                  <img src="./assets/social.jpg" alt="Cover of Modern Social Imaginaries" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/4o7MmcH" target="_blank" rel="noopener">
-                  <img src="./assets/violencesacred.jpg" alt="Cover of Violence and the Sacred" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryphil04" target="_blank" rel="noopener">
-                  <img src="./assets/macintyre-after-virtue.jpg" alt="Cover of After Virtue" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporaryphil05" target="_blank" rel="noopener">
-                  <img src="./assets/gadamer-truth-and-method.jpg" alt="Cover of Truth and Method" />
-                </a>
-              </div>
-            </article>
-
-            <article class="reading-subgenre" id="contemporary-psychology" aria-labelledby="contemporary-psychology-title">
-              <h3 id="contemporary-psychology-title">Psychology</h3>
-              <div class="cover-grid" role="group" aria-labelledby="contemporary-psychology-title">
-                <a class="cover-card" href="https://amzn.to/contemporarypsych01" target="_blank" rel="noopener">
-                  <img src="./assets/frankl-mans-search-for-meaning.jpg" alt="Cover of Man's Search for Meaning" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarypsych02" target="_blank" rel="noopener">
-                  <img src="./assets/campbell-hero-with-a-thousand-faces.jpg" alt="Cover of The Hero with a Thousand Faces" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarypsych03" target="_blank" rel="noopener">
-                  <img src="./assets/peterson-maps-of-meaning.jpg" alt="Cover of Maps of Meaning" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarypsych04" target="_blank" rel="noopener">
-                  <img src="./assets/peck-road-less-traveled.jpg" alt="Cover of The Road Less Traveled" />
-                </a>
-                <a class="cover-card" href="https://amzn.to/contemporarypsych05" target="_blank" rel="noopener">
-                  <img src="./assets/kahneman-thinking-fast-and-slow.jpg" alt="Cover of Thinking, Fast and Slow" />
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-      </section>
-    </main>
-
-    <footer>
-      <p class="footer-tagline">Religion · Media · Imagination</p>
-      <nav class="footer-links" aria-label="Secondary">
-        <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
-        <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://national.academia.edu/MichaelBarros" target="_blank" rel="noopener">Academia.edu</a>
-      </nav>
-      © <span id="year"></span> Michael C. Barros
-    </footer>
-  </div>
-
-  <script defer src="./js/data/data.js?v=20240607"></script>
-  <script defer src="./js/nav.js?v=20240607"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const year = document.getElementById('year');
-      if (year) year.textContent = new Date().getFullYear();
-      const grids = document.querySelectorAll('.cover-grid');
-      grids.forEach((grid) => {
-        const cards = grid.querySelectorAll('.cover-card');
-        if (cards.length <= 1) return;
-        const keepCount = Math.max(1, Math.floor(cards.length / 2));
-        cards.forEach((card, index) => {
-          if (index >= keepCount) {
-            card.setAttribute('hidden', '');
-            card.setAttribute('aria-hidden', 'true');
-            card.setAttribute('tabindex', '-1');
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
