@@ -84,37 +84,13 @@
           Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.
         </p>
         <div class="grid cols-3" id="projects-grid">
-          <a class="card card--waypoint" href="./projects.html#waypoint">
-            <span class="card__motif" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="40" />
-                <path d="M60 26v68M26 60h68" />
-                <path d="M60 18l12 24-12 10-12-10z" />
-              </svg>
-            </span>
-            <h3 class="card__type">Institute</h3>
+          <a class="card" href="./projects.html">
             <p class="card__title">Waypoint Institute</p>
           </a>
-          <a class="card card--dissertation" href="./projects.html#dissertation">
-            <span class="card__motif" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="34" />
-                <path d="M36 60c0-13.3 10.7-24 24-24s24 10.7 24 24-10.7 24-24 24" />
-                <path d="M48 78c-9 0-16-7-16-16" />
-              </svg>
-            </span>
-            <h3 class="card__type">Dissertation</h3>
+          <a class="card" href="./projects.html">
             <p class="card__title">Formation of Supernatural Agents in Dreams Through Simulation</p>
           </a>
-          <a class="card card--zelda" href="./projects.html#zelda">
-            <span class="card__motif" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <path d="M60 26l22 38H38z" />
-                <path d="M60 26l-11 19h22z" />
-                <path d="M60 64l11 19H49z" />
-              </svg>
-            </span>
-            <h3 class="card__type">Edited Volume</h3>
+          <a class="card" href="./projects.html">
             <p class="card__title">The Legend of Zelda and Religion</p>
           </a>
         </div>
@@ -192,18 +168,6 @@
         if (!projects.length) return;
         const grid = document.getElementById('projects-grid');
         if (!grid) return;
-        const motif = (id) => {
-          switch (id) {
-            case 'waypoint':
-              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="40" /><path d="M60 26v68M26 60h68" /><path d="M60 18l12 24-12 10-12-10z" /></svg></span>';
-            case 'dissertation':
-              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="34" /><path d="M36 60c0-13.3 10.7-24 24-24s24 10.7 24 24-10.7 24-24 24" /><path d="M48 78c-9 0-16-7-16-16" /></svg></span>';
-            case 'zelda':
-              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><path d="M60 26l22 38H38z" /><path d="M60 26l-11 19h22z" /><path d="M60 64l11 19H49z" /></svg></span>';
-            default:
-              return '<span class="card__motif" aria-hidden="true"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="48" /><path d="M28 60h64M60 28v64" /></svg></span>';
-          }
-        };
         const projectTitle = (id, title) => {
           if (!title) return '';
           if (id === 'dissertation') {
@@ -223,14 +187,12 @@
             link.target = '_blank';
             link.rel = 'noopener';
           }
-const typeLabel = (p.tag || p.type || p.status || 'Project');
+          const typeLabel = (p.tag || p.type || p.status || 'Project');
           const titleText = projectTitle(id, p.title || typeLabel);
           if (titleText) {
-            link.setAttribute('aria-label', `${titleText} (${typeLabel})`);
+            link.setAttribute('aria-label', `${titleText}${typeLabel ? ` (${typeLabel})` : ''}`);
           }
           link.innerHTML = `
-            ${motif(id)}
-            <h3 class="card__type">${typeLabel}</h3>
             <p class="card__title">${titleText}</p>
           `;
           grid.appendChild(link);
