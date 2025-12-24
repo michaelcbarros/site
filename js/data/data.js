@@ -96,7 +96,7 @@ status: "Edited volume in development.",
     {
       id: "omega-point",
       title: "The Omega Point of Philip K. Dick",
-      status: "Early-stage research and drafting; projected publication 2028.",
+   status: "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
       type: "Book",
       tag: "Book",
       tags: ["Philip K. Dick", "Theology", "Monograph"],
