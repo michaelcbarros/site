@@ -7,6 +7,7 @@
   <meta name="description" content="Waypoint Institute, The Legend of Zelda &amp; Religion, and an ABD dissertation on dream-based supernatural agents." />
   <link rel="stylesheet" href="./style.css?v=20240607" />
 </head>
+
 <body class="page page--projects">
   <div class="shell">
     <header class="site-header" aria-label="Site">
@@ -21,10 +22,10 @@
       </nav>
     </header>
 
-    <main>
-      <section class="page-header">
+    <main id="main">
+      <section class="page-header" aria-labelledby="page-title">
         <span class="eyebrow">Projects</span>
-        <h1 class="page-title">Research &amp; works in progress</h1>
+        <h1 class="page-title" id="page-title">Research &amp; works in progress</h1>
         <p class="page-kicker">Select a project to open its overview.</p>
       </section>
 
@@ -32,27 +33,29 @@
         <div class="section-heading">
           <h2 id="projects-heading">Active initiatives</h2>
         </div>
-        <p class="section-intro">Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.</p>
-<<<<<<< ours
-        <div class="projects-cards" id="projects-grid" role="list">
-          <article class="project-card" role="listitem">
-            <div class="project-card__header">
-              <div class="project-card__topline">
-                <span class="project-card__tag">Project</span>
-                <span class="project-card__chevron" aria-hidden="true"></span>
-              </div>
-              <h3 class="project-card__title">Waypoint Institute</h3>
-            </div>
-          </article>
-        </div>
-=======
+
+        <p class="section-intro">
+          Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.
+        </p>
+
+        <!--
+          NOTE:
+          This grid is intentionally populated by ./js/projects.js from ./js/data/data.js.
+          Do not hardcode cards here; doing so will create duplicates and break the accordion behavior.
+        -->
         <div class="projects-cards" id="projects-grid" role="list"></div>
->>>>>>> theirs
+
+        <!-- Optional: graceful fallback if JS is blocked -->
+        <noscript>
+          <p class="section-intro" style="margin-top: 1rem;">
+            JavaScript is disabled. This page requires JavaScript to render the project cards.
+          </p>
+        </noscript>
       </section>
     </main>
 
     <footer>
-    <p class="footer-tagline">Essays · Research · Projects</p>
+      <p class="footer-tagline">Essays · Research · Projects</p>
       <nav class="footer-links" aria-label="Secondary">
         <a href="https://mythonoesis.substack.com/" target="_blank" rel="noopener">Substack</a>
         <a href="https://orcid.org/0000-0001-5462-8926" target="_blank" rel="noopener">ORCID</a>
