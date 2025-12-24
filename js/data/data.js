@@ -52,74 +52,62 @@
   // ---------- Projects (Waypoint, works-in-progress, collaborations) ----------
   const PROJECTS = [
     {
-      id: "waypoint",
+      id: "waypoint-institute",
       title: "Waypoint Institute",
-            status: "Completed first development phase and initial beta testing; incorporating feedback ahead of a second beta cohort. Targeting full launch in 2026.",
+      field: "religion-culture",
       type: "Institute",
-      tag: "Institute",
-      tags: ["Education", "Theology", "Great Books"],
-      short:
-     "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
-     description:  
-    "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission. Its curriculum is organized around self-paced modules, guided checkpoints, and oral capstones designed to preserve personal formation within a flexible, non-residential model.",
-      url: "./projects.html#waypoint",
-      external: false
+      accent: "neutral",
+      summary:
+        "A supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
+      status: "Completed first development phase; second cohort in planning.",
+      links: [
+        { label: "Visit site", href: "https://waypointinstitute.org" }
+      ],
+      hero: true
     },
+
+    {
+      id: "zelda-religion",
+      title: "The Legend of Zelda and Religion",
+      field: "religion-culture",
+      type: "Book",
+      accent: "green",
+      summary: "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves.",
+      status: "Edited volume in development.",
+      links: []
+    },
+
+    {
+      id: "pkd-omega-point",
+      title: "The Omega Point of Philip K. Dick",
+      field: "publishing",
+      type: "Book",
+      accent: "violet",
+      summary: "A monograph examining Philip K. Dick’s engagement with the theology of Pierre Teilhard de Chardin.",
+      status: "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
+      links: []
+    },
+
     {
       id: "dissertation",
-      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
-      status: "Chapters 1–2 complete; data analysis underway and Chapter 3 in progress.",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation",
+      field: "csr",
       type: "Dissertation",
-      tag: "Dissertation",
-      tags: ["Dreams", "Grounded Cognition", "Religion"],
-      short:
-        "Dream simulation and belief—an embodied, grounded-cognition account.",
-      description:
-       "Develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents.",
-      url: "./projects.html#dissertation",
-      external: false
+      accent: "gold",
+      summary: "A grounded-cognition account of how dream simulations contribute to supernatural agent concepts.",
+      status: "Chapters 1–2 complete; data analysis underway; Chapter 3 in progress.",
+      links: []
     },
+
     {
-      id: "zelda",
-      title: "The Legend of Zelda and Religion",
-status: "Edited volume in development.",
-      type: "Book",
-      tag: "Book",
-      tags: ["Games", "Religion", "Edited Volume"],
-      short:
-        "Zelda as theology—religion emerging from inside the game world.",
-      description:
-       "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves—mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance, sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs, making the case for games as genuine sites of religious activity.",
-      url: "./projects.html#zelda",
-      external: false
-     },
-    {
-      id: "omega-point",
-      title: "The Omega Point of Philip K. Dick",
-   status: "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
-      type: "Book",
-      tag: "Book",
-      tags: ["Philip K. Dick", "Theology", "Monograph"],
-      short:
-        "Teilhard de Chardin’s theology refracted through Philip K. Dick’s fiction.",
-      description:
-        "A monograph examining how Philip K. Dick adapts the theology of Pierre Teilhard de Chardin.",
-      url: "./projects.html#omega-point",
-      external: false
-    },
-    {
-      id: "rse-generation",
-      title: "The Generation of Religious and Spiritual Experiences: A qualitative analysis and neurophenomenological model",
-      status: "Model drafted, undergoing iterative testing.",
+      id: "religious-experience-study",
+      title: "The Generation of Religious and Spiritual Experiences",
+      field: "csr",
       type: "Study",
-      tag: "Study",
-      tags: ["RSE", "Neurophenomenology", "Qualitative"],
-      short:
-        "Qualitative and computational study extending McNamara’s Tripartite Model.",
-      description:
-        "A qualitative and computational study extending McNamara’s Tripartite Model to account for five recurrent domains of religious and spiritual experience using life-history interviews and neurophenomenological modeling.",
-      url: "./projects.html#rse-generation",
-      external: false
+      accent: "blue",
+      summary: "A qualitative and neurophenomenological model of religious experience formation.",
+      status: "Model drafted; iterative testing underway.",
+      links: []
     }
   ];
 
