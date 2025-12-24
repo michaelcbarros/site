@@ -1082,7 +1082,7 @@ address {
 .project-item[data-accent="violet"] { border-left-color: rgba(148, 120, 210, .9); }
 .project-item[data-accent="blue"] { border-left-color: rgba(120, 170, 215, .9); }
 .project-item[data-accent="neutral"] { border-left-color: rgba(255, 255, 255, .55); }
-.project-item[data-accent="white"] { border-left-color: rgba(255, 255, 255, .7); }
+.project-item[data-accent="white"] { border-left-color: rgba(255, 255, 255, .85); box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
 
 .project-item.is-hero {
   border-width: 1.5px;
@@ -1090,74 +1090,44 @@ address {
   border-color: rgba(255,255,255,.18);
 }
 
-/* --- Project updates carousel --- */
-.project-updates {
-  position: relative;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 55%),
-              radial-gradient(circle at 80% 80%, rgba(255,255,255,.03), transparent 60%),
-              rgba(12, 14, 24, 0.6);
-  border: 1px solid rgba(255,255,255,.08);
+/* --- Latest update feature --- */
+.latest-update-card {
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: 16px;
-  padding: 1rem;
-  overflow: hidden;
+  padding: 1.25rem 1.4rem;
+  background: radial-gradient(circle at 30% 25%, rgba(148, 120, 210, .14), transparent 55%),
+              radial-gradient(circle at 80% 70%, rgba(148, 120, 210, .1), transparent 60%),
+              rgba(12, 14, 24, 0.7);
 }
 
-.updates-viewport {
-  overflow: hidden;
+.latest-update-card[data-accent="violet"] {
+  background: radial-gradient(circle at 30% 25%, rgba(148, 120, 210, .16), transparent 55%),
+              radial-gradient(circle at 80% 70%, rgba(148, 120, 210, .12), transparent 60%),
+              rgba(12, 14, 24, 0.7);
 }
 
-.updates-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(240px, 1fr);
-  gap: 1rem;
-  transition: transform .4s ease;
-  will-change: transform;
+.latest-update__label {
+  font-size: .8rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
 }
 
-.update-slide {
-  border: 1px solid rgba(255,255,255,.12);
-  border-left: 4px solid transparent;
-  border-radius: 12px;
-  padding: 1rem;
-  background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+.latest-update__title {
+  margin: .2rem 0 .4rem;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,.95);
 }
 
-.update-slide__content { display: flex; flex-direction: column; gap: .35rem; }
-.update-slide__type { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.68); }
-.update-slide__title { margin: 0; font-size: 1.05rem; color: rgba(255,255,255,.92); }
-.update-slide__date { margin: 0; font-size: .85rem; color: rgba(255,255,255,.65); }
-.update-slide__text { margin: 0; color: rgba(255,255,255,.85); line-height: 1.45; }
-.update-slide__link { color: var(--ink); font-weight: 600; }
-
-.update-slide[data-accent="gold"] { border-left-color: rgba(215, 176, 92, .9); }
-.update-slide[data-accent="green"] { border-left-color: rgba(88, 185, 120, .9); }
-.update-slide[data-accent="violet"] { border-left-color: rgba(148, 120, 210, .9); }
-.update-slide[data-accent="blue"] { border-left-color: rgba(120, 170, 215, .9); }
-.update-slide[data-accent="white"] { border-left-color: rgba(255, 255, 255, .7); }
-
-.updates-controls {
-  display: flex;
-  gap: .5rem;
-  justify-content: flex-end;
-  margin-top: .75rem;
+.latest-update__text {
+  margin: 0 0 .6rem;
+  color: rgba(255,255,255,.85);
+  line-height: 1.55;
 }
 
-.updates-btn {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.14);
-  color: rgba(255,255,255,.9);
-  border-radius: 8px;
-  padding: .45rem .65rem;
-  cursor: pointer;
-  transition: background .15s ease, transform .15s ease;
-}
-
-.updates-btn:hover,
-.updates-btn:focus-visible {
-  background: rgba(255,255,255,.12);
-  transform: translateY(-1px);
-  outline: none;
+.latest-update__link {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 /* --- Utilities --- */

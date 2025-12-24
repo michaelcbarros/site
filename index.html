@@ -29,7 +29,7 @@
       <section class="hero" aria-labelledby="home-title">
         <div class="hero__content">
 
-         <h1 id="home-title">How religion forms: in minds, in cultures, in stories.</h1>
+         <h1 id="home-title">Religious experience, thought, and expression.</h1>
            <p class="hero__tagline">
 
            Michael C. Barros is a scholar of religion and culture and an active researcher in the cognitive science of religion, with training in psychology and theology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature.
@@ -77,18 +77,10 @@
 
       <section aria-labelledby="projects-heading">
         <div class="section-heading">
-          <h2 id="projects-heading">Project updates</h2>
+          <h2 id="projects-heading">Latest update</h2>
           <a class="link" href="./projects.html">Read more →</a>
         </div>
-        <div class="project-updates" id="project-updates">
-          <div class="updates-viewport">
-            <div class="updates-track" id="updates-track"></div>
-          </div>
-          <div class="updates-controls" aria-label="Project updates carousel controls">
-            <button class="updates-btn" type="button" data-dir="prev" aria-label="Previous update">‹</button>
-            <button class="updates-btn" type="button" data-dir="next" aria-label="Next update">›</button>
-          </div>
-        </div>
+        <div id="latest-update"></div>
       </section>
 
       <div class="divider" role="presentation"></div>
@@ -153,74 +145,40 @@
       const year = document.getElementById('year');
       if (year) year.textContent = new Date().getFullYear();
 
-      // project updates carousel
+      // latest project update
       (function(){
         const updates = (window.SITE_DATA && window.SITE_DATA.updates) || [];
-        const track = document.getElementById('updates-track');
-        const container = document.getElementById('project-updates');
-        if (!track || !container || !updates.length) return;
+        const slot = document.getElementById('latest-update');
+        if (!slot || !updates.length) return;
 
-        let index = 0;
-        let timer = null;
-        const intervalMs = 8000;
-
-        const renderSlides = () => {
-          track.innerHTML = updates.map((u, i) => `
-            <article class="update-slide" data-accent="${u.accent || ''}" aria-label="${u.title || ''}">
-              <div class="update-slide__content">
-                <span class="update-slide__type">${(u.type || '').toUpperCase()}</span>
-                <h3 class="update-slide__title">${u.title || ''}</h3>
-                ${u.date ? `<p class="update-slide__date">${u.date}</p>` : ''}
-                <p class="update-slide__text">${u.text || ''}</p>
-                <a class="update-slide__link" href="./projects.html#${u.projectId || ''}">View project →</a>
-              </div>
-            </article>
-          `).join('');
+        const parseDate = (val) => {
+          const d = new Date(val);
+          return isNaN(d.getTime()) ? null : d;
         };
 
-        const slides = () => Array.from(track.querySelectorAll('.update-slide'));
+        const latest = updates
+          .map(u => ({ ...u, _date: parseDate(u.date) }))
+          .sort((a, b) => {
+            if (a._date && b._date) return b._date - a._date;
+            if (a._date) return -1;
+            if (b._date) return 1;
+            return 0;
+          })[0];
 
-        const applyPosition = () => {
-          const slideEls = slides();
-          const width = slideEls[0]?.getBoundingClientRect().width || 0;
-          track.style.transform = `translateX(${-index * (width + 16)}px)`;
-        };
+        if (!latest) return;
 
-        const next = () => {
-          const count = slides().length;
-          index = (index + 1) % count;
-          applyPosition();
-        };
+        const dateLabel = latest._date
+          ? latest._date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+          : '';
 
-        const prev = () => {
-          const count = slides().length;
-          index = (index - 1 + count) % count;
-          applyPosition();
-        };
-
-        const start = () => {
-          stop();
-          timer = setInterval(next, intervalMs);
-        };
-
-        const stop = () => {
-          if (timer) clearInterval(timer);
-          timer = null;
-        };
-
-        renderSlides();
-        applyPosition();
-        start();
-
-        track.addEventListener('mouseenter', stop);
-        track.addEventListener('mouseleave', start);
-        track.addEventListener('focusin', stop);
-        track.addEventListener('focusout', start);
-
-        container.querySelector('[data-dir="next"]')?.addEventListener('click', () => { stop(); next(); start(); });
-        container.querySelector('[data-dir="prev"]')?.addEventListener('click', () => { stop(); prev(); start(); });
-
-        window.addEventListener('resize', applyPosition);
+        slot.innerHTML = `
+          <article class="latest-update-card" data-accent="${latest.accent || ''}">
+            <div class="latest-update__label">Latest update${dateLabel ? ` · ${dateLabel}` : ''}</div>
+            <h3 class="latest-update__title">${latest.title || ''}</h3>
+            <p class="latest-update__text">${latest.text || ''}</p>
+            <a class="latest-update__link" href="./projects.html#${latest.projectId || ''}">View project →</a>
+          </article>
+        `;
       })();
 
       // substack (live fetch with graceful fallback)

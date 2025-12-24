@@ -154,7 +154,7 @@
       accent: "violet",
       type: "Book",
       title: "The Omega Point of Philip K. Dick",
-      date: "2024-12-10",
+      date: "2025-03-05",
       text: "Contract signed with Anti-Oedipus Press; manuscript in progress for late 2027 delivery."
     },
     {
