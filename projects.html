@@ -26,26 +26,20 @@
       <section class="page-header" aria-labelledby="page-title">
         <span class="eyebrow">Projects</span>
         <h1 class="page-title" id="page-title">Research &amp; works in progress</h1>
-        <p class="page-kicker">Select a project to open its overview.</p>
+        <div class="projects-toprow">
+          <p class="page-kicker">Select a field, then open a project for details.</p>
+          <div class="projects-controls" aria-label="Project filters">
+            <div class="pillbar" role="tablist" aria-label="Filter projects by field">
+              <button class="pill pill--active" type="button" role="tab" aria-selected="true" data-field="all">All</button>
+              <button class="pill" type="button" role="tab" aria-selected="false" data-field="religion-culture">Religion &amp; Culture</button>
+              <button class="pill" type="button" role="tab" aria-selected="false" data-field="csr">Cognitive Science of Religion</button>
+              <button class="pill" type="button" role="tab" aria-selected="false" data-field="publishing">Publishing &amp; Editorial</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="projects-section" aria-labelledby="projects-heading">
-        <div class="section-heading">
-          <h2 id="projects-heading">Active initiatives</h2>
-          <div class="projects-controls" aria-label="Project filters">
-  <div class="pillbar" role="tablist" aria-label="Filter projects by field">
-    <button class="pill pill--active" type="button" role="tab" aria-selected="true" data-field="all">All</button>
-    <button class="pill" type="button" role="tab" aria-selected="false" data-field="religion-culture">Religion &amp; Culture</button>
-    <button class="pill" type="button" role="tab" aria-selected="false" data-field="csr">Cognitive Science of Religion</button>
-    <button class="pill" type="button" role="tab" aria-selected="false" data-field="publishing">Publishing &amp; Editorial</button>
-  </div>
-</div>
-
-        </div>
-
-        <p class="section-intro">
-          Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.
-        </p>
 
         <!--
           NOTE:
@@ -75,6 +69,7 @@
   </div>
 
   <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/projects-module.js?v=20240607"></script>
   <script defer src="./js/nav.js?v=20240607"></script>
   <script defer src="./js/projects.js?v=20240607"></script>
 </body>

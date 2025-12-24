@@ -26,13 +26,13 @@
      </header>
  
      <main>
-       <section class="hero" aria-labelledby="home-title">
-         <div class="hero__content">
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero__content">
 
-         <h1 id="home-title">Scholar of religion &amp; culture · Cognitive science of religion researcher</h1>
+         <h1 id="home-title">Religious experience, thought, and expression.</h1>
            <p class="hero__tagline">
 
-           Michael C. Barros is an interdisciplinary scholar of religion and culture and an active researcher in the cognitive science of religion, with training in psychology and theology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature.
+           Michael C. Barros is a scholar of religion and culture and an active researcher in the cognitive science of religion, with training in psychology and theology and a background in classical education. He teaches philosophy at the University of the People and has taught undergraduate theology, philosophy, and literature.
            </p>
            <div class="hero__meta">
              <div class="badge-row" aria-label="Areas of focus">
@@ -77,23 +77,10 @@
 
       <section aria-labelledby="projects-heading">
         <div class="section-heading">
-          <h2 id="projects-heading">Current projects</h2>
-          <a class="link" href="./projects.html#projects-heading">Read more →</a>
+          <h2 id="projects-heading">Latest update</h2>
+          <a class="link" href="./projects.html">Read more →</a>
         </div>
-        <p class="section-intro">
-          Editorial projects, institutes, and studies exploring how sacred imagination takes form across contemporary media.
-        </p>
-        <div class="grid cols-3" id="projects-grid">
-          <a class="card" href="./projects.html">
-            <p class="card__title">Waypoint Institute</p>
-          </a>
-          <a class="card" href="./projects.html">
-            <p class="card__title">Formation of Supernatural Agents in Dreams Through Simulation</p>
-          </a>
-          <a class="card" href="./projects.html">
-            <p class="card__title">The Legend of Zelda and Religion</p>
-          </a>
-        </div>
+        <div id="latest-update"></div>
       </section>
 
       <div class="divider" role="presentation"></div>
@@ -122,13 +109,17 @@
             <span class="appearance__meta">April 2024</span>
             <a href="https://www.youtube.com/watch?v=Fp0VL1Y9bdc" target="_blank" rel="noopener">Panel — Cognitive science of religion and media</a>
           </li>
-          <li>
+          <li class="is-hidden">
             <span class="appearance__meta">January 2024</span>
             <a href="https://www.example.com/podcast" target="_blank" rel="noopener">Podcast — Ritual, play, and imagination</a>
           </li>
-          <li>
+          <li class="is-hidden">
             <span class="appearance__meta">October 2023</span>
             <a href="https://www.example.com/lecture" target="_blank" rel="noopener">Guest lecture — Dreams and religious cognition</a>
+          </li>
+          <li>
+            <span class="appearance__meta">Coming soon</span>
+            <span>Upcoming appearances and talks will be posted here.</span>
           </li>
         </ul>
       </section>
@@ -146,6 +137,7 @@
   </div>
 
   <script defer src="./js/data/data.js?v=20240607"></script>
+  <script defer src="./js/projects-module.js?v=20240607"></script>
   <script defer src="./js/nav.js?v=20240607"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -153,51 +145,41 @@
       const year = document.getElementById('year');
       if (year) year.textContent = new Date().getFullYear();
 
-      // projects
+      // latest project update
       (function(){
-        const projects = (window.SITE_DATA && window.SITE_DATA.projects) || window.PROJECTS || [];
-        if (!projects.length) return;
-        const grid = document.getElementById('projects-grid');
-        if (!grid) return;
-        const projectTitle = (id, title) => {
-          if (!title) return '';
-          if (id === 'dissertation') {
-            const parts = String(title).split(':');
-            return parts[0] ? parts[0].trim() : String(title).trim();
-          }
-          return String(title).trim();
+        const updates = (window.SITE_DATA && window.SITE_DATA.updates) || [];
+        const slot = document.getElementById('latest-update');
+        if (!slot || !updates.length) return;
+
+        const parseDate = (val) => {
+          const d = new Date(val);
+          return isNaN(d.getTime()) ? null : d;
         };
 
-        grid.innerHTML = '';
-        projects.slice(0, 6).forEach(p => {
-          const link = document.createElement('a');
-          const id = (p.id && String(p.id)) || slug(p.title);
-          link.className = `card card--${id}`;
-          link.href = p.url || '#';
-          if (p.external) {
-            link.target = '_blank';
-            link.rel = 'noopener';
-          }
-          const typeLabel = (p.tag || p.type || p.status || 'Project');
-          const titleText = projectTitle(id, p.title || typeLabel);
-          if (titleText) {
-            link.setAttribute('aria-label', `${titleText}${typeLabel ? ` (${typeLabel})` : ''}`);
-          }
-          link.innerHTML = `
-            <p class="card__title">${titleText}</p>
-          `;
-          grid.appendChild(link);
-        });
-      })();
+        const latest = updates
+          .map(u => ({ ...u, _date: parseDate(u.date) }))
+          .sort((a, b) => {
+            if (a._date && b._date) return b._date - a._date;
+            if (a._date) return -1;
+            if (b._date) return 1;
+            return 0;
+          })[0];
 
-      function slug(value) {
-        return String(value || '')
-          .toLowerCase()
-          .trim()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .replace(/\s+/g, '-')
-          .replace(/-+/g, '-');
-      }
+        if (!latest) return;
+
+        const dateLabel = latest._date
+          ? latest._date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+          : '';
+
+        slot.innerHTML = `
+          <article class="latest-update-card" data-accent="${latest.accent || ''}">
+            <div class="latest-update__label">Latest update${dateLabel ? ` · ${dateLabel}` : ''}</div>
+            <h3 class="latest-update__title">${latest.title || ''}</h3>
+            <p class="latest-update__text">${latest.text || ''}</p>
+            <a class="latest-update__link" href="./projects.html#${latest.projectId || ''}">View project →</a>
+          </article>
+        `;
+      })();
 
       // substack (live fetch with graceful fallback)
       (function(){
