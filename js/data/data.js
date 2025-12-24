@@ -54,72 +54,58 @@
     {
       id: "waypoint",
       title: "Waypoint Institute",
-            status: "Completed first development phase and initial beta testing; incorporating feedback ahead of a second beta cohort. Targeting full launch in 2026.",
+      field: "religion-culture",
       type: "Institute",
-      tag: "Institute",
-      tags: ["Education", "Theology", "Great Books"],
-      short:
-     "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
-     description:  
-    "Waypoint Institute is a supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission. Its curriculum is organized around self-paced modules, guided checkpoints, and oral capstones designed to preserve personal formation within a flexible, non-residential model.",
-      url: "./projects.html#waypoint",
-      external: false
-    },
-    {
-      id: "dissertation",
-      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
-      status: "Chapters 1–2 complete; data analysis underway and Chapter 3 in progress.",
-      type: "Dissertation",
-      tag: "Dissertation",
-      tags: ["Dreams", "Grounded Cognition", "Religion"],
-      short:
-        "Dream simulation and belief—an embodied, grounded-cognition account.",
-      description:
-       "Develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents.",
-      url: "./projects.html#dissertation",
-      external: false
+      summary:
+        "A supporter-funded, tuition-free initiative focused on Scripture, doctrine, culture, and mission through modular checkpoints and oral capstones.",
+      status:
+        "Completed first development phase and initial beta testing; incorporating feedback ahead of a second beta cohort. Targeting full launch in 2026.",
+      accent: "blue",
+      hero: true
     },
     {
       id: "zelda",
       title: "The Legend of Zelda and Religion",
-status: "Edited volume in development.",
+      field: "religion-culture",
       type: "Book",
-      tag: "Book",
-      tags: ["Games", "Religion", "Edited Volume"],
-      short:
-        "Zelda as theology—religion emerging from inside the game world.",
-      description:
-       "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves—mechanics, spaces, symbols, and narrative time—rather than from imported doctrine. Contributors treat ritual performance, sacred time and place, law and normativity, technology and landscape, player phenomenology, and theological motifs, making the case for games as genuine sites of religious activity.",
-      url: "./projects.html#zelda",
-      external: false
-     },
+      summary:
+        "An edited volume exploring how religious meaning in The Legend of Zelda emerges from in-world mechanics, symbols, and sacred play.",
+      status: "Edited volume in development.",
+      accent: "green"
+    },
     {
       id: "omega-point",
       title: "The Omega Point of Philip K. Dick",
-   status: "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
+      field: "publishing",
       type: "Book",
-      tag: "Book",
-      tags: ["Philip K. Dick", "Theology", "Monograph"],
-      short:
-        "Teilhard de Chardin’s theology refracted through Philip K. Dick’s fiction.",
-      description:
-        "A monograph examining how Philip K. Dick adapts the theology of Pierre Teilhard de Chardin.",
-      url: "./projects.html#omega-point",
-      external: false
+      summary:
+        "A monograph examining how Philip K. Dick adapts the theology of Pierre Teilhard de Chardin across his fiction and essays.",
+      status:
+        "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
+      accent: "violet",
+      links: [
+        { label: "Publisher", href: "https://anti-oedipus.com/" }
+      ]
+    },
+    {
+      id: "dissertation",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
+      field: "csr",
+      type: "Dissertation",
+      summary:
+        "Develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents.",
+      status: "Chapters 1–2 complete; data analysis underway and Chapter 3 in progress.",
+      accent: "gold"
     },
     {
       id: "rse-generation",
-      title: "The Generation of Religious and Spiritual Experiences: A qualitative analysis and neurophenomenological model",
-      status: "Model drafted, undergoing iterative testing.",
+      title: "The Generation of Religious and Spiritual Experiences study",
+      field: "csr",
       type: "Study",
-      tag: "Study",
-      tags: ["RSE", "Neurophenomenology", "Qualitative"],
-      short:
-        "Qualitative and computational study extending McNamara’s Tripartite Model.",
-      description:
-        "A qualitative and computational study extending McNamara’s Tripartite Model to account for five recurrent domains of religious and spiritual experience using life-history interviews and neurophenomenological modeling.",
-      url: "./projects.html#rse-generation",
-      external: false
+      summary:
+        "Qualitative and computational study extending McNamara’s Tripartite Model to five recurrent domains of religious and spiritual experience.",
+      status: "Model drafted, undergoing iterative testing.",
+      accent: "blue"
     }
   ];
 
