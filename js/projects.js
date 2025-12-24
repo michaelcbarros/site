@@ -1,31 +1,19 @@
 (() => {
   /**
-   * Expected global data source (from js/data/data.js):
-   *   window.SITE_DATA.projects = [{ id, title, field, type, summary, status, accent, links?, hero? }]
+   * Data source: window.SITE_DATA.projects
+   * Shape: [{ id, title, field, type, accent, summary, status, links?, hero? }]
    */
   const grid = document.getElementById("projects-grid");
   const pills = Array.from(document.querySelectorAll(".pillbar .pill"));
-
   if (!grid) return;
 
-  const source =
-    (window.SITE_DATA && Array.isArray(window.SITE_DATA.projects) && window.SITE_DATA.projects) ||
-    (window.DATA && Array.isArray(window.DATA.projects) && window.DATA.projects) ||
-    (Array.isArray(window.projects) && window.projects) ||
-    [];
-
-  const projects = source.slice(); // shallow copy to prevent accidental mutation
-  console.log("projects.js loaded", projects.length);
-
-  const FIELD_LABELS = {
-    "religion-culture": "Religion & Culture",
-    csr: "Cognitive Science of Religion",
-    publishing: "Publishing & Editorial",
-    all: "All"
-  };
+  const projects =
+    (window.SITE_DATA && Array.isArray(window.SITE_DATA.projects) && window.SITE_DATA.projects.slice()) || [];
 
   let activeField = "all";
-  let openId = null;
+  let openProjectId = null;
+
+  console.log("Projects loaded:", projects.length);
 
   function setActivePill(field) {
     pills.forEach((btn) => {
@@ -35,9 +23,15 @@
     });
   }
 
-  function filteredProjects() {
-    if (activeField === "all") return projects;
-    return projects.filter((p) => p.field === activeField);
+  function getVisibleProjects() {
+    const filtered = activeField === "all" ? projects : projects.filter((p) => p.field === activeField);
+    return filtered
+      .slice()
+      .sort((a, b) => {
+        if (a.hero && !b.hero) return -1;
+        if (b.hero && !a.hero) return 1;
+        return (a.title || "").localeCompare(b.title || "");
+      });
   }
 
   function escapeHtml(str = "") {
@@ -50,27 +44,17 @@
   }
 
   function render() {
-    console.log("activeField", activeField, "openId", openId);
-    const list = filteredProjects();
+    console.log("Active field:", activeField);
+    console.log("Open project:", openProjectId);
 
-    const html = list
+    const html = getVisibleProjects()
       .map((p) => {
-        const id = p.id || p.slug || p.title;
-        const isOpen = openId === id;
-        const accent = p.accent || "";
-        const tag = p.type || "Project";
-        const fieldLabel = FIELD_LABELS[p.field] || "";
-
-        const hero = p.hero ? " is-hero" : "";
-        const open = isOpen ? " is-open" : "";
-
-        const status = p.status
-          ? `<div class="project-meta"><strong>Current status:</strong> ${escapeHtml(p.status)}</div>`
-          : "";
-        const summary = p.summary ? `<p>${escapeHtml(p.summary)}</p>` : "";
+        const isOpen = openProjectId === p.id;
+        const openClass = isOpen ? " is-open" : "";
+        const heroClass = p.hero ? " is-hero" : "";
         const links =
-          p.links && p.links.length
-            ? `<div class="project-links">${p.links
+          Array.isArray(p.links) && p.links.length
+            ? `<div class="project-row__links">${p.links
                 .map(
                   (l) =>
                     `<a href="${escapeHtml(l.href)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`
@@ -79,62 +63,55 @@
             : "";
 
         return `
-        <article class="project-card${hero}${open}" data-id="${escapeHtml(
-          id
-        )}" data-accent="${escapeHtml(accent)}">
-          <div class="project-card__header" role="button" tabindex="0" aria-expanded="${
-            isOpen ? "true" : "false"
-          }">
-            <div class="project-card__topline">
-              <span class="project-card__tag">${escapeHtml(tag)}${fieldLabel ? ` · ${escapeHtml(fieldLabel)}` : ""}</span>
-              <span class="project-card__chevron" aria-hidden="true"></span>
-            </div>
-            <h3 class="project-card__title">${escapeHtml(p.title || "")}</h3>
-          </div>
-          <div class="project-card__body">
-            ${summary}
-            ${status}
-            ${links}
-          </div>
-        </article>
-      `;
+      <article class="project-row${openClass}${heroClass}" data-accent="${escapeHtml(p.accent || "")}" data-id="${escapeHtml(
+          p.id
+        )}">
+        <button class="project-row__header" type="button" aria-expanded="${isOpen ? "true" : "false"}">
+          <span class="project-row__type">${escapeHtml((p.type || "").toUpperCase())}</span>
+          <h3 class="project-row__title">${escapeHtml(p.title || "")}</h3>
+          <span class="project-row__chevron" aria-hidden="true"></span>
+        </button>
+        <div class="project-row__body">
+          <p class="summary">${escapeHtml(p.summary || "")}</p>
+          <p class="status"><strong>Current status:</strong> ${escapeHtml(p.status || "")}</p>
+          ${links}
+        </div>
+      </article>
+    `;
       })
       .join("");
 
     grid.innerHTML = html || `<p class="section-intro">No projects in this category yet.</p>`;
   }
 
-  function toggleCardById(id) {
-    openId = openId === id ? null : id;
+  function toggleProject(id) {
+    openProjectId = openProjectId === id ? null : id;
     render();
   }
 
-  function onCardActivate(target) {
-    const header = target.closest(".project-card__header");
-    if (!header) return;
-    const card = header.closest(".project-card");
-    if (!card) return;
-    const id = card.getAttribute("data-id");
-    if (!id) return;
-    toggleCardById(id);
-  }
-
   grid.addEventListener("click", (e) => {
-    onCardActivate(e.target);
+    const header = e.target.closest(".project-row__header");
+    if (!header) return;
+    const card = header.closest(".project-row");
+    if (!card) return;
+    toggleProject(card.dataset.id);
   });
 
   grid.addEventListener("keydown", (e) => {
     if (e.key !== "Enter" && e.key !== " ") return;
-    onCardActivate(e.target);
+    const header = e.target.closest(".project-row__header");
+    if (!header) return;
     e.preventDefault();
+    const card = header.closest(".project-row");
+    if (!card) return;
+    toggleProject(card.dataset.id);
   });
 
   pills.forEach((btn) => {
     btn.addEventListener("click", () => {
       const nextField = btn.dataset.field || "all";
-      if (nextField === activeField) return;
       activeField = nextField;
-      openId = null;
+      openProjectId = null;
       setActivePill(activeField);
       render();
     });

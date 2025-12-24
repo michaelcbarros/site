@@ -52,60 +52,62 @@
   // ---------- Projects (Waypoint, works-in-progress, collaborations) ----------
   const PROJECTS = [
     {
-      id: "waypoint",
+      id: "waypoint-institute",
       title: "Waypoint Institute",
       field: "religion-culture",
       type: "Institute",
+      accent: "neutral",
       summary:
-        "A supporter-funded, tuition-free initiative focused on Scripture, doctrine, culture, and mission through modular checkpoints and oral capstones.",
-      status:
-        "Completed first development phase and initial beta testing; incorporating feedback ahead of a second beta cohort. Targeting full launch in 2026.",
-      accent: "blue",
+        "A supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
+      status: "Completed first development phase; second cohort in planning.",
+      links: [
+        { label: "Visit site", href: "https://waypointinstitute.org" }
+      ],
       hero: true
     },
+
     {
-      id: "zelda",
+      id: "zelda-religion",
       title: "The Legend of Zelda and Religion",
       field: "religion-culture",
       type: "Book",
-      summary:
-        "An edited volume exploring how religious meaning in The Legend of Zelda emerges from in-world mechanics, symbols, and sacred play.",
+      accent: "green",
+      summary: "An edited volume arguing that religious meaning in The Legend of Zelda arises from within the games themselves.",
       status: "Edited volume in development.",
-      accent: "green"
+      links: []
     },
+
     {
-      id: "omega-point",
+      id: "pkd-omega-point",
       title: "The Omega Point of Philip K. Dick",
       field: "publishing",
       type: "Book",
-      summary:
-        "A monograph examining how Philip K. Dick adapts the theology of Pierre Teilhard de Chardin across his fiction and essays.",
-      status:
-        "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
       accent: "violet",
-      links: [
-        { label: "Publisher", href: "https://anti-oedipus.com/" }
-      ]
+      summary: "A monograph examining Philip K. Dick’s engagement with the theology of Pierre Teilhard de Chardin.",
+      status: "Contract signed (Anti-Oedipus Press). Manuscript due late 2027; publication to follow.",
+      links: []
     },
+
     {
       id: "dissertation",
-      title: "Formation of Supernatural Agents in Dreams Through Simulation: A Grounded Cognition Perspective",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation",
       field: "csr",
       type: "Dissertation",
-      summary:
-        "Develops a grounded-cognition model of how dream simulations help people form and sustain concepts of supernatural agents.",
-      status: "Chapters 1–2 complete; data analysis underway and Chapter 3 in progress.",
-      accent: "gold"
+      accent: "gold",
+      summary: "A grounded-cognition account of how dream simulations contribute to supernatural agent concepts.",
+      status: "Chapters 1–2 complete; data analysis underway; Chapter 3 in progress.",
+      links: []
     },
+
     {
-      id: "rse-generation",
-      title: "The Generation of Religious and Spiritual Experiences study",
+      id: "religious-experience-study",
+      title: "The Generation of Religious and Spiritual Experiences",
       field: "csr",
       type: "Study",
-      summary:
-        "Qualitative and computational study extending McNamara’s Tripartite Model to five recurrent domains of religious and spiritual experience.",
-      status: "Model drafted, undergoing iterative testing.",
-      accent: "blue"
+      accent: "blue",
+      summary: "A qualitative and neurophenomenological model of religious experience formation.",
+      status: "Model drafted; iterative testing underway.",
+      links: []
     }
   ];
 
