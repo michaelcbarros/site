@@ -1081,3 +1081,120 @@ address {
     scroll-behavior: auto !important;
   }
 }
+
+/* --- Projects: field pills --- */
+.projects-controls { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+
+.pillbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.pill {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.82);
+  padding: .5rem .75rem;
+  border-radius: 999px;
+  font-size: .9rem;
+  letter-spacing: .01em;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.pill:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.22); }
+.pill--active { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.26); }
+
+/* --- Projects: thin tiles mode (collapsed cards) --- */
+.projects-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 980px) {
+  .projects-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .projects-cards { grid-template-columns: 1fr; }
+}
+
+/* Base card */
+.project-card {
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(18, 22, 38, .65);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .14s ease, border-color .14s ease, background .14s ease;
+}
+
+.project-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.18); }
+
+.project-card__header {
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+}
+
+.project-card__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .6rem;
+}
+
+.project-card__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  padding: .25rem .5rem;
+  border-radius: 999px;
+}
+
+.project-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: rgba(255,255,255,.92);
+}
+
+/* Collapsed “thin” look: hides body by default */
+.project-card__body {
+  display: none;
+  padding: 0 1.1rem 1.1rem 1.1rem;
+  color: rgba(255,255,255,.78);
+}
+
+.project-card.is-open .project-card__body { display: block; }
+
+/* Chevron */
+.project-card__chevron {
+  width: .6rem;
+  height: .6rem;
+  border-right: 2px solid rgba(255,255,255,.55);
+  border-bottom: 2px solid rgba(255,255,255,.55);
+  transform: rotate(45deg);
+  transition: transform .15s ease;
+}
+.project-card.is-open .project-card__chevron { transform: rotate(-135deg); }
+
+/* --- Accent system (subtle) --- */
+.project-card[data-accent="gold"] { box-shadow: inset 0 2px 0 rgba(215, 176, 92, .55); }
+.project-card[data-accent="green"] { box-shadow: inset 0 2px 0 rgba(88, 185, 120, .55); }
+.project-card[data-accent="violet"] { box-shadow: inset 0 2px 0 rgba(148, 120, 210, .55); }
+.project-card[data-accent="blue"] { box-shadow: inset 0 2px 0 rgba(120, 170, 215, .55); }
+
+/* Optional “hero” treatment for Waypoint (still restrained) */
+.project-card.is-hero {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.18);
+}
+
