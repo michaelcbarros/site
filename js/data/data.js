@@ -56,7 +56,7 @@
       title: "Waypoint Institute",
       field: "religion-culture",
       type: "Institute",
-      accent: "neutral",
+      accent: "white",
       summary:
         "A supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
       status: "Completed first development phase; second cohort in planning.",
@@ -128,6 +128,55 @@
     // { title: "How to Think Impossibly", author: "Jeffrey J. Kripal", cover: "./assets/images/reading/kripal.jpg", link: "https://amzn.to/..." }
   ];
 
+  // ---------- Project updates (homepage carousel) ----------
+  const UPDATES = [
+    {
+      id: "update-waypoint-beta",
+      projectId: "waypoint-institute",
+      accent: "white",
+      type: "Institute",
+      title: "Waypoint Institute",
+      date: "2025-01-15",
+      text: "Incorporating feedback from first beta cohort; preparing second cohort for 2025."
+    },
+    {
+      id: "update-zelda-call",
+      projectId: "zelda-religion",
+      accent: "green",
+      type: "Book",
+      title: "The Legend of Zelda and Religion",
+      date: "2025-02-01",
+      text: "Chapter lineup finalized; contributor revisions underway for the edited volume."
+    },
+    {
+      id: "update-pkd-contract",
+      projectId: "pkd-omega-point",
+      accent: "violet",
+      type: "Book",
+      title: "The Omega Point of Philip K. Dick",
+      date: "2024-12-10",
+      text: "Contract signed with Anti-Oedipus Press; manuscript in progress for late 2027 delivery."
+    },
+    {
+      id: "update-dissertation-analysis",
+      projectId: "dissertation",
+      accent: "gold",
+      type: "Dissertation",
+      title: "Formation of Supernatural Agents in Dreams Through Simulation",
+      date: "2025-01-30",
+      text: "Data analysis underway; drafting Chapter 3 with grounded-cognition findings."
+    },
+    {
+      id: "update-rse-model",
+      projectId: "religious-experience-study",
+      accent: "blue",
+      type: "Study",
+      title: "The Generation of Religious and Spiritual Experiences",
+      date: "2025-02-12",
+      text: "Iterating on neurophenomenological model following initial qualitative validation."
+    }
+  ];
+
   // ---------- Assemble primary model ----------
   window.SITE_DATA = {
     taglines: TAGLINES,
@@ -136,6 +185,7 @@
     // primary collections
     books: BOOKS,
     projects: PROJECTS,
+    updates: UPDATES,
 
     // optional feeds/sections
     substack: SUBSTACK,
