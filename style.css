@@ -1086,8 +1086,11 @@ address {
 
 .project-item.is-hero {
   border-width: 1.5px;
+  border-left-width: 4px;
   background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.18);
+  border-top-color: rgba(255,255,255,.18);
+  border-right-color: rgba(255,255,255,.18);
+  border-bottom-color: rgba(255,255,255,.18);
 }
 
 /* --- Latest update feature --- */
