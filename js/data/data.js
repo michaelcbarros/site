@@ -61,7 +61,7 @@
         "A supporter-funded, tuition-free educational initiative focused on Scripture, doctrine, culture, and mission.",
       status: "Completed first development phase; second cohort in planning.",
       links: [
-        { label: "Visit site", href: "https://waypointinstitute.org" }
+        { label: "Visit site", href: "https://waypoint.institute" }
       ],
       hero: true
     },
@@ -80,7 +80,7 @@
     {
       id: "pkd-omega-point",
       title: "The Omega Point of Philip K. Dick",
-      field: "publishing",
+      field: "religion-culture",
       type: "Book",
       accent: "violet",
       summary: "A monograph examining Philip K. Dick’s engagement with the theology of Pierre Teilhard de Chardin.",
