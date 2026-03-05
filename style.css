@@ -325,8 +325,7 @@ transition: color var(--motion-fast), border-color var(--motion-fast);
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(16, 18, 24, 0.72) 0%, rgba(16, 18, 24, 0.46) 42%, rgba(16, 18, 24, 0.18) 100%),
-    url("./assets/images/books/swpaca2023.jpg") center 58% / cover no-repeat,
-    url("./assets/images/books/pkd.jpg") center 58% / cover no-repeat;
+    url("./assets/images/books/swpaca2023.jpg") center 58% / cover no-repeat;
   min-height: clamp(320px, 52vw, 560px);
   box-shadow: var(--shadow);
 }
