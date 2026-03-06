@@ -325,7 +325,7 @@ transition: color var(--motion-fast), border-color var(--motion-fast);
   overflow: hidden;
   background-image:
     linear-gradient(90deg, rgba(16, 18, 24, 0.72) 0%, rgba(16, 18, 24, 0.46) 42%, rgba(16, 18, 24, 0.18) 100%),
-    url("/assets/images/swpaca2023.JPG");
+    url("https://raw.githubusercontent.com/michaelcbarros/site/main/assets/images/swpaca2023.JPG");
   background-position: center center, center 58%;
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
@@ -345,7 +345,7 @@ transition: color var(--motion-fast), border-color var(--motion-fast);
 }
 
 .hero__content h1 {
-  color: var(--surface);
+  color: var(--ink);
   max-width: 17ch;
   text-wrap: balance;
   margin: 0;
@@ -371,7 +371,7 @@ transition: color var(--motion-fast), border-color var(--motion-fast);
   justify-content: flex-start;
   gap: var(--space-2);
   font-size: 0.85rem;
-  color: var(--surface);
+  color: var(--ink);
 }
 
 .hero__meta .cta-row {
@@ -381,16 +381,16 @@ transition: color var(--motion-fast), border-color var(--motion-fast);
 .hero .badge {
   border-color: rgba(255, 255, 255, 0.45);
   background: rgba(12, 16, 24, 0.35);
-  color: var(--surface);
+  color: var(--ink);
 }
 
 .hero .btn.ghost {
   border-color: rgba(255, 255, 255, 0.65);
-  color: var(--surface);
+  color: var(--ink);
 }
 
 .hero .btn.ghost:hover {
-  border-color: var(--surface);
+  border-color: var(--ink);
   background: rgba(255, 255, 255, 0.12);
 }
 
