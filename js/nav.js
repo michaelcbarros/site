@@ -40,4 +40,66 @@
   } catch (err) {
     // no-op if location parsing fails
   }
+
+  (function initMobileNavDropdown() {
+    const header = document.querySelector('.site-header');
+    const nav = header && header.querySelector('.nav');
+    if (!header || !nav) return;
+
+    const toggle = document.createElement('button');
+    toggle.className = 'nav-toggle';
+    toggle.type = 'button';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'primary-nav');
+    toggle.innerHTML = '<span class="nav-toggle__icon" aria-hidden="true">☰</span><span>Menu</span>';
+
+    if (!nav.id) nav.id = 'primary-nav';
+    header.insertBefore(toggle, nav);
+
+    const closeMenu = () => {
+      header.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    nav.querySelectorAll('.nav__link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!header.classList.contains('nav-open')) return;
+      if (header.contains(event.target)) return;
+      closeMenu();
+    });
+  })();
+
+  (function initFeaturedBookCollapse() {
+    const bookCopy = document.querySelector('.book-copy');
+    if (!bookCopy) return;
+
+    const description = bookCopy.querySelector('p');
+    const actionRow = bookCopy.querySelector('.cta-row');
+    if (!description || !actionRow) return;
+
+    bookCopy.classList.add('is-collapsed');
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'btn ghost book-copy__toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Read summary';
+
+    actionRow.insertAdjacentElement('beforebegin', toggle);
+
+    toggle.addEventListener('click', () => {
+      const isCollapsed = bookCopy.classList.toggle('is-collapsed');
+      const isExpanded = !isCollapsed;
+      toggle.textContent = isExpanded ? 'Hide summary' : 'Read summary';
+      toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    });
+  })();
 })();
